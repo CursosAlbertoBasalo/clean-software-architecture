@@ -1,0 +1,6 @@
+-- enlaces al final de tema
+-- revisar  9
+--> revisar bibliografía
+-- revisar ejemplo
+--> plantear mini-práctica levenshtein
+--V readme a /docs/readme ...

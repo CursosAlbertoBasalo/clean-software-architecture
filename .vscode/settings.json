@@ -1,0 +1,24 @@
+{
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "spellright.language": [
+        "en",
+        "es"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "plaintext",
+        "typescript"
+    ],
+    "workbench.colorCustomizations": {
+        "editorError.foreground": "#ff9900",
+        "editorWarning.foreground": "#ffff99",
+        "titleBar.activeBackground": "#557c9b",
+        "titleBar.inactiveBackground": "#557c9b99",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "editor.formatOnSave": true,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    "tslint.exclude": []
+}

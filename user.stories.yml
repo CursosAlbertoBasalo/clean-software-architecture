@@ -1,0 +1,44 @@
+---  # user stories
+
+As a : customer,
+  I want: to add products to the shopping cart
+  so : I can buy products
+
+As a : customer,
+  I want: to save and resore my current shopping cart
+  so : I can continue later
+
+As a : customer,
+  I want: to check out
+  so : I can pay and get the products
+
+As a : shop owner,
+  I want: to generate orders
+  so : I can send products to customers
+
+As a : shop owner,
+  I want: to generate invoices
+  so : I can legally sell products
+
+As a : shop owner,
+  I want: to have my product stock refilled
+  so : I can continue selling
+
+# To be tested.
+As a : warehouse employee,
+  I want: to process pending orders
+  so : I can satisfy our customers
+
+As a : system operator,
+  I want: to get a log
+  so : I know what happend to the system
+
+
+# To do.
+
+As a : shop owner
+  I can: manage products in my webshop,
+  so: I can update price and product information if it is changed
+
+
+...  # user stories
