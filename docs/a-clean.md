@@ -26,15 +26,15 @@ class: impact
 
 ### Método largo.
 
-- Los métodos pequeños siempre son mejores (nombres documentan reglas, comprensión más fácil, menos código duplicado).
+- Los métodos pequeños siempre son mejores (nombres que documentan reglas, una comprensión más fácil, menos código duplicado).
 
 ### Clase grande.
 
-- Demasiadas variables de instancia o métodos. Viola el principio de "responsabilidad única".
+- Si tiene demasiadas variables, propiedades o métodos seguro que viola el principio de "responsabilidad única".
 
 ### Lista larga de parámetros.
 
-- Propio del estilo procedimental en lugar de orientado a objetos. Puede ser que el método haga **demasiadas** cosas.
+- Propio del estilo procedimental en lugar de orientado a objetos. También puede indicar que el método haga **demasiadas** cosas.
 
 ---
 
@@ -52,15 +52,15 @@ class: impact
 
 ### Switch vs Open/Close.
 
-- Se puede sustituir mediante datos de configuración y polimorfismo.
+- Se pueden sustituir muchas condiciones mediante estructuras de datos de configuración y polimorfismo de clases.
 
 ### Renuncio a la herencia.
 
-- Las subclases acaban teniendo muy poco en común.
+- Las subclases acaban teniendo muy poco en común, o negando a sus ancestros. Mejor composición e interfaces.
 
 ### Clases duplicadas.
 
-- Dos clases hacen lo mismo... sin que seamos conscientes.
+- Dos clases (o dos métodos, o dos bloques) hacen lo mismo... sin que seamos conscientes.
 
 ---
 
@@ -72,7 +72,7 @@ class: impact
 
 ### KISS: Keep it simple, Stupid!
 
-- La simplicidad es un objetivo para evitar la complejidad **innecesaria**.
+- La simplicidad es un objetivo para evitar la **complejidad innecesaria**.
 
 
 > "La simplicidad consiste en quitar lo obvio y agregar lo significativo.".
@@ -92,13 +92,25 @@ class: impact
 
 >Hasta 2 años de tiempo de desarrollo y mantenimiento evolutivo activo con equipos estables de menos de 5 integrantes.
 
-**Ejemplos**: Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente. Proyectos para campañas o negocios de duración limitada y conocida. Herramientas _adhoc_ para integración temporal entre sistemas. Otros desarrollos técnica y funcionalmente simples.
+**Ejemplos**:
+- Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
+- Proyectos para campañas o negocios de duración limitada y conocida.
+- Herramientas _adhoc_ para integración temporal entre sistemas.
+- Otros desarrollos técnica y funcionalmente simples.
 
 ---
 
-**Situación**: Los tiempos y presupuestos serán muy rigurosos, por tanto debemos abaratar y reducir el desarrollo. Los cambios funcionales serán muy frecuentes, aunque afortunadamente muchos ocurrirán antes de la puesta en producción con cliente y riesgo real. La reducción del coste del cambio está en la reducción del coste de entender y manipular el código.
+**Situación**:
 
-**Objetivo**: Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
+Los tiempos y presupuestos serán muy rigurosos, por tanto debemos abaratar y reducir el desarrollo.
+
+Los cambios funcionales serán muy frecuentes, aunque afortunadamente muchos ocurrirán antes de la puesta en producción con cliente y riesgo real.
+
+La reducción del coste del cambio está en la reducción del coste de entender y manipular el código.
+
+**Objetivo**:
+
+Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
 
 ---
 

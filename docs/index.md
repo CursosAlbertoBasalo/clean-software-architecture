@@ -47,7 +47,8 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 ---
 
-## a - CLEAN AND TESTED [Software que funciona sin miedo.](./a-clean.html)
+## a - CLEAN AND TESTED
+## [Software que funciona sin miedo.](./a-clean.html)
 
 - El código huele, limpio huele menos.
 - El usuario es lo primero: sus historias y sus pruebas
