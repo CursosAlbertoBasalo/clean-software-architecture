@@ -1,4 +1,4 @@
-title: Patterns
+title: Design Patterns
 class: animation-fade
 layout: true
 
@@ -28,67 +28,52 @@ class: impact
 
 Evoluciona en función del tiempo de mantenimiento esperado.
 
----
-
-## Obstáculos para el cambio
-
-### Rigidez
-
-**Un cambio afecta a muchas partes.**
-Al cambiar un objeto hay que cambiar otros muchos.
-
-### Fragilidad
-
-**Las errores saltan en lugares inesperados.**
-Los cambios en un objeto tienen efectos en otros muchos.
-
-### Inmovilidad
-
-**No se puede reutilizar el código fuera de su entorno.**
-Los cambios en un objeto dependen de otros muchos.
+![A veces veo patrones de diseño](./assets/isee.jpg)
 
 ---
 
-![SOLID](./assets/solid.jpg)
+## Principios para un final feliz
+
+###  POLA: Principle Of Least Astonishment.
+
+- No me sorprendas, no me hagas pensar.
+
+###  YAGNI: You aren't gonna need it.
+
+- Implementa cosas cuando las necesites, no cuando preveas que las necesitas.
+
+### HP: Hollywood principle.
+
+- No nos llames, ya te llamaremos. Inversión del control.
+
+### TDA: Tell don’t ask.
+
+- Decirle a los objetos lo que quieres que hagan (método con datos propios), no consultarles para actuar con sus datos después.
 
 ---
 
-### S : Single responsibility principle
+### CQS: Command–query separation.
 
-**Principio de responsabilidad única.**
-Un objeto solo debería tener una única responsabilidad, o razón para cambiar.
+- Cada método debe ser o un comando que realice una acción o una consulta que devuelva datos; **pero no ambos**.
 
---
+### CoC: Convention over configuration.
 
-### O : Open/closed principle
+- Establecer y cumplir convenios que minimicen la cantidad de decisiones necesarias.
 
-**Principio de abierto/cerrado.**
-Las entidades de software deben estar abiertas para su extensión, pero cerradas para su modificación.
+### La Ley de Demeter (LoD)
 
---
+- Un objeto debe asumir lo menos posible acerca de cualquier otro. _Antiglobalización!_.
 
-### L : Liskov substitution principle
+### Composite reuse principle
 
-**Principio de sustitución de Liskov.**
-Los objetos deberían ser reemplazables por subtipos sin alterar el funcionamiento del programa.
+- Mejor componer que heredar.
 
 ---
 
-### I : Interface segregation principle
+## Un catálogo nada exhaustivo
 
-**Principio de segregación de la interfaz.**
-Muchas interfaces específicas son mejores que una interfaz de propósito general.​
-
---
-
-### D : Dependency inversion principle
-
-**Principio de inversión de la dependencia.**
-Depender de abstracciones, no de implementaciones concretas. Resolver en ejecución usando la Inyección de Dependencias.
-
---
-
-[Principios SOLID en JavaScript](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)
+- Tipos: creacionales, estructurales y de comportamiento
+- Revisión de los más utilizados
 
 
 ---

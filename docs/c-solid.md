@@ -30,7 +30,85 @@ Evoluciona en función del tiempo de mantenimiento esperado.
 
 ---
 
-## Obstáculos para el cambio
+# Arquitecturas para construir software de tamaño medio.
+
+> Entre 2 y 5 años de tiempo de desarrollo y mantenimiento evolutivo activo con equipos de 5 o más integrantes.
+
+**Ejemplos**: Productos de start-up que ya han funcionado. Automatización de procesos de negocio de empresas consolidadas. Renovación de sistemas de información en organizaciones con sistemas legacy.
+
+---
+
+**Situación**: Si algo hay seguro para los próximos años es que las reglas del negocio informatizado van a cambiar. Por si fuera poco, lo harán ya con el sistema en producción dando servicio ininterrumpido a clientes o sistemas críticos para la empresa. Así que el cambio ha de integrarse de manera transparente y sin oposición. Impactando lo menos posible en el código ya hecho y en los paquetes ya desplegados.
+
+**Objetivo**: La extensibilidad de un sistema en producción, que se consigue facilitando el desarrollo y despliegue por partes conectadas pero independientes.
+
+---
+
+## Reglas:
+
+**Código**: Fomentar el cambio funcional mediante la aplicación de los principios SOLID al diseño de las clases.
+**Mantra**: Encapsular lo que varía y depender de interfaces en lugar de implementaciones concretas.
+**Test**: Garantizar que el software funciona unitariamente mediante pruebas a nivel de paquete desplegable.
+**Componentes**: Las tres capas lógicas por niveles son insuficientes. Para permitir un desarrollo paralelo e independiente debemos desacoplaras mediante abstracciones intermedias.
+**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes deben agruparse en silos funcionales verticales que no exijan el compilado y despliegue completo.
+
+---
+
+### Silos funcionales
+
+    - Utilidades comunes
+    - Aspectos e instrumentación
+    - Funciones específicas: departamentos, historias, requisitos...
+
+
+| Capa        | Tools       | Security   | Logistics  | Operations |
+| :---        |    :----:   |   :----:   |   :----:   |  :----:    |
+| Presentación|             |            |            |            |
+| Lógica      |             |            |            |            |
+| Persistencia|             |            |            |            |
+
+
+---
+
+## Obstáculos del cambio
+
+### Cambio divergente.
+
+- Una clase que se cambia de diferentes maneras o por diferentes razones.
+
+### Cirugía con escopeta
+
+- Un cambio que requiere cambios en muchas clases. Difícil encontrarlos, fácil olvidarse.
+
+### Complejidad ciclomática.
+
+- Número de rutas únicas que aumenta con el anidamiento, los _switches_ y las condiciones complejas.
+
+---
+
+## Acoplamiento indecente
+
+### Envidia de funcionalidades.
+
+- Método que parece más interesado en una clase distinta de la suya.
+
+### Intimidad inapropiada
+
+- Clases que se conocen demasiado.
+
+### Mensajes encadenados
+
+- Something.Another().SomeOther().Other.YetAnother();
+
+### Intermediario
+
+- Si una clase delega todo su trabajo a otra clase, ¿por qué existe?.
+
+
+---
+
+
+## Consecuencias
 
 ### Rigidez
 

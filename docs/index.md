@@ -47,14 +47,14 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 ---
 
-## a - CLEAN [el software ya está limpio.](./a-clean.html)
+## a - CLEAN AND TESTED [Software que funciona sin miedo.](./a-clean.html)
 
-- El código huele
-- Otros principios para un final feliz
+- El código huele, limpio huele menos.
+- El usuario es lo primero: sus historias y sus pruebas
 
 ---
 
-## b - PATTERNS [Un catálogo nada exhaustivo.](./b-patterns.html)
+## b - DESIGN PATTERNS [Un catálogo nada exhaustivo.](./b-patterns.html)
 
 - Tipos: creacionales, estructurales y de comportamiento
 - Revisión de los más utilizados

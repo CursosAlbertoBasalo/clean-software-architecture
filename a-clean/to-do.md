@@ -1,9 +1,10 @@
 - [ ] refactor(a-clean): three layers
-- [ ] test(a-clean): basic jest tests
 - [ ] docs(a-clean): class diagrams
+- [ ] test(a-clean): user stories
+- [ ] test(a-clean): basic jest tests
 
 
-_¿Dónde va esto?_
+_documentar_
 
 ## 1- ANALYSIS [Qué es lo que hay que hacer.]
 
