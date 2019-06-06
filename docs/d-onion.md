@@ -1,4 +1,4 @@
-title: SOLID
+title: Onion
 class: animation-fade
 layout: true
 
@@ -14,7 +14,7 @@ class: impact
 
 # {{title}}
 
-## Principios sólidos para finales flexibles
+## Arquitectura en capas
 
 > "Orienta tu código para un uso futuro,
 

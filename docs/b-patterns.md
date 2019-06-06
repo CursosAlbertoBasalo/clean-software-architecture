@@ -1,4 +1,4 @@
-title: SOLID
+title: Patterns
 class: animation-fade
 layout: true
 
@@ -14,7 +14,7 @@ class: impact
 
 # {{title}}
 
-## Principios sólidos para finales flexibles
+## Un catálogo nada exhaustivo
 
 > "Orienta tu código para un uso futuro,
 

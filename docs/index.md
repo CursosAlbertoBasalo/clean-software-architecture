@@ -54,10 +54,25 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 ---
 
+## b - PATTERNS [Un catálogo nada exhaustivo.](./b-patterns.html)
+
+- Tipos: creacionales, estructurales y de comportamiento
+- Revisión de los más utilizados
+
+---
+
 ## c - SOLID [Principios sólidos para finales flexibles](./c-solid.html)
 
 - Obstáculos para el cambio
 - Principios SOLID
+
+---
+
+## d - ONION [Arquitectura en capas](./d-onion.html)
+
+- Campas de abstracción
+- Núcleo y detalles
+
 
 
 ---

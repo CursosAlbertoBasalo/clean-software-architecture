@@ -1,0 +1,3 @@
+- [ ] refactor(a-clean): three layers
+- [ ] test(a-clean): basic jest tests
+- [ ] docs(a-clean): class diagrams
