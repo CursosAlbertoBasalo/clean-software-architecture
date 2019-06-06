@@ -42,8 +42,8 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 ## Material necesario
 
-- Editor de código y navegador recomendados: VSCode y Chrome
-- NodeJS v10 o superior, con capacidad de instalar paquetes npm
+- Editor de código y navegador recomendados: `VSCode` y `Chrome`
+- `NodeJS-v10` o superior, con capacidad de instalar paquetes `npm`
 
 ---
 
@@ -72,8 +72,6 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 - Campas de abstracción
 - Núcleo y detalles
-
-
 
 ---
 
