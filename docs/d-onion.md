@@ -30,8 +30,9 @@ Evoluciona en función del tiempo de mantenimiento esperado.
 
 ---
 
+“Las prisas pasan, la mierda queda”
 
-
+https://www.javiergarzas.com/2014/10/las-mejores-frases-que-escuchado-en-proyectos.html
 
 ---
 
