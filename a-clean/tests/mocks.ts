@@ -82,6 +82,16 @@ export const PRODUCT_CATALOG: Product[] = [
   }
 ];
 
+export const bigBuyer: LineItem = {
+  productName: 'monitor',
+  quantity: 40,
+  price: 200,
+  country: client.country,
+  taxFree: false,
+  amount: 0,
+  taxes: 0
+};
+
 // To review
 export const theWarehouse = WarehouseAdministrator;
 export const oneWarehouse = new WarehouseAdministrator();

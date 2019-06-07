@@ -1,31 +1,31 @@
-import * as fs from 'fs';
 import { ShoppingCartManager } from '../src/shopping-cart-manager';
+import { WarehouseAdministrator } from '../src/warehouse-administrator';
 import { Assert } from './assert';
 import * as mocks from './mocks';
 
 let assert: Assert;
 let shoppingCartManager: ShoppingCartManager;
+// let warehouseAdministrator: WarehouseAdministrator;
 
 beforeAll( () => {
   mocks.cleanTestData();
+  // warehouseAdministrator = new WarehouseAdministrator();
   shoppingCartManager = new ShoppingCartManager( mocks.client );
-  mocks.LINE_ITEMS.forEach( lineItem => shoppingCartManager.addLineItem( lineItem ) );
+  shoppingCartManager.addLineItem( mocks.bigBuyer );
   shoppingCartManager.calculateCheckOut( mocks.checkOutInfo );
 } );
 afterAll( () => {
   mocks.cleanTestData();
 } );
 
-describe( `5- As a shop owner, I want to generate orders, so I can send products to customers`, () => {
-  const orderFilePath = mocks.orderFilePath( 1 );
-
+describe( `6- As a shop owner, I want to have my product stock refilled, so I can continue selling`, () => {
   assert = {
-    given: 'a shopping cart with line items',
-    should: `generate order after checkout in ${orderFilePath}`
+    given: 'a user order certain amount',
+    should: 'the stock is auto-refilled'
   };
   test( `given ${assert.given} should ${assert.should}`, () => {
-    assert.actual = fs.existsSync( orderFilePath );
-    assert.expected = true;
+    assert.actual = WarehouseAdministrator.productCatalog[0].stock;
+    assert.expected = mocks.PRODUCT_CATALOG[0].minimumStock;
     expect( assert.actual ).toEqual( assert.expected );
   } );
 } );
