@@ -1,19 +1,20 @@
 import { ShoppingCartManager } from '../src/shopping-cart-manager';
 import { WarehouseAdministrator } from '../src/warehouse-administrator';
-import { Assert } from './assert';
-import * as mocks from './mocks';
+import * as filePaths from './helper/file-paths';
+import * as mocks from './helper/mocks';
+import { Assert } from './model/assert';
 
 let assert: Assert;
 let shoppingCartManager: ShoppingCartManager;
 
 beforeAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
   shoppingCartManager = new ShoppingCartManager( mocks.client );
   shoppingCartManager.addLineItem( mocks.bigBuyer );
   shoppingCartManager.calculateCheckOut( mocks.checkOutInfo );
 } );
 afterAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
 } );
 
 describe( `6- As a shop owner, I want to have my product stock refilled, so I can continue selling`, () => {

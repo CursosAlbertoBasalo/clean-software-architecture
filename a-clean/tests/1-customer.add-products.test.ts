@@ -1,6 +1,6 @@
 import { ShoppingCartManager } from '../src/shopping-cart-manager';
-import { Assert } from './assert';
-import * as mocks from './mocks';
+import * as mocks from './helper/mocks';
+import { Assert } from './model/assert';
 
 let assert: Assert;
 

@@ -1,24 +1,25 @@
 import * as fs from 'fs';
 import { ShoppingCartManager } from '../src/shopping-cart-manager';
 import { WarehouseAdministrator } from '../src/warehouse-administrator';
-import { Assert } from './assert';
-import * as mocks from './mocks';
+import * as filePaths from './helper/file-paths';
+import * as mocks from './helper/mocks';
+import { Assert } from './model/assert';
 
 let assert: Assert;
 let shoppingCartManager: ShoppingCartManager;
 
 beforeAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
   shoppingCartManager = new ShoppingCartManager( mocks.client );
   shoppingCartManager.addLineItem( mocks.bigBuyer );
   shoppingCartManager.calculateCheckOut( mocks.checkOutInfo );
 } );
 afterAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
 } );
 
 describe( `7- As a warehouse employee, I want to process pending orders, so I can satisfy our customers`, () => {
-  const shipmentFilePath = mocks.shipmentFilePath( 1 );
+  const shipmentFilePath = filePaths.shipmentFilePath( 1 );
 
   assert = {
     given: 'an pending order',

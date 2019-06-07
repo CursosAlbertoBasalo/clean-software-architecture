@@ -1,28 +1,29 @@
 import * as fs from 'fs';
 import { ShoppingCartManager } from '../src/shopping-cart-manager';
-import { Assert } from './assert';
-import * as mocks from './mocks';
+import * as filePaths from './helper/file-paths';
+import * as mocks from './helper/mocks';
+import { Assert } from './model/assert';
 
 let assert: Assert;
 let shoppingCartManager: ShoppingCartManager;
 
 beforeAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
   shoppingCartManager = new ShoppingCartManager( mocks.client );
   shoppingCartManager.addLineItem( mocks.LINE_ITEMS[0] );
 } );
 afterAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
 } );
 
 describe( `2- As a customer, I want to save and restore my current shopping cart, so I can continue later`, () => {
   assert = {
     given: 'a shopping cart',
-    should: `save it on ${mocks.shoppingCartFilePath}`
+    should: `save it on ${filePaths.shoppingCartFilePath}`
   };
   test( `given ${assert.given} should ${assert.should}`, () => {
     shoppingCartManager.saveToStorage();
-    assert.actual = fs.existsSync( mocks.shoppingCartFilePath );
+    assert.actual = fs.existsSync( filePaths.shoppingCartFilePath );
     assert.expected = true;
     expect( assert.actual ).toEqual( assert.expected );
   } );

@@ -1,17 +1,18 @@
 import { ShoppingCartManager } from '../src/shopping-cart-manager';
-import { Assert } from './assert';
-import * as mocks from './mocks';
+import * as filePaths from './helper/file-paths';
+import * as mocks from './helper/mocks';
+import { Assert } from './model/assert';
 
 let assert: Assert;
 let shoppingCartManager: ShoppingCartManager;
 
 beforeAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
   shoppingCartManager = new ShoppingCartManager( mocks.client );
   mocks.LINE_ITEMS.forEach( lineItem => shoppingCartManager.addLineItem( lineItem ) );
 } );
 afterAll( () => {
-  mocks.cleanTestData();
+  filePaths.cleanTestData();
 } );
 
 describe( `As a customer, I want to check out, so I can pay and get the products`, () => {

@@ -1,5 +1,5 @@
-- [ ] test(a-clean): user stories
-- [ ] test(a-clean): basic jest tests
+- [x] test(a-clean): user stories
+- [x] test(a-clean): basic jest tests
 - [ ] refactor(a-clean): three layers
 - [ ] docs(a-clean): class diagrams
 
