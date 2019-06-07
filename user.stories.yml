@@ -24,15 +24,15 @@
   I want: to have my product stock refilled
   so : I can continue selling
 
-# To be tested.
-As a : warehouse employee,
+7- As a : warehouse employee,
   I want: to process pending orders
   so : I can satisfy our customers
+
+# To be tested.
 
 As a : system operator,
   I want: to get a log
   so : I know what happend to the system
-
 
 # To do.
 
