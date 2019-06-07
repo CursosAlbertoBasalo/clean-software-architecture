@@ -75,13 +75,19 @@ class: impact
 - La simplicidad es un objetivo para evitar la **complejidad innecesaria**.
 
 
-> "La simplicidad consiste en quitar lo obvio y agregar lo significativo.".
+> "La simplicidad consiste en quitar lo obvio y agregar lo significativo."
 >
 > -- **John Maeda**.
 
 ---
 
 # El usuario es lo primero
+
+> "Asegúrate de que el software hace lo que yo quiero que haga."
+>
+> -- **El que paga**.
+
+---
 
 ## Requisitos, casos de uso e historias de usuario.
 
@@ -96,14 +102,14 @@ Detalle del proceso que resuelve el sistema
 
 ### User Stories
 
-Genéricas, ágiles y que permiten definir purbas de aceptación básicas.
-
+Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
 > Una historia de usuario es una tarjeta (Card) en la que se captura lo que un usuario hace o necesita hacer como parte de su trabajo.
 > Lo que lleva a Conversaciones permanentes para refinarla y Confirmación pasa su aceptación
 >
 >  -- **Ron Jeffries**
 
+---
 
 ## Testing para quitarnos el miedo.
 
