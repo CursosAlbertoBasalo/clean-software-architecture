@@ -24,7 +24,9 @@ class: impact
 
 ## Introducción
 
-**El buen diseño te ayuda a crear buen software.** Un gran programa empieza siempre por satisfacer al usuario. Si además está bien diseñado entonces será fácil de modificar y mantener. Con esto también satisface al resto del equipo: compañeros, clientes y empresarios.
+**El buen diseño te ayuda a crear buen software.**
+
+Un gran programa empieza siempre por satisfacer al usuario. Si además está bien diseñado entonces será fácil de modificar y mantener. Con esto también satisface al resto del equipo: compañeros, clientes y empresarios.
 
 El análisis y diseño de arquitecturas limpias es complejo pero no parte de cero. Podemos **mejorar nuestra productividad y la calidad de nuestros proyectos** aplicando principios fundamentales y patrones de diseño ya probados.
 

@@ -84,7 +84,50 @@ class: impact
 # El usuario es lo primero
 
 ## Requisitos, casos de uso e historias de usuario.
+
+### Casos de uso:
+
+Detalle del proceso que resuelve el sistema
+
+>Los casos de uso se utilizan para captar el punto de vista del usuario (actor) al describir los requisitos funcionales del sistema.
+>Describen el proceso paso a paso por el que pasa un usuario para completar ese objetivo utilizando un sistema de software
+>
+>  -- **Ivar Jacobson**
+
+### User Stories
+
+Genéricas, ágiles y que permiten definir purbas de aceptación básicas.
+
+
+> Una historia de usuario es una tarjeta (Card) en la que se captura lo que un usuario hace o necesita hacer como parte de su trabajo.
+> Lo que lleva a Conversaciones permanentes para refinarla y Confirmación pasa su aceptación
+>
+>  -- **Ron Jeffries**
+
+
 ## Testing para quitarnos el miedo.
+
+Al menos probar nuestro código a nivel de aceptación funcional.
+
+### Value Statement:
+
+> As a (user role), I want to (activity), so that (business value)
+
+### Acceptance Criteria:
+
+> Given (context), when (action performed), then should (observable consequences)
+
+### Testing
+
+```javascript
+describe( `As a customer, I want to add products to the shopping cart, so I can buy products`){}
+assert = {
+    given: 'a shopping cart',
+    should: 'calculate check out',
+    actual: shoppingCart.legalAmounts.total,
+    expected: 6615,
+  };
+```
 
 ---
 
