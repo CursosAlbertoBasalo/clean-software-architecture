@@ -9,7 +9,7 @@ import { ShoppingCart } from './models/shopping-cart';
 import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {
-  constructor( client : Client ) {
+  constructor( client: Client ) {
     this.shoppingCart = {
       client: client,
       lineItems: [],
@@ -23,16 +23,18 @@ export class ShoppingCartManager {
     };
     this.checkOutCalculator = new CheckOutCalculator( this.shoppingCart );
   }
-  private readonly shoppingCart : ShoppingCart;
+  public readonly shoppingCart: ShoppingCart;
   private readonly shoppingCartSaver = new ShoppingCartSaver();
-  private readonly documentManager : DocumentManager = new DocumentManager();
-  private readonly checkOutCalculator : CheckOutCalculator;
+  private readonly documentManager: DocumentManager = new DocumentManager();
+  private readonly checkOutCalculator: CheckOutCalculator;
 
-  public addLineItem( purchasedItem : LineItem ) {
+  public addLineItem( purchasedItem: LineItem ) {
     this.shoppingCart.lineItems.push( purchasedItem );
   }
-  public removeLineItem( productName : string ) {
-    this.shoppingCart.lineItems = this.shoppingCart.lineItems.filter( lineItem => lineItem.productName !== productName );
+  public removeLineItem( productName: string ) {
+    this.shoppingCart.lineItems = this.shoppingCart.lineItems.filter(
+      lineItem => lineItem.productName !== productName
+    );
   }
 
   public loadFromStorage() {
@@ -41,7 +43,7 @@ export class ShoppingCartManager {
   public saveToStorage() {
     this.shoppingCartSaver.saveToStorage( this.shoppingCart );
   }
-  public calculateCheckOut( checkOut : CheckOut ) {
+  public calculateCheckOut( checkOut: CheckOut ) {
     this.setCheckOut( checkOut );
     this.calculateTotalAmount();
     this.checkOutCalculator.calculateShippingCosts();
@@ -64,7 +66,7 @@ export class ShoppingCartManager {
     this.documentManager.sendInvoice( this.shoppingCart );
   }
 
-  private setCheckOut( checkOut : CheckOut ) {
+  private setCheckOut( checkOut: CheckOut ) {
     if ( !this.hasContent( checkOut.billingAddress ) ) {
       if ( this.hasContent( checkOut.shippingAddress ) ) {
         checkOut.billingAddress = checkOut.shippingAddress;
@@ -74,7 +76,7 @@ export class ShoppingCartManager {
     this.shoppingCart.checkOut = checkOut;
   }
 
-  private hasContent( content? : string ) {
+  private hasContent( content?: string ) {
     return content !== undefined && content !== null && content.length > 0;
   }
 
@@ -91,14 +93,14 @@ export class ShoppingCartManager {
     } );
   }
 
-  private processLineItem( warehouseAdministrator : WarehouseAdministrator, line : LineItem ) {
+  private processLineItem( warehouseAdministrator: WarehouseAdministrator, line: LineItem ) {
     line.quantity = warehouseAdministrator.updatePurchasedProduct( line );
     line.amount = line.price * line.quantity;
     this.shoppingCart.legalAmounts.total += line.amount;
     this.addTaxesByProduct( line );
   }
 
-  private addTaxesByProduct( line : LineItem ) {
+  private addTaxesByProduct( line: LineItem ) {
     const lineTaxInfo = {
       base: line.amount,
       country: this.shoppingCart.client.country,

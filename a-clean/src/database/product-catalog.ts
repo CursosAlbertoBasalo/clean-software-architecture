@@ -1,6 +1,6 @@
 import { Product } from '../models/product';
 
-export const PRODUCT_CATALOG : Product[] = [
+export const PRODUCT_CATALOG: Product[] = [
   {
     name: 'monitor',
     price: 1000,

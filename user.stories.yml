@@ -1,14 +1,14 @@
 ---  # user stories
 
-As a : customer,
+1- As a : customer,
   I want: to add products to the shopping cart
   so : I can buy products
 
-As a : customer,
+2- As a : customer,
   I want: to save and resore my current shopping cart
   so : I can continue later
 
-As a : customer,
+3- As a : customer,
   I want: to check out
   so : I can pay and get the products
 
