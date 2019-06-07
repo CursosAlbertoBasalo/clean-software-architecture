@@ -91,12 +91,12 @@ class: impact
 
 ## Requisitos, casos de uso e historias de usuario.
 
-### Casos de uso:
+### Use Cases:
 
 Detalle del proceso que resuelve el sistema
 
->Los casos de uso se utilizan para captar el punto de vista del usuario (actor) al describir los requisitos funcionales del sistema.
->Describen el proceso paso a paso por el que pasa un usuario para completar ese objetivo utilizando un sistema de software
+> Se utilizan para captar el punto de vista del usuario al describir los requisitos funcionales del sistema.
+> Describen el proceso paso a paso hasta alcanzar un objetivo.
 >
 >  -- **Ivar Jacobson**
 
@@ -104,16 +104,14 @@ Detalle del proceso que resuelve el sistema
 
 Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
-> Una historia de usuario es una tarjeta (Card) en la que se captura lo que un usuario hace o necesita hacer como parte de su trabajo.
-> Lo que lleva a Conversaciones permanentes para refinarla y Confirmación pasa su aceptación
+> Una historia de usuario es una tarjeta (Card) en la que se captura de manera general lo que un usuario hace o necesita hacer.
+> Requiere Conversaciones permanentes para refinarla y Confirmación pasa su aceptación.
 >
 >  -- **Ron Jeffries**
 
 ---
 
 ## Testing para quitarnos el miedo.
-
-Al menos probar nuestro código a nivel de aceptación funcional.
 
 ### Value Statement:
 
@@ -126,7 +124,8 @@ Al menos probar nuestro código a nivel de aceptación funcional.
 ### Testing
 
 ```javascript
-describe( `As a customer, I want to add products to the shopping cart, so I can buy products`){}
+describe(
+  `As a customer I want to check out so I can pay and get the products`)
 assert = {
     given: 'a shopping cart',
     should: 'calculate check out',
