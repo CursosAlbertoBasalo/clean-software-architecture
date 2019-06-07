@@ -1,10 +1,10 @@
-import { ShoppingCartManager } from '../src/shopping-cart';
+import { ShoppingCartManager } from '../src/shopping-cart-manager';
 import { Assert } from './assert';
 import * as mocks from './mocks';
 
-describe( `1- As a customer, I want to add products to the shopping cart, so I can buy products`, () => {
-  let assert: Assert;
+let assert: Assert;
 
+describe( `1- As a customer, I want to add products to the shopping cart, so I can buy products`, () => {
   assert = {
     given: 'a client with no shopping cart',
     should: 'create one from client instance'

@@ -1,17 +1,18 @@
 import * as fs from 'fs';
-import { ShoppingCartManager } from '../src/shopping-cart';
+import { ShoppingCartManager } from '../src/shopping-cart-manager';
 import { Assert } from './assert';
 import * as mocks from './mocks';
 
 let assert: Assert;
 let shoppingCartManager: ShoppingCartManager;
+
 beforeAll( () => {
-  mocks.cleanShoppingCart();
+  mocks.cleanTestData();
   shoppingCartManager = new ShoppingCartManager( mocks.client );
   shoppingCartManager.addLineItem( mocks.LINE_ITEMS[0] );
 } );
 afterAll( () => {
-  mocks.cleanShoppingCart();
+  mocks.cleanTestData();
 } );
 
 describe( `2- As a customer, I want to save and restore my current shopping cart, so I can continue later`, () => {

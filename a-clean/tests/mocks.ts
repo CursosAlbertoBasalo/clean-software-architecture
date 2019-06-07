@@ -14,13 +14,38 @@ export const client = {
   taxNumber: 'A12345678'
 };
 
+export const checkOutInfo = {
+  paymentMethod: 'PayPal',
+  paymentId: 'x-le/159',
+  shippingAddress: 'One Street',
+  billingAddress: 'Corp. Building'
+};
+
 export const LINE_ITEMS: LineItem[] = [
   {
-    productName: 'monitor',
+    productName: 'computer',
     quantity: 1,
     price: 1000,
     country: client.country,
     taxFree: false,
+    amount: 0,
+    taxes: 0
+  },
+  {
+    productName: 'monitor',
+    quantity: 25,
+    price: 200,
+    country: client.country,
+    taxFree: false,
+    amount: 0,
+    taxes: 0
+  },
+  {
+    productName: 'course',
+    quantity: 10,
+    price: 100,
+    country: client.country,
+    taxFree: true,
     amount: 0,
     taxes: 0
   }
@@ -204,6 +229,10 @@ export function cleanShoppingCart() {
 export function cleanCheckOuts() {
   rimraf( emailFolder );
   rimraf( printFolder );
+}
+
+export function cleanTestData() {
+  rimraf( dataFolder );
 }
 
 function cleanPath( path: string ) {
