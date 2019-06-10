@@ -100,7 +100,7 @@ class: impact
 
 Detalle del proceso que resuelve el sistema
 
-> Describe un **proceso paso a paso** hasta alcanzar un objetivo interactuando con un sistema. Capta en detalle los requisitos funcionales desde el punto de vista del usuario.
+> Describe un **proceso paso a paso** hasta alcanzar un objetivo usando un sistema. Capta en detalle los requisitos funcionales desde el punto de vista del usuario.
 >
 >  -- **Ivar Jacobson**
 
