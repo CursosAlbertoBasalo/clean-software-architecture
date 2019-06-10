@@ -75,19 +75,50 @@ class: impact
 
 > ¿Cómo instanciar un objeto o grupo de objetos relacionados?
 
-- Proporcionar mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
+Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
+
+- Simple Factory
+- Factory Method
+- Abstract Factory
+- Builder
+- Prototype
+- Singleton
+
+---
 
 ## Estructurales
 
 > ¿Cómo construir un componente a partir de objetos?
 
-- Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
+Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
+
+- Adapter
+- Bridge
+- Composite
+- Decorator
+- Façade
+- Flyweight
+- Proxy
+
+---
+
 
 ## De comportamiento
 
 > ¿Cómo ejecutar una funcionalidad entre varios objetos?
 
-- Cuida la comunicación efectiva y la asignación de responsabilidades entre objetos.
+Cuidan la comunicación efectiva y la asignación de responsabilidades entre objetos.
+
+- Chain of Responsibility
+- Command
+- Iterator
+- Mediator
+- Memento
+- Observer
+- Visitor
+- Strategy
+- State
+- Template Method
 
 ---
 
