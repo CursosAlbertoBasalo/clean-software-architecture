@@ -1,4 +1,5 @@
 import { ShoppingCartSaver } from './database/shopping-cart-saver';
+import { Checker } from './helper/checker';
 import { CheckOutCalculator } from './lib/check-out-calculator';
 import { DocumentManager } from './lib/document-manager';
 import { TaxCalculator } from './lib/tax-calculator';
@@ -27,6 +28,7 @@ export class ShoppingCartManager {
   private readonly shoppingCartSaver = new ShoppingCartSaver();
   private readonly documentManager: DocumentManager = new DocumentManager();
   private readonly checkOutCalculator: CheckOutCalculator;
+  private readonly checker: Checker;
 
   public addLineItem( purchasedItem: LineItem ) {
     this.shoppingCart.lineItems.push( purchasedItem );
@@ -67,17 +69,12 @@ export class ShoppingCartManager {
   }
 
   private setCheckOut( checkOut: CheckOut ) {
-    if ( !this.hasContent( checkOut.billingAddress ) ) {
-      if ( this.hasContent( checkOut.shippingAddress ) ) {
+    if ( !this.checker.hasStringContent( checkOut.billingAddress ) ) {
+      if ( this.checker.hasStringContent( checkOut.shippingAddress ) ) {
         checkOut.billingAddress = checkOut.shippingAddress;
       }
     }
-    checkOut.billingAddress = '';
     this.shoppingCart.checkOut = checkOut;
-  }
-
-  private hasContent( content?: string ) {
-    return content !== undefined && content !== null && content.length > 0;
   }
 
   private setInvoiceNumber() {
