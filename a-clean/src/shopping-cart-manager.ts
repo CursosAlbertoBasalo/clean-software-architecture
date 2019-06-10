@@ -1,6 +1,6 @@
+import { ShoppingCartSaver } from './database/shopping-cart-saver';
 import { CheckOutCalculator } from './lib/check-out-calculator';
 import { DocumentManager } from './lib/document-manager';
-import { ShoppingCartSaver } from './lib/shopping-cart-saver';
 import { TaxCalculator } from './lib/tax-calculator';
 import { CheckOut } from './models/check-out';
 import { Client } from './models/client';

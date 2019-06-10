@@ -2,11 +2,11 @@ import { COUNTRY_CONFIGURATIONS } from '../database/config/country-configuration
 import { Checker } from '../helper/checker';
 import { Logger } from '../helper/logger';
 import { Printer } from '../helper/printer';
+import { TemplateManager } from '../helper/template-manager';
 import { FileManager } from '../import/file-manager';
 import { PathManager } from '../import/path-manager';
 import { CountryConfiguration } from '../models/country-configuration';
 import { ShoppingCart } from '../models/shopping-cart';
-import { TemplateManager } from './template-manager';
 
 export class DocumentManager {
   private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;
