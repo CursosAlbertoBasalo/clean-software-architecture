@@ -16,9 +16,16 @@ class: impact
 
 ## Código que funciona sin miedo
 
+---
+
+
+# El usuario es lo primero
+
 > "El código huele."
 >
 > -- **Martin Fowler**.
+
+---
 
 ---
 
@@ -89,7 +96,7 @@ class: impact
 
 ---
 
-## Requisitos, casos de uso e historias de usuario.
+## Requisitos: casos de uso e historias de usuario.
 
 ### Use Cases:
 
@@ -111,7 +118,7 @@ Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
 ---
 
-## Testing para quitarnos el miedo.
+## Testing para comprobar.
 
 ### Value Statement:
 
@@ -136,51 +143,7 @@ assert = {
 
 ---
 
-# Arquitecturas para construir software de tamaño reducido
 
->Hasta 2 años de tiempo de desarrollo y mantenimiento evolutivo activo con equipos estables de menos de 5 integrantes.
-
-**Ejemplos**:
-- Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
-- Proyectos para campañas o negocios de duración limitada y conocida.
-- Herramientas _adhoc_ para integración temporal entre sistemas.
-- Otros desarrollos técnica y funcionalmente simples.
-
----
-
-**Situación**:
-
-Los tiempos y presupuestos serán muy rigurosos, por tanto debemos abaratar y reducir el desarrollo.
-
-Los cambios funcionales serán muy frecuentes, aunque afortunadamente muchos ocurrirán antes de la puesta en producción con cliente y riesgo real.
-
-La reducción del coste del cambio está en la reducción del coste de entender y manipular el código.
-
-**Objetivo**:
-
-Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
-
----
-
-## Reglas:
-
-**Código**: Evitar los _code smells_ mediante aplicación de reglas que lleven a un código limpio fácil de leer.
-
-**Mantra**: Muchas estructuras y funciones pequeñas y bien nombradas.
-
-**Test**: Garantizar que el software sigue funcionando a pesar de los frecuentes cambios mediante smoke-test o pruebas de integración sencillas.
-
-**Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> persistencia`.
-
-**Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
-
----
-
-### Capas de responsabilidad
-
-    - Presentación (UI)
-    - Lógica (BL)
-    - Persistencia (DA)
 
 
 - [<- Vuelta al índice ](./)

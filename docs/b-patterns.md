@@ -24,14 +24,6 @@ class: impact
 
 ---
 
-[Arquitectura de software] (https://medium.com/@albertobasalo71/la-arquitectura-del-software-y-el-tiempo-dc7f55c23bce)
-
-Evoluciona en función del tiempo de mantenimiento esperado.
-
-![A veces veo patrones de diseño](./assets/isee.jpg)
-
----
-
 ## Principios para un final feliz
 
 ###  POLA: Principle Of Least Astonishment.
@@ -70,14 +62,59 @@ Evoluciona en función del tiempo de mantenimiento esperado.
 
 ---
 
-## Un catálogo nada exhaustivo
+![A veces veo patrones de diseño](./assets/isee.jpg)
+
+> Evoluciona en función del tiempo de mantenimiento esperado.
+>
+> -- **Alguien con experiencia**
+---
+
+# Un catálogo nada exhaustivo
 
 - Tipos: creacionales, estructurales y de comportamiento
 - Revisión de los más utilizados
 
+---
+
+# Arquitecturas para construir software de tamaño reducido
+
+>Hasta 2 años de tiempo de desarrollo y mantenimiento evolutivo activo con equipos estables de menos de 5 integrantes.
+
+**Ejemplos**:
+- Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
+- Proyectos para campañas o negocios de duración limitada y conocida.
+- Herramientas _adhoc_ para integración temporal entre sistemas.
+- Otros desarrollos técnica y funcionalmente simples.
 
 ---
 
+**Situación**:
+
+- Los tiempos y presupuestos serán muy rigurosos, por tanto debemos **abaratar y reducir** el desarrollo.
+
+- Los **cambios funcionales serán muy frecuentes**, aunque afortunadamente muchos ocurrirán antes de la puesta en producción con cliente y riesgo real.
+
+- La reducción del **coste del cambio** está en la reducción del coste de entender y manipular el código.
+
+**Objetivo**:
+
+>Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
+
+---
+
+## Reglas:
+
+**Código**: Evitar los _code smells_ mediante aplicación de reglas que lleven a un código limpio fácil de leer.
+
+**Mantra**: Muchas estructuras y funciones pequeñas y bien nombradas.
+
+**Test**: Garantizar que el software sigue funcionando a pesar de los frecuentes cambios mediante smoke-test o pruebas de integración sencillas.
+
+**Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> persistencia`.
+
+**Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
+
+---
 
 - [<- Vuelta al índice ](./)
 
