@@ -100,8 +100,7 @@ class: impact
 
 Detalle del proceso que resuelve el sistema
 
-> Describen el proceso paso a paso hasta alcanzar el objetivo de un usuario mediante un sistema. Capta con detalle el punto de vista del usuario al describir los requisitos funcionales del sistema.
->
+> Describe un **proceso paso a paso** hasta alcanzar un objetivo interactuando con un sistema. Capta en detalle los requisitos funcionales desde el punto de vista del usuario.
 >
 >  -- **Ivar Jacobson**
 
@@ -109,8 +108,7 @@ Detalle del proceso que resuelve el sistema
 
 Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
-> Es una pequeña nota (**Card**) en la que se captura de manera general algo que un usuario hace o necesita hacer.
-> Requiere **Conversaciones** permanentes para refinarla y **Confirmación** pasa su aceptación.
+> Es una pequeña nota (**Card**) en la que se captura de manera general algo que un usuario hace o necesita hacer. Requiere **Conversaciones** para refinarla y **Confirmación** pasa su aceptación.
 >
 >  -- **Ron Jeffries**
 
@@ -126,7 +124,7 @@ Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
 > Given __(context__), when __(action performed)__, then should __(observable consequences)__
 
-### Testing
+### Test Assert:
 
 ```javascript
 describe(
