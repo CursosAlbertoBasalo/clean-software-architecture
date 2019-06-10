@@ -1,4 +1,4 @@
-import { ShoppingCart } from '../../models/shopping-cart';
+import { ShoppingCart } from '../models/shopping-cart';
 
 export class TemplateManager {
   public getOrderTemplate( shoppingCart: ShoppingCart ) {
