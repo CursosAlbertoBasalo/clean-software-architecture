@@ -1,5 +1,6 @@
 import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
 import { Checker } from '../../3-infraestructure/helper/checker';
+import { ITemplateManager } from '../../3-infraestructure/helper/i-template-manager';
 import { FileManager } from '../../3-infraestructure/helper/import/file-manager';
 import { PathManager } from '../../3-infraestructure/helper/import/path-manager';
 import { Logger } from '../../3-infraestructure/helper/logger';
@@ -9,15 +10,20 @@ import { CountryConfiguration } from '../../3-infraestructure/models/country-con
 import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 
 export class DocumentManager {
-  private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;
-  private readonly checker = new Checker();
-  private readonly invoicePrefix = `invoice-`;
-  private readonly orderPrefix = `order-`;
-  private readonly templateManager = new TemplateManager();
-  private readonly fileManager = new FileManager();
-  private readonly pathManager = new PathManager();
-  private readonly logger = new Logger();
-  private readonly emailFolder = this.pathManager.emailFolder;
+  protected readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;
+  protected readonly checker = new Checker();
+  protected readonly invoicePrefix = `invoice-`;
+  protected readonly orderPrefix = `order-`;
+  protected readonly templateManager = new TemplateManager();
+  protected readonly fileManager = new FileManager();
+  protected readonly pathManager = new PathManager();
+  protected readonly logger = new Logger();
+  protected readonly emailFolder = this.pathManager.emailFolder;
+  protected readonly Printer = Printer;
+
+  protected iTemplateManager: ITemplateManager | undefined;
+  // protected abstract getTemplateManager() { }
+  // public send( shoppingCart: ShoppingCart) { };
 
   public sendOrder( shoppingCart: ShoppingCart ) {
     const orderContent = this.templateManager.getOrderTemplate( shoppingCart );
