@@ -139,6 +139,47 @@ assert = {
 
 ---
 
+---
+
+# Arquitecturas para construir software de tamaño reducido
+
+>Hasta **1 año** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos estables de **1 o 2 integrantes**.
+
+**Ejemplos**:
+- Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
+- Proyectos para campañas o negocios de duración limitada y conocida.
+- Herramientas _adhoc_ para integración temporal entre sistemas.
+- Otros desarrollos técnica y funcionalmente simples.
+
+---
+
+**Situación**:
+
+- Los tiempos y presupuestos serán muy rigurosos, por tanto debemos **abaratar y reducir** el desarrollo.
+
+- Los **cambios funcionales serán muy frecuentes**, aunque afortunadamente muchos ocurrirán antes de la puesta en producción con cliente y riesgo real.
+
+- La reducción del **coste del cambio** está en la reducción del coste de entender y manipular el código.
+
+**Objetivo**:
+
+>Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
+
+---
+
+## Reglas:
+
+**Código**: Evitar los _code smells_ mediante aplicación de reglas que lleven a un código limpio fácil de leer y modificar.
+
+**Mantra**: Muchas estructuras y funciones pequeñas y bien nombradas.
+
+**Test**: Garantizar que el software sigue funcionando a pesar de los frecuentes cambios mediante smoke-test.
+
+**Componentes**: Agrupar componentes por responsabilidades.
+
+**Despliegue**: Despliegue en monolito en cada capa física.
+
+---
 
 - [<- Vuelta al índice ](./)
 

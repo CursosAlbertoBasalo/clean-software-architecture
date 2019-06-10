@@ -67,9 +67,8 @@ class: impact
 > Evoluciona en función del tiempo de mantenimiento esperado.
 >
 > -- **Alguien con experiencia**
----
 
-# Patrones: Un catálogo nada exhaustivo
+---
 
 ## Creacionales
 
@@ -78,9 +77,9 @@ class: impact
 Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
 
 - Simple Factory
-- Factory Method
+- ** Factory Method**
 - Abstract Factory
-- Builder
+- **Builder**
 - Prototype
 - Singleton
 
@@ -93,10 +92,10 @@ Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y l
 Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
 
 - Adapter
-- Bridge
+- **Bridge**
 - Composite
 - Decorator
-- Façade
+- **Façade**
 - Flyweight
 - Proxy
 
@@ -110,13 +109,13 @@ Explican cómo ensamblar objetos y clases en estructuras más grandes, mantenien
 Cuidan la comunicación efectiva y la asignación de responsabilidades entre objetos.
 
 - Chain of Responsibility
-- Command
+- **Command**
 - Iterator
 - Mediator
 - Memento
 - Observer
 - Visitor
-- Strategy
+- **Strategy**
 - State
 - Template Method
 
@@ -151,39 +150,39 @@ Cuidan la comunicación efectiva y la asignación de responsabilidades entre obj
 
 ---
 
-# Arquitecturas para construir software de tamaño reducido
+# Arquitecturas para construir software de tamaño medio
 
->Hasta **2 años** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos estables de hasta **4 integrantes**.
+>Entre **1 o 2 años** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos estables de entre **2 - 4 integrantes**.
 
 **Ejemplos**:
-- Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
-- Proyectos para campañas o negocios de duración limitada y conocida.
-- Herramientas _adhoc_ para integración temporal entre sistemas.
-- Otros desarrollos técnica y funcionalmente simples.
+- Producto en marcha en una start-up en crecimiento.
+- Aplicaciones departamentales o para pequeñas empresas.
+- Aplicaciones web sobre plataformas standard.
+- Otros desarrollos técnica y funcionalmente poco complejos.
 
 ---
 
 **Situación**:
 
-- Los tiempos y presupuestos serán muy rigurosos, por tanto debemos **abaratar y reducir** el desarrollo.
+- Los tiempos y presupuestos permiten **dedicar recursos al diseño técnico** del desarrollo.
 
-- Los **cambios funcionales serán muy frecuentes**, aunque afortunadamente muchos ocurrirán antes de la puesta en producción con cliente y riesgo real.
+- Los **cambios funcionales serán menos frecuentes pero potencialmente más graves**, pues el software estará en uso.
 
-- La reducción del **coste del cambio** está en la reducción del coste de entender y manipular el código.
+- La reducción del **coste de explotación** está en la reducción de _bugs_ y mantenimiento.
 
 **Objetivo**:
 
->Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
+>Facilitar el cambio funcional mediante _Design Patterns_, pero con un código localizable con _3 simple layers_.
 
 ---
 
 ## Reglas:
 
-**Código**: Evitar los _code smells_ mediante aplicación de reglas y patrones de diseño que lleven a un código limpio fácil de leer y modificar.
+**Código**: Evitar más _code smells_ mediante patrones de diseño que lleven a un código fácil de ampliar.
 
-**Mantra**: Muchas estructuras y funciones pequeñas y bien nombradas.
+**Mantra**: Reparto de responsabilidades entre clases.
 
-**Test**: Garantizar que el software sigue funcionando a pesar de los frecuentes cambios mediante smoke-test o pruebas de integración sencillas.
+**Test**: Garantizar que el software admite los cambios mediante pruebas de integración sencillas.
 
 **Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> persistencia`.
 
