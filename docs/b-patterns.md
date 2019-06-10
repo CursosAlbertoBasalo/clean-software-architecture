@@ -69,7 +69,7 @@ class: impact
 > -- **Alguien con experiencia**
 ---
 
-# Un catálogo nada exhaustivo
+# Patrones: Un catálogo nada exhaustivo
 
 - Tipos: creacionales, estructurales y de comportamiento
 - Revisión de los más utilizados
@@ -78,7 +78,7 @@ class: impact
 
 # Arquitecturas para construir software de tamaño reducido
 
->Hasta 2 años de tiempo de desarrollo y mantenimiento evolutivo activo con equipos estables de menos de 5 integrantes.
+>Hasta **2 años** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos estables de hasta **4 integrantes**.
 
 **Ejemplos**:
 - Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
@@ -104,7 +104,7 @@ class: impact
 
 ## Reglas:
 
-**Código**: Evitar los _code smells_ mediante aplicación de reglas que lleven a un código limpio fácil de leer.
+**Código**: Evitar los _code smells_ mediante aplicación de reglas y patrones de diseño que lleven a un código limpio fácil de leer y modificar.
 
 **Mantra**: Muchas estructuras y funciones pequeñas y bien nombradas.
 
