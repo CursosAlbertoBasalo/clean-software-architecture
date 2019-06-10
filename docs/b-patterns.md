@@ -71,31 +71,46 @@ class: impact
 
 # Patrones: Un catálogo nada exhaustivo
 
-- Tipos: creacionales, estructurales y de comportamiento
-- Revisión de los más utilizados
+## Creacionales
 
-https://github.com/sohamkamani/javascript-design-patterns-for-humans
+> ¿Cómo instanciar un objeto o grupo de objetos relacionados?
 
-https://refactoring.guru/design-patterns/typescript
+- Proporcionar mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
+
+## Estructurales
+
+> ¿Cómo construir un componente a partir de objetos?
+
+- Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
+
+## De comportamiento
+
+> ¿Cómo ejecutar una funcionalidad entre varios objetos?
+
+- Cuida la comunicación efectiva y la asignación de responsabilidades entre objetos.
 
 ---
 
-## Creacionales
+## Creational
 
-### (Factory Method)[https://refactoring.guru/design-patterns/factory-method/typescript/example#lang-features]
+### [Factory Method](https://refactoring.guru/design-patterns/factory-method/typescript/example#lang-features)
 - usar una clase u otra
 
-### (Builder)[https://refactoring.guru/design-patterns/builder/typescript/example#lang-featuress]
+### [Builder](https://refactoring.guru/design-patterns/builder/typescript/example#lang-featuress)
 - construir una factura
 
-## Estructurales
+---
+
+## Structural
 
 ### [Bridge](https://refactoring.guru/design-patterns/bridge/typescript/example#lang-features)
 - file manager
 ### [Façade](https://refactoring.guru/design-patterns/facade/typescript/example#lang-features)
 
 
-## De Comportamiento
+---
+
+## Behavioral
 
 ### [Command](https://refactoring.guru/design-patterns/command/typescript/example#lang-features)
 - procesado de pedidos
