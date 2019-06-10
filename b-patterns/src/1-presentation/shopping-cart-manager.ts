@@ -1,11 +1,11 @@
-import { ShoppingCartSaver } from './database/shopping-cart-saver';
-import { CheckOutCalculator } from './lib/check-out-calculator';
-import { DocumentManager } from './lib/document-manager';
-import { TaxCalculator } from './lib/tax-calculator';
-import { CheckOut } from './models/check-out';
-import { Client } from './models/client';
-import { LineItem } from './models/line-item';
-import { ShoppingCart } from './models/shopping-cart';
+import { CheckOutCalculator } from '../2-business/lib/check-out-calculator';
+import { DocumentManager } from '../2-business/lib/document-manager';
+import { TaxCalculator } from '../2-business/lib/tax-calculator';
+import { ShoppingCartSaver } from '../3-infraestructure/database/shopping-cart-saver';
+import { CheckOut } from '../3-infraestructure/models/check-out';
+import { Client } from '../3-infraestructure/models/client';
+import { LineItem } from '../3-infraestructure/models/line-item';
+import { ShoppingCart } from '../3-infraestructure/models/shopping-cart';
 import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {

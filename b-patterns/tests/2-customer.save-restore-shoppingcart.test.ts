@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { ShoppingCartManager } from '../src/shopping-cart-manager';
+import { ShoppingCartManager } from '../src/1-presentation/shopping-cart-manager';
 import * as filePaths from './helper/file-paths';
 import * as mocks from './helper/mocks';
 import { Assert } from './model/assert';

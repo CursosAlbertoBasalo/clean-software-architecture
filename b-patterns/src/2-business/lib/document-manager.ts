@@ -1,12 +1,12 @@
-import { COUNTRY_CONFIGURATIONS } from '../database/config/country-configurations';
-import { Checker } from '../helper/checker';
-import { Logger } from '../helper/logger';
-import { Printer } from '../helper/printer';
-import { TemplateManager } from '../helper/template-manager';
-import { FileManager } from '../import/file-manager';
-import { PathManager } from '../import/path-manager';
-import { CountryConfiguration } from '../models/country-configuration';
-import { ShoppingCart } from '../models/shopping-cart';
+import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
+import { Checker } from '../../3-infraestructure/helper/checker';
+import { FileManager } from '../../3-infraestructure/helper/import/file-manager';
+import { PathManager } from '../../3-infraestructure/helper/import/path-manager';
+import { Logger } from '../../3-infraestructure/helper/logger';
+import { Printer } from '../../3-infraestructure/helper/printer';
+import { TemplateManager } from '../../3-infraestructure/helper/template-manager';
+import { CountryConfiguration } from '../../3-infraestructure/models/country-configuration';
+import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 
 export class DocumentManager {
   private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;

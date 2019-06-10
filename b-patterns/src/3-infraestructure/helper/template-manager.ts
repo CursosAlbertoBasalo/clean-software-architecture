@@ -1,7 +1,7 @@
-import { ShoppingCart } from '../models/shopping-cart';
+import { ShoppingCart } from '../../models/shopping-cart';
 
 export class TemplateManager {
-  public getOrderTemplate( shoppingCart : ShoppingCart ) {
+  public getOrderTemplate( shoppingCart: ShoppingCart ) {
     const orderTemplate = `
     Invoice Number: ${shoppingCart.legalAmounts.invoiceNumber}
     ${shoppingCart.client.name} - ${shoppingCart.client.taxNumber}
@@ -12,7 +12,7 @@ export class TemplateManager {
     return orderTemplate;
   }
 
-  public getOrderMessageTemplate( orderContent : string ) {
+  public getOrderMessageTemplate( orderContent: string ) {
     const orderMessageTemplate = `
     ---
     Serve this order ASAP.
@@ -23,7 +23,7 @@ export class TemplateManager {
     return orderMessageTemplate;
   }
 
-  public getInvoiceTemplate( shoppingCart : ShoppingCart ) {
+  public getInvoiceTemplate( shoppingCart: ShoppingCart ) {
     const invoiceTemplate = `
     LEGAL INVOICE FROM acme!
     ========================
@@ -43,7 +43,7 @@ export class TemplateManager {
     return invoiceTemplate;
   }
 
-  public getInvoiceMessageTemplate( invoiceContent : string ) {
+  public getInvoiceMessageTemplate( invoiceContent: string ) {
     const invoiceMessageTemplate = `
     ---
     See attached invoice.
@@ -55,7 +55,7 @@ export class TemplateManager {
     return invoiceMessageTemplate;
   }
 
-  private getDocumentItemLines( shoppingCart : ShoppingCart ) {
+  private getDocumentItemLines( shoppingCart: ShoppingCart ) {
     return JSON.stringify( shoppingCart.lineItems );
   }
 }

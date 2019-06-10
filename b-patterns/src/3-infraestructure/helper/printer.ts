@@ -1,7 +1,7 @@
-import { FileManager } from '../import/file-manager';
-import { PathManager } from '../import/path-manager';
 import { FileToPrint } from '../models/file-to-print';
 import { Checker } from './checker';
+import { FileManager } from './import/file-manager';
+import { PathManager } from './import/path-manager';
 
 export class Printer {
   private static readonly fileManager = new FileManager();
@@ -10,7 +10,7 @@ export class Printer {
   private static readonly dataFolder = Printer.pathManager.dataFolder;
   private static readonly printFolder = Printer.pathManager.printFolder;
 
-  public static printContentToFile( fileToPrint : FileToPrint ) {
+  public static printContentToFile( fileToPrint: FileToPrint ) {
     if ( Printer.checker.hasStringContent( fileToPrint.textContent ) ) {
       fileToPrint.textContent += '\n';
       Printer.ensurePrintFolder();
@@ -23,7 +23,7 @@ export class Printer {
     Printer.fileManager.ensureFolder( Printer.printFolder );
   }
 
-  private static appendOrCreateFile( fileToPrint : FileToPrint ) {
+  private static appendOrCreateFile( fileToPrint: FileToPrint ) {
     const fileContent = {
       path: Printer.getPrintFilePath( fileToPrint.fileName ),
       content: fileToPrint.textContent
@@ -31,7 +31,7 @@ export class Printer {
     Printer.fileManager.appendFile( fileContent );
   }
 
-  private static getPrintFilePath( fileName : string ) {
+  private static getPrintFilePath( fileName: string ) {
     return Printer.pathManager.join( Printer.printFolder, fileName );
   }
 }

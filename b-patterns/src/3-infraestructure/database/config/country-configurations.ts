@@ -1,5 +1,5 @@
-import { CountryConfiguration } from '../../models/country-configuration';
-export const COUNTRY_CONFIGURATIONS : CountryConfiguration[] = [
+import { CountryConfiguration } from '../../../models/country-configuration';
+export const COUNTRY_CONFIGURATIONS: CountryConfiguration[] = [
   {
     countryName: '*default*',
     thresholdForDiscount: Infinity,

@@ -1,5 +1,5 @@
-import { ShoppingCartManager } from '../src/shopping-cart-manager';
-import { WarehouseAdministrator } from '../src/warehouse-administrator';
+import { ShoppingCartManager } from '../src/1-presentation/shopping-cart-manager';
+import { WarehouseAdministrator } from '../src/1-presentation/warehouse-administrator';
 import * as filePaths from './helper/file-paths';
 import * as mocks from './helper/mocks';
 import { Assert } from './model/assert';

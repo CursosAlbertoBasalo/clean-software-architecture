@@ -1,2 +1,0 @@
-shopping-cart-manager
-warehouse-administrator

@@ -1,6 +1,6 @@
-import { CountryTaxNode } from '../../models/country-tax-node';
+import { CountryTaxNode } from '../../../models/country-tax-node';
 
-export const LOCAL_TAXES_TREE : CountryTaxNode[] = [
+export const LOCAL_TAXES_TREE: CountryTaxNode[] = [
   {
     name: '*default*',
     localVAT: 0,

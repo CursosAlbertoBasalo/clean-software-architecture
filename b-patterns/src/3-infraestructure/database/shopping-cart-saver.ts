@@ -1,6 +1,6 @@
 import { Checker } from '../helper/checker';
-import { FileManager } from '../import/file-manager';
-import { PathManager } from '../import/path-manager';
+import { FileManager } from '../helper/import/file-manager';
+import { PathManager } from '../helper/import/path-manager';
 import { ShoppingCart } from '../models/shopping-cart';
 
 export class ShoppingCartSaver {
