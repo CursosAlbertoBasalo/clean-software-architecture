@@ -1,5 +1,5 @@
 export class Checker {
-  public hasStringContent( content: string ): boolean {
+  public hasStringContent( content: string | undefined | null ): boolean {
     return content !== undefined && content !== null && content.length > 0;
   }
 

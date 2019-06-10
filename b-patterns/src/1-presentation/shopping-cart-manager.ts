@@ -1,5 +1,6 @@
 import { CheckOutCalculator } from '../2-business/lib/check-out-calculator';
 import { DocumentManager } from '../2-business/lib/document-manager';
+import { ShoppingCartBuilder } from '../2-business/lib/shopping-cart-builder';
 import { TaxCalculator } from '../2-business/lib/tax-calculator';
 import { ShoppingCartSaver } from '../3-infraestructure/database/shopping-cart-saver';
 import { CheckOut } from '../3-infraestructure/models/check-out';
@@ -10,20 +11,12 @@ import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {
   constructor( client: Client ) {
-    this.shoppingCart = {
-      client: client,
-      lineItems: [],
-      checkOut: {
-        paymentMethod: '',
-        paymentId: '',
-        shippingAddress: '',
-        billingAddress: ''
-      },
-      legalAmounts: { total: 0, shippingCost: 0, taxes: 0, invoiceNumber: 0 }
-    };
+    this.shoppingCartBuilder = new ShoppingCartBuilder( client );
+    this.shoppingCart = this.shoppingCartBuilder.shoppingCart;
     this.checkOutCalculator = new CheckOutCalculator( this.shoppingCart );
   }
   public readonly shoppingCart: ShoppingCart;
+  private readonly shoppingCartBuilder: ShoppingCartBuilder;
   private readonly shoppingCartSaver = new ShoppingCartSaver();
   private readonly documentManager: DocumentManager = new DocumentManager();
   private readonly checkOutCalculator: CheckOutCalculator;
@@ -44,7 +37,7 @@ export class ShoppingCartManager {
     this.shoppingCartSaver.saveToStorage( this.shoppingCart );
   }
   public calculateCheckOut( checkOut: CheckOut ) {
-    this.setCheckOut( checkOut );
+    this.shoppingCartBuilder.setCheckOut( checkOut );
     this.calculateTotalAmount();
     this.checkOutCalculator.calculateShippingCosts();
     this.checkOutCalculator.applyPaymentMethodExtra( checkOut.paymentMethod );
@@ -64,20 +57,6 @@ export class ShoppingCartManager {
 
   public sendInvoiceToCustomer() {
     this.documentManager.sendInvoice( this.shoppingCart );
-  }
-
-  private setCheckOut( checkOut: CheckOut ) {
-    if ( !this.hasContent( checkOut.billingAddress ) ) {
-      if ( this.hasContent( checkOut.shippingAddress ) ) {
-        checkOut.billingAddress = checkOut.shippingAddress;
-      }
-    }
-    checkOut.billingAddress = '';
-    this.shoppingCart.checkOut = checkOut;
-  }
-
-  private hasContent( content?: string ) {
-    return content !== undefined && content !== null && content.length > 0;
   }
 
   private setInvoiceNumber() {

@@ -77,7 +77,7 @@ class: impact
 Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
 
 - Simple Factory
-- ** Factory Method**
+- **Factory Method**
 - Abstract Factory
 - **Builder**
 - Prototype
