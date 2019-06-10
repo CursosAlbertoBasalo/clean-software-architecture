@@ -29,6 +29,7 @@ export class ShoppingCartManager {
   private readonly documentManager: DocumentManager = new DocumentManager();
   private readonly checkOutCalculator: CheckOutCalculator;
   private readonly checker: Checker = new Checker();
+  private readonly warehouseAdministrator = new WarehouseAdministrator();
 
   public addLineItem( purchasedItem: LineItem ) {
     this.shoppingCart.lineItems.push( purchasedItem );
@@ -84,14 +85,13 @@ export class ShoppingCartManager {
   }
 
   private calculateTotalAmount() {
-    const warehouseAdministrator = new WarehouseAdministrator();
     this.shoppingCart.lineItems.forEach( line => {
-      this.processLineItem( warehouseAdministrator, line );
+      this.processLineItem( line );
     } );
   }
 
-  private processLineItem( warehouseAdministrator: WarehouseAdministrator, line: LineItem ) {
-    line.quantity = warehouseAdministrator.updatePurchasedProduct( line );
+  private processLineItem( line: LineItem ) {
+    line.quantity = this.warehouseAdministrator.updatePurchasedProduct( line );
     line.amount = line.price * line.quantity;
     this.shoppingCart.legalAmounts.total += line.amount;
     this.addTaxesByProduct( line );

@@ -1,5 +1,5 @@
 export interface ShippingCost {
-  upTo : number;
-  factor : number;
-  plus : number;
+  upTo: number;
+  factor: number;
+  plus: number;
 }

@@ -1,4 +1,4 @@
 export interface FileToPrint {
-  fileName : string;
-  textContent : string;
+  fileName: string;
+  textContent: string;
 }

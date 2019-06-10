@@ -16,7 +16,7 @@ export class WarehouseAdministrator {
   private readonly logger = new Logger();
   private stock: any[] = [];
 
-  private static findProductByName( productName: string ) {
+  public findProductByName( productName: string ) {
     return WarehouseAdministrator.productCatalog.find( product => product.name === productName );
   }
 
@@ -28,9 +28,7 @@ export class WarehouseAdministrator {
   public addProduct() { }
 
   public updatePurchasedProduct( purchasedItem: LineItem ) {
-    const purchasedProduct = WarehouseAdministrator.findProductByName(
-      purchasedItem.productName
-    );
+    const purchasedProduct = this.findProductByName( purchasedItem.productName );
     if ( purchasedProduct !== undefined ) {
       let realPurchasedQuantity = this.getRealPurchasedQuantity(
         purchasedProduct,

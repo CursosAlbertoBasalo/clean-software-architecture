@@ -1,4 +1,4 @@
 export interface FileContent {
-  path : string;
-  content : string;
+  path: string;
+  content: string;
 }
