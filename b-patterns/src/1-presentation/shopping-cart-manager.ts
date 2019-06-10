@@ -12,7 +12,7 @@ import { WarehouseAdministrator } from './warehouse-administrator';
 export class ShoppingCartManager {
   constructor( client: Client ) {
     this.shoppingCartBuilder = new ShoppingCartBuilder( client );
-    this.shoppingCart = this.shoppingCartBuilder.shoppingCart;
+    this.shoppingCart = this.shoppingCartBuilder.build();
     this.checkOutCalculator = new CheckOutCalculator( this.shoppingCart );
   }
   public readonly shoppingCart: ShoppingCart;
