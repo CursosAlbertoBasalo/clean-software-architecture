@@ -1,5 +1,7 @@
-database
-  config
-helper
-  import
-models
+database/
+  product-catalog
+  shopping-cart-saver
+  config/
+helper/
+  import/
+models/

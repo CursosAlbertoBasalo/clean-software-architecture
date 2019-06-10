@@ -1,0 +1,10 @@
+warehouse-administrator
+business/
+infrastructure/
+    helper/
+        template-manager
+        import/
+    database/
+        product-catalog
+    config/
+    models/

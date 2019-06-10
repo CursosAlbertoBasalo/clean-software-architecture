@@ -1,2 +1,2 @@
-ShoppingCartManager
-WarehouseAdministrator
+shopping-cart-manager
+warehouse-administrator

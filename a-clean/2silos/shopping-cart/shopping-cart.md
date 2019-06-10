@@ -1,0 +1,13 @@
+shopping-cart-manager
+business/
+    checkout-calculator
+    document-manager
+    tax-calculator
+infrastructure/
+    helper/
+        template-manager
+        import/
+    database/
+        shopping-cart-saver.ts
+    config/
+    models/
