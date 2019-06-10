@@ -76,11 +76,11 @@ class: impact
 
 Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
 
-- Simple Factory
-- **Factory Method**
 - Abstract Factory
 - **Builder**
+- **Factory Method**
 - Prototype
+- Simple Factory
 - Singleton
 
 ---
@@ -123,12 +123,43 @@ Cuidan la comunicación efectiva y la asignación de responsabilidades entre obj
 
 ## Creational
 
-### [Factory Method](https://refactoring.guru/design-patterns/factory-method/typescript/example#lang-features)
-- usar una clase u otra
-
 ### [Builder](https://refactoring.guru/design-patterns/builder/typescript/example#lang-featuress)
-- construir una factura
+- Construir un carro de compra
 
+```typescript
+export class ShoppingCartManager {
+  constructor( client: Client ) {
+    this.shoppingCartBuilder = new ShoppingCartBuilder( client );
+    this.shoppingCart = this.shoppingCartBuilder.build();
+  }
+  public calculateCheckOut( checkOut: CheckOut ) {
+    this.shoppingCartBuilder.setCheckOut( checkOut );
+  }
+}
+```
+
+---
+
+### [Factory Method](https://refactoring.guru/design-patterns/factory-method/typescript/example#lang-features)
+- Usar OrdersManagers e InvoicesManagers
+
+ITemplateManager
+  getTemplate(shoppingCart)
+  getMessage(content)
+
+InvoiceTemplateManager implements ITemplateManager
+OrderTemplateTemplateManager implements ITemplateManager
+
+DocumentManager
+  +getTemplateManager(): ITemplateManager
+InvoiceManager extends DocumentManager
+  +getTemplateManager(): InvoiceTemplateManager
+OrderManager extends DocumentManager
+  +getTemplateManager(): OrderTemplateTemplateManager
+
+ShoppingCartManager
+  new InvoiceManager().send()
+  new OrderManager().send()
 ---
 
 ## Structural
@@ -136,7 +167,7 @@ Cuidan la comunicación efectiva y la asignación de responsabilidades entre obj
 ### [Bridge](https://refactoring.guru/design-patterns/bridge/typescript/example#lang-features)
 - file manager
 ### [Façade](https://refactoring.guru/design-patterns/facade/typescript/example#lang-features)
-
+- simplificar el trabajo con ficheros
 
 ---
 
@@ -146,7 +177,7 @@ Cuidan la comunicación efectiva y la asignación de responsabilidades entre obj
 - procesado de pedidos
 
 ### [Strategy](https://refactoring.guru/design-patterns/strategy/typescript/example#lang-features)
-- tasas o costes?
+- Usar el TaxCalculator para líneas o para totales
 
 ---
 

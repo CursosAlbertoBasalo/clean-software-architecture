@@ -10,7 +10,7 @@ export class TaxCalculator {
   private static readonly localTaxesTree: CountryTaxNode[] = LOCAL_TAXES_TREE;
   private static readonly checker = new Checker();
 
-  public static calculateTax( taxBaseInfo: TaxBaseInfo ) {
+  public static calculateTax( taxBaseInfo: TaxBaseInfo ): number {
     if ( TaxCalculator.isTaxExempt( taxBaseInfo ) ) {
       return 0;
     } else {
@@ -18,7 +18,7 @@ export class TaxCalculator {
     }
   }
 
-  private static isTaxExempt( taxBaseInfo: TaxBaseInfo ) {
+  private static isTaxExempt( taxBaseInfo: TaxBaseInfo ): boolean {
     return (
       taxBaseInfo.isATaxFreeProduct === true ||
       taxBaseInfo.isStudent === true ||
@@ -26,14 +26,14 @@ export class TaxCalculator {
     );
   }
 
-  private static calculateLocalTax( taxBaseInfo: TaxBaseInfo ) {
+  private static calculateLocalTax( taxBaseInfo: TaxBaseInfo ): number {
     const localTax = TaxCalculator.getLocalVAT( taxBaseInfo );
     const baseTax = ( taxBaseInfo.base * localTax ) / 100;
     const roundedTax = baseTax.toFixed( TaxCalculator.decimalPlaces );
     return Number( roundedTax );
   }
 
-  private static getLocalVAT( taxBaseInfo: TaxBaseInfo ) {
+  private static getLocalVAT( taxBaseInfo: TaxBaseInfo ): number {
     const countryTaxNode = TaxCalculator.checker.findSafe(
       TaxCalculator.localTaxesTree,
       ( countryTaxNode: CountryTaxNode ) => countryTaxNode.name === taxBaseInfo.country
