@@ -17,7 +17,7 @@ export class ShoppingCartBuilder {
         shippingAddress: '',
         billingAddress: ''
       },
-      legalAmounts: { total: 0, shippingCost: 0, taxes: 0, invoiceNumber: 0 }
+      legalAmounts: { amount: 0, shippingCost: 0, taxes: 0, invoiceNumber: 0 }
     };
   }
 

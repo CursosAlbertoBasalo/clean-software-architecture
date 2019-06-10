@@ -23,7 +23,7 @@ describe( `As a customer, I want to check out, so I can pay and get the products
   test( `given ${assert.given} should ${assert.should}`, () => {
     const expectedTotal = 6615;
     shoppingCartManager.calculateCheckOut( mocks.checkOutInfo );
-    assert.actual = shoppingCartManager.shoppingCart.legalAmounts.total;
+    assert.actual = shoppingCartManager.shoppingCart.legalAmounts.amount;
     assert.expected = expectedTotal;
     expect( assert.actual ).toEqual( assert.expected );
   } );

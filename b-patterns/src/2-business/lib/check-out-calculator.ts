@@ -19,8 +19,8 @@ export class CheckOutCalculator {
     countryConfiguration.shippingCost.forEach( ( shippingCost: ShippingCost ) => {
       if ( this.hasShippingCost( shippingCost ) ) {
         const shippingCostAmount =
-          this.shoppingCart.legalAmounts.total * shippingCost.factor + shippingCost.plus;
-        this.shoppingCart.legalAmounts.total += shippingCostAmount;
+          this.shoppingCart.legalAmounts.amount * shippingCost.factor + shippingCost.plus;
+        this.shoppingCart.legalAmounts.amount += shippingCostAmount;
         return;
       }
     } );
@@ -28,18 +28,18 @@ export class CheckOutCalculator {
 
   public applyPaymentMethodExtra( payment: string ) {
     const paymentConfiguration: PaymentConfiguration = this.getPaymentConfiguration( payment );
-    this.shoppingCart.legalAmounts.total =
-      this.shoppingCart.legalAmounts.total * paymentConfiguration.extraFactor;
+    this.shoppingCart.legalAmounts.amount =
+      this.shoppingCart.legalAmounts.amount * paymentConfiguration.extraFactor;
   }
 
   public applyDiscount() {
     if ( this.hasDiscount() ) {
-      this.shoppingCart.legalAmounts.total *= this.discountFactor;
+      this.shoppingCart.legalAmounts.amount *= this.discountFactor;
     }
   }
 
   private hasShippingCost( shippingCost: ShippingCost ) {
-    return this.shoppingCart.legalAmounts.total < shippingCost.upTo;
+    return this.shoppingCart.legalAmounts.amount < shippingCost.upTo;
   }
 
   private hasDiscount() {
@@ -48,7 +48,7 @@ export class CheckOutCalculator {
 
   private hasCountryDiscount() {
     const countryConfiguration = this.getCountryConfiguration();
-    return this.shoppingCart.legalAmounts.total > countryConfiguration.thresholdForDiscount;
+    return this.shoppingCart.legalAmounts.amount > countryConfiguration.thresholdForDiscount;
   }
 
   private getCountryConfiguration() {

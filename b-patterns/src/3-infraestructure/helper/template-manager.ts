@@ -34,11 +34,11 @@ export class TemplateManager {
     ${shoppingCart.client.country} - ${shoppingCart.client.region}
     Items purchased:
     ${this.getDocumentItemLines( shoppingCart )}
-    Amount: #${shoppingCart.legalAmounts.total - shoppingCart.legalAmounts.shippingCost}Euros
+    Amount: #${shoppingCart.legalAmounts.amount - shoppingCart.legalAmounts.shippingCost}Euros
     Shipping Cost: #${shoppingCart.legalAmounts.shippingCost}Euros
-    Base Amount: #${shoppingCart.legalAmounts.total}Euros
+    Base Amount: #${shoppingCart.legalAmounts.amount}Euros
     Tax: #${shoppingCart.legalAmounts.taxes}Euros
-    Total Amount: #${shoppingCart.legalAmounts.total + shoppingCart.legalAmounts.taxes}Euros
+    Total Amount: #${shoppingCart.legalAmounts.amount + shoppingCart.legalAmounts.taxes}Euros
     `;
     return invoiceTemplate;
   }

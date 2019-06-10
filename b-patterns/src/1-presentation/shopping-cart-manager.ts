@@ -43,7 +43,7 @@ export class ShoppingCartManager {
     this.checkOutCalculator.applyPaymentMethodExtra( checkOut.paymentMethod );
     this.checkOutCalculator.applyDiscount();
     const totalTaxInfo = {
-      base: this.shoppingCart.legalAmounts.total,
+      base: this.shoppingCart.legalAmounts.amount,
       country: this.shoppingCart.client.country,
       region: this.shoppingCart.client.region,
       isStudent: this.shoppingCart.client.isStudent,
@@ -75,7 +75,7 @@ export class ShoppingCartManager {
   private processLineItem( warehouseAdministrator: WarehouseAdministrator, line: LineItem ) {
     line.quantity = warehouseAdministrator.updatePurchasedProduct( line );
     line.amount = line.price * line.quantity;
-    this.shoppingCart.legalAmounts.total += line.amount;
+    this.shoppingCart.legalAmounts.amount += line.amount;
     this.addTaxesByProduct( line );
   }
 

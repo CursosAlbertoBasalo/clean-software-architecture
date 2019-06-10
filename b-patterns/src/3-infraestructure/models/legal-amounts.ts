@@ -1,5 +1,5 @@
 export interface LegalAmounts {
-  total: number;
+  amount: number;
   shippingCost: number;
   taxes: number;
   invoiceNumber: number;
