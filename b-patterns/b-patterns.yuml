@@ -1,11 +1,12 @@
 // {type:class}
-// {direction:topDown}
+// {direction:leftToRight}
 [ShoppingCartManager{bg:turquoise}]->[CheckOutCalculator{bg:skyblue}]
+[ShoppingCartManager]->[ShoppingCartBuilder{bg:skyblue}]
 [ShoppingCartManager]->[DocumentManager{bg:skyblue}]
 [ShoppingCartManager]->[ShoppingCartSaver]
 [ShoppingCartManager]->[TaxCalculator{bg:skyblue}]
-[ShoppingCartManager]->[WarehouseAdministrator{bg:turquoise}]
 [ShoppingCartManager]->[Checker]
+[ShoppingCartManager]->[WarehouseAdministrator{bg:turquoise}]
 [WarehouseAdministrator]->[PRODUCT_CATALOG]
 [WarehouseAdministrator]->[FileManager]
 [WarehouseAdministrator]->[PathManager]

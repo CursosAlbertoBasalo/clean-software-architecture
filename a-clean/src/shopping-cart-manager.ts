@@ -28,7 +28,7 @@ export class ShoppingCartManager {
   private readonly shoppingCartSaver = new ShoppingCartSaver();
   private readonly documentManager: DocumentManager = new DocumentManager();
   private readonly checkOutCalculator: CheckOutCalculator;
-  private readonly checker: Checker;
+  private readonly checker: Checker = new Checker();
 
   public addLineItem( purchasedItem: LineItem ) {
     this.shoppingCart.lineItems.push( purchasedItem );
