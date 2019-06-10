@@ -74,6 +74,35 @@ class: impact
 - Tipos: creacionales, estructurales y de comportamiento
 - Revisión de los más utilizados
 
+https://github.com/sohamkamani/javascript-design-patterns-for-humans
+
+https://refactoring.guru/design-patterns/typescript
+
+---
+
+## Creacionales
+
+### (Factory Method)[https://refactoring.guru/design-patterns/factory-method/typescript/example#lang-features]
+- usar una clase u otra
+
+### (Builder)[https://refactoring.guru/design-patterns/builder/typescript/example#lang-featuress]
+- construir una factura
+
+## Estructurales
+
+### [Bridge](https://refactoring.guru/design-patterns/bridge/typescript/example#lang-features)
+- file manager
+### [Façade](https://refactoring.guru/design-patterns/facade/typescript/example#lang-features)
+
+
+## De Comportamiento
+
+### [Command](https://refactoring.guru/design-patterns/command/typescript/example#lang-features)
+- procesado de pedidos
+
+### [Strategy](https://refactoring.guru/design-patterns/strategy/typescript/example#lang-features)
+- tasas o costes?
+
 ---
 
 # Arquitecturas para construir software de tamaño reducido
