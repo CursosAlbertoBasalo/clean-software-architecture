@@ -27,8 +27,6 @@ class: impact
 
 ---
 
----
-
 ##  Huele a humo
 
 ### Método largo.
@@ -102,8 +100,8 @@ class: impact
 
 Detalle del proceso que resuelve el sistema
 
-> Se utilizan para captar el punto de vista del usuario al describir los requisitos funcionales del sistema.
-> Describen el proceso paso a paso hasta alcanzar un objetivo.
+> Describen el proceso paso a paso hasta alcanzar el objetivo de un usuario mediante un sistema. Capta con detalle el punto de vista del usuario al describir los requisitos funcionales del sistema.
+>
 >
 >  -- **Ivar Jacobson**
 
@@ -111,8 +109,8 @@ Detalle del proceso que resuelve el sistema
 
 Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
-> Una historia de usuario es una tarjeta (Card) en la que se captura de manera general lo que un usuario hace o necesita hacer.
-> Requiere Conversaciones permanentes para refinarla y Confirmación pasa su aceptación.
+> Es una pequeña nota (**Card**) en la que se captura de manera general algo que un usuario hace o necesita hacer.
+> Requiere **Conversaciones** permanentes para refinarla y **Confirmación** pasa su aceptación.
 >
 >  -- **Ron Jeffries**
 
@@ -122,11 +120,11 @@ Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
 ### Value Statement:
 
-> As a (user role), I want to (activity), so that (business value)
+> As a __(user role)__, I want to __(activity)__, so that __(business value)__
 
 ### Acceptance Criteria:
 
-> Given (context), when (action performed), then should (observable consequences)
+> Given __(context__), when __(action performed)__, then should __(observable consequences)__
 
 ### Testing
 
@@ -142,8 +140,6 @@ assert = {
 ```
 
 ---
-
-
 
 
 - [<- Vuelta al índice ](./)
