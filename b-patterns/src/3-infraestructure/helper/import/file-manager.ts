@@ -1,14 +1,14 @@
 import * as fs from 'fs';
-import { FileContent } from '../models/file-content';
+import { FileContent } from '../../models/file-content';
 
 export class FileManager {
-  public writeFile( fileContent : FileContent ) {
+  public writeFile( fileContent: FileContent ) {
     if ( this.notExistsFile( fileContent ) ) {
       fs.writeFileSync( fileContent.path, fileContent.content );
     }
   }
 
-  public appendFile( fileContent : FileContent ) {
+  public appendFile( fileContent: FileContent ) {
     if ( this.notExistsFile( fileContent ) ) {
       fs.writeFileSync( fileContent.path, fileContent.content );
     } else {
@@ -16,7 +16,7 @@ export class FileManager {
     }
   }
 
-  public readFile( fileContent : FileContent ) {
+  public readFile( fileContent: FileContent ) {
     fileContent.content = '';
     if ( this.existsFile( fileContent ) ) {
       try {
@@ -25,23 +25,23 @@ export class FileManager {
     }
   }
 
-  public deleteFile( filePath : string ) {
+  public deleteFile( filePath: string ) {
     if ( this.existsPath( filePath ) ) {
       fs.unlinkSync( filePath );
     }
   }
 
-  public renameFile( oldPath : string, newName : string ) {
+  public renameFile( oldPath: string, newName: string ) {
     fs.renameSync( oldPath, newName );
   }
 
-  public ensureFolder( folderPath : string ) {
+  public ensureFolder( folderPath: string ) {
     if ( this.notExistsPath( folderPath ) ) {
       fs.mkdirSync( folderPath );
     }
   }
 
-  public readFolderFileList( folderPath : string ) {
+  public readFolderFileList( folderPath: string ) {
     if ( this.existsPath( folderPath ) ) {
       return fs.readdirSync( folderPath );
     } else {
@@ -49,16 +49,16 @@ export class FileManager {
     }
   }
 
-  private existsPath( filePath : string ) : boolean {
+  private existsPath( filePath: string ): boolean {
     return fs.existsSync( filePath );
   }
-  private notExistsPath( filePath : string ) : boolean {
+  private notExistsPath( filePath: string ): boolean {
     return !this.existsPath( filePath );
   }
-  private existsFile( fileContent : FileContent ) : boolean {
+  private existsFile( fileContent: FileContent ): boolean {
     return this.existsPath( fileContent.path );
   }
-  private notExistsFile( fileContent : FileContent ) : boolean {
+  private notExistsFile( fileContent: FileContent ): boolean {
     return !this.existsFile( fileContent );
   }
 }
