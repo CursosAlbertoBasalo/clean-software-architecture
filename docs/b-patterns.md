@@ -77,7 +77,7 @@ class: impact
 Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
 
 - **Abstract Factory:** una factoría de factorías relacionadas sin exponer nada concreto.
-- **Builder**: Permite crear subtipos de objetos facilitar la construcción de objetos complejos.
+- **Builder**: crear subtipos de objetos o facilita la construcción de otros complejos.
 - **Factory Method:** delega la lógica de creación de instancias a clases secundarias.
 - **Simple Factory:** genera una instancia sin exponer lógica de creación.
 - **Singleton:** Asegura una instancia única de una clase.
@@ -90,12 +90,12 @@ Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y l
 
 Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
 
-- **Adapter:** permite envolver un objeto en un adaptador para que sea compatible con otra.
+- **Adapter:** envuelve un objeto en un adaptador para que sea compatible con otra.
 - **Bridge:** se trata de preferir la composición sobre la herencia.
 - **Composite:** permite tratar con objetos individuales de manera uniforme.
 - **Decorator:** permite agregar comportamiento envolviendo un objeto en otro.
 - **Façade:** proporciona un acceso simple a un sistema de objetos complejo.
-- **Flyweight:** se usa para reducir el consumo de memoria o CPU compartiendo recursos.
+- **Flyweight:** reduce el consumo de memoria o CPU compartiendo recursos.
 - **Proxy:** una clase actúa como representante de otra.
 
 ---
