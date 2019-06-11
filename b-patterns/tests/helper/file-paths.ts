@@ -22,21 +22,52 @@ export const invoicePrintingFilePath = ( invoiceNumber: number ) =>
 export const cleanTestData = () => rimraf( dataFolder );
 
 function rimraf( dirPath: string ) {
-  if ( fs.existsSync( dirPath ) ) {
-    fs.readdirSync( dirPath ).forEach( function( entry ) {
-      var entryPath = path.join( dirPath, entry );
-      if ( fs.lstatSync( entryPath ).isDirectory() ) {
+  if ( tryExists( dirPath ) ) {
+    const dirEntries = tryReadDir( dirPath );
+    dirEntries.forEach( function( entry ) {
+      const entryPath = path.join( dirPath, entry );
+      const stats = tryGetStatus( entryPath );
+      if ( stats && stats.isDirectory() ) {
         rimraf( entryPath );
       } else {
-        try {
-          fs.unlinkSync( entryPath );
-        } catch ( error ) { }
+        tryDelete( entryPath );
       }
     } );
-    try {
-      fs.rmdirSync( dirPath );
-    } catch ( error ) {
-      rimraf( dirPath );
-    }
+    tryDeleteDir( dirPath );
   }
+}
+
+function tryDeleteDir( dirPath: string ) {
+  try {
+    fs.rmdirSync( dirPath );
+  } catch ( error ) {
+    rimraf( dirPath );
+  }
+}
+
+function tryExists( path: string ): boolean {
+  try {
+    return fs.existsSync( path );
+  } catch ( error ) {
+    return false;
+  }
+}
+function tryReadDir( path: string ): string[] {
+  try {
+    return fs.readdirSync( path );
+  } catch ( error ) {
+    return [];
+  }
+}
+function tryGetStatus( path: string ) {
+  try {
+    return fs.lstatSync( path );
+  } catch ( error ) {
+    return false;
+  }
+}
+function tryDelete( entryPath: string ) {
+  try {
+    fs.unlinkSync( entryPath );
+  } catch ( error ) { }
 }

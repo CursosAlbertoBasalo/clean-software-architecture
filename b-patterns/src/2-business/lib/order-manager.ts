@@ -3,17 +3,20 @@ import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 import { DocumentManager } from './document-manager';
 
 export class OrderManager extends DocumentManager {
-  protected getTemplateManager() {
-    super.iTemplateManager = new OrderTemplateManager();
+  constructor() {
+    super();
+  }
+  protected setTemplateManager() {
+    this.templateManager = new OrderTemplateManager();
   }
   public send( shoppingCart: ShoppingCart ) {
-    if ( super.iTemplateManager !== undefined ) {
-      const orderContent = this.templateManager.getOrderTemplate( shoppingCart );
-      const orderMessageTemplate = this.templateManager.getOrderMessageTemplate( orderContent );
-      super.fileManager.ensureFolder( this.emailFolder );
+    if ( this.templateManager !== undefined ) {
+      const orderContent = this.templateManager.getTemplate( shoppingCart );
+      const orderMessageTemplate = this.templateManager.getMessage( orderContent );
+      this.fileManager.ensureFolder( this.emailFolder );
       const orderFileName = this.getFileName( shoppingCart );
-      super.fileManager.writeFile( { path: orderFileName, content: orderMessageTemplate } );
-      super.logger.print( 'Sent Order: ' + shoppingCart.legalAmounts.invoiceNumber );
+      this.fileManager.writeFile( { path: orderFileName, content: orderMessageTemplate } );
+      this.logger.print( 'Sent Order: ' + shoppingCart.legalAmounts.invoiceNumber );
     }
   }
   private getFileName( shoppingCart: ShoppingCart ) {

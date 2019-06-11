@@ -1,5 +1,6 @@
 import { CheckOutCalculator } from '../2-business/lib/check-out-calculator';
-import { DocumentManager } from '../2-business/lib/document-manager';
+import { InvoiceManager } from '../2-business/lib/invoice-manager';
+import { OrderManager } from '../2-business/lib/order-manager';
 import { ShoppingCartBuilder } from '../2-business/lib/shopping-cart-builder';
 import { TaxCalculator } from '../2-business/lib/tax-calculator';
 import { ShoppingCartSaver } from '../3-infraestructure/database/shopping-cart-saver';
@@ -18,7 +19,6 @@ export class ShoppingCartManager {
   public readonly shoppingCart: ShoppingCart;
   private readonly shoppingCartBuilder: ShoppingCartBuilder;
   private readonly shoppingCartSaver = new ShoppingCartSaver();
-  private readonly documentManager: DocumentManager = new DocumentManager();
   private readonly checkOutCalculator: CheckOutCalculator;
 
   public addLineItem( purchasedItem: LineItem ) {
@@ -56,7 +56,8 @@ export class ShoppingCartManager {
   }
 
   public sendInvoiceToCustomer() {
-    this.documentManager.sendInvoice( this.shoppingCart );
+    const invoiceManager = new InvoiceManager();
+    invoiceManager.send( this.shoppingCart );
   }
 
   private setInvoiceNumber() {
@@ -92,6 +93,7 @@ export class ShoppingCartManager {
   }
 
   private sendOrderToWarehouse() {
-    this.documentManager.sendOrder( this.shoppingCart );
+    const orderManager = new OrderManager();
+    orderManager.send( this.shoppingCart );
   }
 }
