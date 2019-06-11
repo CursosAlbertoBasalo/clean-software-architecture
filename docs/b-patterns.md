@@ -123,8 +123,7 @@ Cuidan la comunicación efectiva y la asignación de responsabilidades entre obj
 
 ## Creational
 
-### [Builder](https://refactoring.guru/design-patterns/builder/typescript/example#lang-featuress)
-- Construir un carro de compra
+### Builder
 
 ```typescript
 export class ShoppingCartManager {
@@ -140,26 +139,39 @@ export class ShoppingCartManager {
 
 ---
 
-### [Factory Method](https://refactoring.guru/design-patterns/factory-method/typescript/example#lang-features)
-- Usar OrdersManagers e InvoicesManagers
+### Factory Method
 
-ITemplateManager
-  getTemplate(shoppingCart)
-  getMessage(content)
+```typescript
+interface ITemplateManager {
+  getTemplate( shoppingCart: ShoppingCart ): string;
+  getMessage( content: string ): string;
+}
+class InvoiceTemplateManager implements ITemplateManager{}
+class OrderTemplateTemplateManager implements ITemplateManager{}
 
-InvoiceTemplateManager implements ITemplateManager
-OrderTemplateTemplateManager implements ITemplateManager
+class DocumentManager {
+  constructor() { this.setTemplateManager(); }
+  protected setTemplateManager(): ITemplateManager
+}
+class InvoiceManager extends DocumentManager{
+  protected setTemplateManager(): InvoiceTemplateManager {
+    this.templateManager = new InvoiceTemplateManager();
+  }
+}
+class OrderManager extends DocumentManager{
+  protected setTemplateManager(): OrderTemplateTemplateManager {
+    this.templateManager = new OrderTemplateManager();
+  }
+}
 
-DocumentManager
-  +getTemplateManager(): ITemplateManager
-InvoiceManager extends DocumentManager
-  +getTemplateManager(): InvoiceTemplateManager
-OrderManager extends DocumentManager
-  +getTemplateManager(): OrderTemplateTemplateManager
+class ShoppingCartManager{
+  public send(){
+    new InvoiceManager().send(this.shoppingCart);
+    new OrderManager().send(this.shoppingCart);
+  }
+}
+```
 
-ShoppingCartManager
-  new InvoiceManager().send()
-  new OrderManager().send()
 ---
 
 ## Structural
