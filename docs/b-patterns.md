@@ -227,7 +227,29 @@ class ShoppingCartManager{
 ---
 
 ### [Façade](https://refactoring.guru/design-patterns/facade/typescript/example#lang-features)
-- simplificar el trabajo con ficheros
+
+```typescript
+export class ToolsFacade {
+  private readonly logger = new Logger();
+  private readonly fileManager = new FileManager();
+  private readonly pathManager = new PathManager();
+  public readonly emailFolder = this.pathManager.emailFolder;
+  public readonly printFolder = this.pathManager.printFolder;
+
+  public printContentToFile( fileToPrint: FileToPrint ) {
+    Printer.printContentToFile( fileToPrint );
+  }
+  public log( logContent: string ) {
+    this.logger.print( logContent );
+  }
+  public joinPaths( folderPath: string, fileName: string ) {
+    return this.pathManager.join( folderPath, fileName );
+  }
+  public writeFile( fileContent: FileContent ) {
+    this.fileManager.writeFile( fileContent );
+  }
+}
+```
 
 ---
 

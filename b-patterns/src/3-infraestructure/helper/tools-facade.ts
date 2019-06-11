@@ -7,10 +7,10 @@ import { Printer } from './printer';
 
 export class ToolsFacade {
   private readonly logger = new Logger();
-  protected readonly fileManager = new FileManager();
-  protected readonly pathManager = new PathManager();
-  public emailFolder = this.pathManager.emailFolder;
-  public printFolder = this.pathManager.printFolder;
+  private readonly fileManager = new FileManager();
+  private readonly pathManager = new PathManager();
+  public readonly emailFolder = this.pathManager.emailFolder;
+  public readonly printFolder = this.pathManager.printFolder;
 
   public printContentToFile( fileToPrint: FileToPrint ) {
     Printer.printContentToFile( fileToPrint );
