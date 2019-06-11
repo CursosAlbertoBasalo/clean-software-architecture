@@ -1,8 +1,6 @@
 import { PRODUCT_CATALOG } from '../3-infraestructure/database/product-catalog';
-import { FileManager } from '../3-infraestructure/helper/import/file-manager';
-import { PathManager } from '../3-infraestructure/helper/import/path-manager';
-import { Logger } from '../3-infraestructure/helper/logger';
 import { Printer } from '../3-infraestructure/helper/printer';
+import { ToolsFacade } from '../3-infraestructure/helper/tools-facade';
 import { LineItem } from '../3-infraestructure/models/line-item';
 import { Product } from '../3-infraestructure/models/product';
 
@@ -11,9 +9,7 @@ export class WarehouseAdministrator {
   private readonly shipmentPrefix = `shipment-`;
   private readonly orderPrefix = `order-`;
   private readonly restockPrefix = `restock-`;
-  private readonly fileManager = new FileManager();
-  private readonly pathManager = new PathManager();
-  private readonly logger = new Logger();
+  protected readonly toolsFacade = new ToolsFacade();
   private stock: any[] = [];
 
   private static findProductByName( productName: string ) {
@@ -44,11 +40,11 @@ export class WarehouseAdministrator {
   }
 
   private getOrdersFolder() {
-    return this.pathManager.emailFolder;
+    return this.toolsFacade.emailFolder;
   }
 
   private processOrdesFolder( ordersFolder: string ) {
-    this.fileManager.readFolderFileList( ordersFolder ).forEach( fileName => {
+    this.toolsFacade.readFolderFileList( ordersFolder ).forEach( fileName => {
       this.processFileInOrderFolder( fileName, ordersFolder );
     } );
   }
@@ -61,21 +57,21 @@ export class WarehouseAdministrator {
 
   private processOrder( orderFileName: string, ordersFolder: string ) {
     const shippmentFileName = orderFileName.replace( this.orderPrefix, this.shipmentPrefix );
-    this.fileManager.renameFile(
-      this.pathManager.join( ordersFolder, orderFileName ),
-      this.pathManager.join( ordersFolder, shippmentFileName )
+    this.toolsFacade.renameFile(
+      this.toolsFacade.joinPaths( ordersFolder, orderFileName ),
+      this.toolsFacade.joinPaths( ordersFolder, shippmentFileName )
     );
-    this.logger.print( 'processed: ' + orderFileName );
+    this.toolsFacade.log( 'processed: ' + orderFileName );
   }
 
   private isAnOrderFile( orderFileName: string ) {
-    return this.pathManager.baseName( orderFileName ).startsWith( this.orderPrefix );
+    return this.toolsFacade.getBaseName( orderFileName ).startsWith( this.orderPrefix );
   }
 
   private getRealPurchasedQuantity( purchasedProduct: Product, quantity: number ) {
     let realPurchasedQuantity = quantity;
     if ( this.isNotEnouht( purchasedProduct, quantity ) ) {
-      this.logger.print( 'not have enough: ' + purchasedProduct.name );
+      this.toolsFacade.log( 'not have enough: ' + purchasedProduct.name );
       realPurchasedQuantity = purchasedProduct.stock;
     }
     return realPurchasedQuantity;

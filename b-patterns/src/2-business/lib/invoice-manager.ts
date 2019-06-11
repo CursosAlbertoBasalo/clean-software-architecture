@@ -14,26 +14,26 @@ export class InvoiceManager extends DocumentManager {
       const invoiceTemplate = this.templateManager.getTemplate( shoppingCart );
       this.print( shoppingCart, invoiceTemplate );
       this.sendEmail( shoppingCart.client.email, invoiceTemplate );
-      this.logger.print( 'Sent Invoice: ' + shoppingCart.legalAmounts.invoiceNumber );
+      this.toolsFacade.log( 'Sent Invoice: ' + shoppingCart.legalAmounts.invoiceNumber );
     }
   }
 
   private print( shoppingCart: ShoppingCart, documentContent: string ) {
     const fileName = `${this.invoicePrefix}${shoppingCart.legalAmounts.invoiceNumber}.txt`;
-    this.Printer.printContentToFile( { fileName, textContent: documentContent } );
+    this.toolsFacade.printContentToFile( { fileName, textContent: documentContent } );
   }
 
   private sendEmail( emailAddress: string, invoiceContent: string ) {
     if ( this.templateManager !== undefined ) {
       const invoiceMessageTemplate = this.templateManager.getMessage( invoiceContent );
-      this.fileManager.ensureFolder( this.emailFolder );
+      this.toolsFacade.ensureFolder( this.emailFolder );
       const invoiceFileName = this.getFileName( emailAddress );
-      this.fileManager.writeFile( { path: invoiceFileName, content: invoiceMessageTemplate } );
+      this.toolsFacade.writeFile( { path: invoiceFileName, content: invoiceMessageTemplate } );
     }
   }
   private getFileName( emailAddress: string ) {
     const invoiceFileName = `${this.invoicePrefix}${emailAddress}.txt`;
-    const fileName = this.pathManager.join( this.emailFolder, invoiceFileName );
+    const fileName = this.toolsFacade.joinPaths( this.emailFolder, invoiceFileName );
     return fileName;
   }
 }

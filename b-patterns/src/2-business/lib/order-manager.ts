@@ -13,10 +13,10 @@ export class OrderManager extends DocumentManager {
     if ( this.templateManager !== undefined ) {
       const orderContent = this.templateManager.getTemplate( shoppingCart );
       const orderMessageTemplate = this.templateManager.getMessage( orderContent );
-      this.fileManager.ensureFolder( this.emailFolder );
+      this.toolsFacade.ensureFolder( this.emailFolder );
       const orderFileName = this.getFileName( shoppingCart );
-      this.fileManager.writeFile( { path: orderFileName, content: orderMessageTemplate } );
-      this.logger.print( 'Sent Order: ' + shoppingCart.legalAmounts.invoiceNumber );
+      this.toolsFacade.writeFile( { path: orderFileName, content: orderMessageTemplate } );
+      this.toolsFacade.log( 'Sent Order: ' + shoppingCart.legalAmounts.invoiceNumber );
     }
   }
   private getFileName( shoppingCart: ShoppingCart ) {
@@ -25,7 +25,7 @@ export class OrderManager extends DocumentManager {
     const orderFileName = `${this.orderPrefix}${
       shoppingCart.legalAmounts.invoiceNumber
     }_${warehouseEmailAddress}.txt`;
-    const fileName = this.pathManager.join( this.emailFolder, orderFileName );
+    const fileName = this.toolsFacade.joinPaths( this.emailFolder, orderFileName );
     return fileName;
   }
 

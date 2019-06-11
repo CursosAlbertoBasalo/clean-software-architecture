@@ -41,7 +41,7 @@ export class FileManager {
     }
   }
 
-  public readFolderFileList( folderPath: string ) {
+  public readFolderFileList( folderPath: string ): string[] {
     if ( this.existsPath( folderPath ) ) {
       return fs.readdirSync( folderPath );
     } else {
