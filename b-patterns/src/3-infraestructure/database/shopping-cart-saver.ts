@@ -38,7 +38,7 @@ export class ShoppingCartSaver {
     } );
   }
 
-  public readLastInvoiceNumber() {
+  public readLastInvoiceNumber(): number {
     const invoiceNumberFileName = this.pathManager.join(
       this.pathManager.dataFolder,
       this.lastinvoiceFileName

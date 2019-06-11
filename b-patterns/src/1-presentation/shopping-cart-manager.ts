@@ -1,10 +1,9 @@
 import { CheckOutCalculator } from '../2-business/lib/check-out-calculator';
 import { InvoiceManager } from '../2-business/lib/invoice-manager';
 import { OrderManager } from '../2-business/lib/order-manager';
-import { ShoppingCartBuilder } from '../2-business/lib/shopping-cart-builder';
+import { ShoppingCartFacade } from '../2-business/lib/shopping-cart-facade';
 import { TaxBaseInfoAdapter } from '../2-business/lib/tax-base-info-adapter';
 import { TaxCalculator } from '../2-business/lib/tax-calculator';
-import { ShoppingCartSaver } from '../3-infraestructure/database/shopping-cart-saver';
 import { CheckOut } from '../3-infraestructure/models/check-out';
 import { Client } from '../3-infraestructure/models/client';
 import { LineItem } from '../3-infraestructure/models/line-item';
@@ -13,14 +12,13 @@ import { TaxBaseInfo } from '../3-infraestructure/models/tax-base-info';
 import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {
+  private readonly shoppingCartFacade = new ShoppingCartFacade();
   constructor( client: Client ) {
-    this.shoppingCartBuilder = new ShoppingCartBuilder( client );
-    this.shoppingCart = this.shoppingCartBuilder.build();
+    this.shoppingCart = this.shoppingCartFacade.buildShoppingCart( client );
     this.checkOutCalculator = new CheckOutCalculator( this.shoppingCart );
   }
   public readonly shoppingCart: ShoppingCart;
-  private readonly shoppingCartBuilder: ShoppingCartBuilder;
-  private readonly shoppingCartSaver = new ShoppingCartSaver();
+
   private readonly checkOutCalculator: CheckOutCalculator;
 
   public addLineItem( purchasedItem: LineItem ) {
@@ -33,13 +31,13 @@ export class ShoppingCartManager {
   }
 
   public loadFromStorage() {
-    this.shoppingCartSaver.loadFromStorage( this.shoppingCart );
+    this.shoppingCartFacade.loadFromStorage( this.shoppingCart );
   }
   public saveToStorage() {
-    this.shoppingCartSaver.saveToStorage( this.shoppingCart );
+    this.shoppingCartFacade.saveToStorage( this.shoppingCart );
   }
   public calculateCheckOut( checkOut: CheckOut ) {
-    this.shoppingCartBuilder.setCheckOut( checkOut );
+    this.shoppingCartFacade.setCheckOut( checkOut );
     this.calculateTotalAmount();
     this.checkOutCalculator.calculateShippingCosts();
     this.checkOutCalculator.applyPaymentMethodExtra( checkOut.paymentMethod );
@@ -50,7 +48,7 @@ export class ShoppingCartManager {
     this.shoppingCart.legalAmounts.taxes += TaxCalculator.calculateTax( totalTaxInfo );
     this.setInvoiceNumber();
     this.sendOrderToWarehouse();
-    this.shoppingCartSaver.deleteFromStorage( this.shoppingCart );
+    this.shoppingCartFacade.deleteFromStorage( this.shoppingCart );
   }
 
   public sendInvoiceToCustomer() {
@@ -59,9 +57,9 @@ export class ShoppingCartManager {
   }
 
   private setInvoiceNumber() {
-    const lastInvoiceNumber = this.shoppingCartSaver.readLastInvoiceNumber();
+    const lastInvoiceNumber = this.shoppingCartFacade.readLastInvoiceNumber();
     this.shoppingCart.legalAmounts.invoiceNumber = lastInvoiceNumber + 1;
-    this.shoppingCartSaver.writeLastInvoiceNumber( this.shoppingCart );
+    this.shoppingCartFacade.writeLastInvoiceNumber( this.shoppingCart );
   }
 
   private calculateTotalAmount() {
