@@ -1,5 +1,4 @@
 import { CheckOutFacade } from '../2-business/lib/check-out-facade';
-import { DocumentFacade } from '../2-business/lib/document-facade';
 import { ShoppingCartFacade } from '../2-business/lib/shopping-cart-facade';
 import { CheckOut } from '../3-infraestructure/models/check-out';
 import { Client } from '../3-infraestructure/models/client';
@@ -10,7 +9,6 @@ import { WarehouseAdministrator } from './warehouse-administrator';
 export class ShoppingCartManager {
   private readonly shoppingCartFacade = new ShoppingCartFacade();
   private readonly checkOutFacade: CheckOutFacade;
-  private readonly documentFacade: DocumentFacade = new DocumentFacade();
   constructor( client: Client ) {
     this.shoppingCart = this.shoppingCartFacade.buildShoppingCart( client );
     this.checkOutFacade = new CheckOutFacade( this.shoppingCart );
@@ -45,7 +43,7 @@ export class ShoppingCartManager {
   }
 
   public sendInvoiceToCustomer() {
-    this.documentFacade.sendInvoice( this.shoppingCart );
+    this.checkOutFacade.sendInvoice( this.shoppingCart );
   }
 
   private setInvoiceNumber() {
@@ -74,6 +72,6 @@ export class ShoppingCartManager {
   }
 
   private sendOrderToWarehouse() {
-    this.documentFacade.sendOrder( this.shoppingCart );
+    this.checkOutFacade.sendOrder( this.shoppingCart );
   }
 }

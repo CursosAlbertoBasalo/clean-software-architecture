@@ -61,7 +61,7 @@ export class WarehouseAdministrator {
       this.toolsFacade.joinPaths( ordersFolder, orderFileName ),
       this.toolsFacade.joinPaths( ordersFolder, shippmentFileName )
     );
-    this.toolsFacade.log( 'processed: ' + orderFileName );
+    this.toolsFacade.printLog( 'processed: ' + orderFileName );
   }
 
   private isAnOrderFile( orderFileName: string ) {
@@ -71,7 +71,7 @@ export class WarehouseAdministrator {
   private getRealPurchasedQuantity( purchasedProduct: Product, quantity: number ) {
     let realPurchasedQuantity = quantity;
     if ( this.isNotEnouht( purchasedProduct, quantity ) ) {
-      this.toolsFacade.log( 'not have enough: ' + purchasedProduct.name );
+      this.toolsFacade.printLog( 'not have enough: ' + purchasedProduct.name );
       realPurchasedQuantity = purchasedProduct.stock;
     }
     return realPurchasedQuantity;

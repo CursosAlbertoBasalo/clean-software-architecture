@@ -1,11 +1,11 @@
-import { Checker } from '../../3-infraestructure/helper/checker';
+import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
 import { CheckOut } from '../../3-infraestructure/models/check-out';
 import { Client } from '../../3-infraestructure/models/client';
 import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 
 export class ShoppingCartBuilder {
   private shoppingCart: ShoppingCart | undefined;
-  private readonly checker = new Checker();
+  private readonly toolsFacade = new ToolsFacade();
 
   constructor( private readonly client: Client ) { }
 
@@ -25,8 +25,8 @@ export class ShoppingCartBuilder {
   }
 
   public setCheckOut( checkOut: CheckOut ): ShoppingCart {
-    if ( !this.checker.hasStringContent( checkOut.billingAddress ) ) {
-      if ( this.checker.hasStringContent( checkOut.shippingAddress ) ) {
+    if ( !this.toolsFacade.hasStringContent( checkOut.billingAddress ) ) {
+      if ( this.toolsFacade.hasStringContent( checkOut.shippingAddress ) ) {
         checkOut.billingAddress = checkOut.shippingAddress;
       }
     }

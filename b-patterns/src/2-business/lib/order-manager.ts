@@ -16,7 +16,7 @@ export class OrderManager extends DocumentManager {
       this.toolsFacade.ensureFolder( this.emailFolder );
       const orderFileName = this.getFileName( shoppingCart );
       this.toolsFacade.writeFile( { path: orderFileName, content: orderMessageTemplate } );
-      this.toolsFacade.log( 'Sent Order: ' + shoppingCart.legalAmounts.invoiceNumber );
+      this.toolsFacade.printLog( 'Sent Order: ' + shoppingCart.legalAmounts.invoiceNumber );
     }
   }
   private getFileName( shoppingCart: ShoppingCart ) {
@@ -30,7 +30,7 @@ export class OrderManager extends DocumentManager {
   }
 
   private getWarehouseAddressByCountryTEMP( customerCountry: string ) {
-    const countryConfiguration = this.checker.findSafe(
+    const countryConfiguration = this.toolsFacade.findSafe(
       this.countryConfigurations,
       country => country.countryName === customerCountry
     );

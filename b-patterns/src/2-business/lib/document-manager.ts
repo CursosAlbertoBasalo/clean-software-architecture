@@ -1,5 +1,4 @@
 import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
-import { Checker } from '../../3-infraestructure/helper/checker';
 import { ITemplateManager } from '../../3-infraestructure/helper/i-template-manager';
 import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
 import { CountryConfiguration } from '../../3-infraestructure/models/country-configuration';
@@ -7,7 +6,6 @@ import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 
 export abstract class DocumentManager {
   protected readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;
-  protected readonly checker = new Checker();
   protected readonly invoicePrefix = `invoice-`;
   protected readonly orderPrefix = `order-`;
   protected readonly toolsFacade = new ToolsFacade();

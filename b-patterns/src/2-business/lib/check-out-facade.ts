@@ -2,6 +2,8 @@ import { LineItem } from '../../3-infraestructure/models/line-item';
 import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 import { TaxBaseInfo } from '../../3-infraestructure/models/tax-base-info';
 import { CheckOutCalculator } from './check-out-calculator';
+import { InvoiceManager } from './invoice-manager';
+import { OrderManager } from './order-manager';
 import { TaxBaseInfoAdapter } from './tax-base-info-adapter';
 import { TaxCalculator } from './tax-calculator';
 
@@ -31,5 +33,13 @@ export class CheckOutFacade {
       this.shoppingCart.client
     ).getFromFromLineItem( line );
     return TaxCalculator.calculateTax( lineTaxInfo );
+  }
+  public sendInvoice( shoppingCart: ShoppingCart ) {
+    const invoiceManager = new InvoiceManager();
+    invoiceManager.send( shoppingCart );
+  }
+  public sendOrder( shoppingCart: ShoppingCart ) {
+    const orderManager = new OrderManager();
+    orderManager.send( shoppingCart );
   }
 }

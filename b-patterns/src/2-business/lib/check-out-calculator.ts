@@ -1,6 +1,6 @@
 import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
 import { PAYMENTS_CONFIGURATIONS } from '../../3-infraestructure/database/config/payments-configurations';
-import { Checker } from '../../3-infraestructure/helper/checker';
+import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
 import { CountryConfiguration } from '../../3-infraestructure/models/country-configuration';
 import { PaymentConfiguration } from '../../3-infraestructure/models/payment-configuration';
 import { ShippingCost } from '../../3-infraestructure/models/shipping-cost';
@@ -10,7 +10,7 @@ export class CheckOutCalculator {
   private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;
   private readonly paymentsConfigurations: PaymentConfiguration[] = PAYMENTS_CONFIGURATIONS;
   private readonly discountFactor = 0.9;
-  private readonly checker = new Checker();
+  private readonly toolsFacade = new ToolsFacade();
 
   constructor( private readonly shoppingCart: ShoppingCart ) { }
 
@@ -52,14 +52,14 @@ export class CheckOutCalculator {
   }
 
   private getCountryConfiguration() {
-    return this.checker.findSafe(
+    return this.toolsFacade.findSafe(
       this.countryConfigurations,
       countryConfiguration =>
         countryConfiguration.countryName === this.shoppingCart.client.country
     );
   }
   private getPaymentConfiguration( payment: string ) {
-    return this.checker.findSafe(
+    return this.toolsFacade.findSafe(
       this.paymentsConfigurations,
       paymentConfiguration => paymentConfiguration.paymentMethod === payment
     );

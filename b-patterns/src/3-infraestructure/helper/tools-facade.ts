@@ -1,11 +1,13 @@
 import { FileContent } from '../models/file-content';
 import { FileToPrint } from '../models/file-to-print';
+import { Checker } from './checker';
 import { FileManager } from './import/file-manager';
 import { PathManager } from './import/path-manager';
 import { Logger } from './logger';
 import { Printer } from './printer';
 
 export class ToolsFacade {
+  private readonly checker = new Checker();
   private readonly logger = new Logger();
   private readonly fileManager = new FileManager();
   private readonly pathManager = new PathManager();
@@ -16,7 +18,7 @@ export class ToolsFacade {
     Printer.printContentToFile( fileToPrint );
   }
 
-  public log( logContent: string ) {
+  public printLog( logContent: string ) {
     this.logger.print( logContent );
   }
 
@@ -53,5 +55,16 @@ export class ToolsFacade {
 
   public readFolderFileList( folderPath: string ): string[] {
     return this.fileManager.readFolderFileList( folderPath );
+  }
+  public hasStringContent( content: string | undefined | null ): boolean {
+    return this.checker.hasStringContent( content );
+  }
+
+  public findSafe(
+    target: any[],
+    predicate: ( item: any ) => boolean,
+    defaultValue: any = target[0]
+  ): any {
+    return this.checker.findSafe( target, predicate, defaultValue );
   }
 }

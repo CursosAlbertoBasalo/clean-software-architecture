@@ -14,7 +14,7 @@ export class InvoiceManager extends DocumentManager {
       const invoiceTemplate = this.templateManager.getTemplate( shoppingCart );
       this.print( shoppingCart, invoiceTemplate );
       this.sendEmail( shoppingCart.client.email, invoiceTemplate );
-      this.toolsFacade.log( 'Sent Invoice: ' + shoppingCart.legalAmounts.invoiceNumber );
+      this.toolsFacade.printLog( 'Sent Invoice: ' + shoppingCart.legalAmounts.invoiceNumber );
     }
   }
 
