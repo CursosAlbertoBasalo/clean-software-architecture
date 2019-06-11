@@ -150,9 +150,15 @@ class InvoiceTemplateManager implements ITemplateManager{}
 class OrderTemplateTemplateManager implements ITemplateManager{}
 
 class DocumentManager {
+  protected  templateManager: ITemplateManager;
   constructor() { this.setTemplateManager(); }
   protected setTemplateManager(): ITemplateManager
 }
+```
+
+---
+
+```typescript
 class InvoiceManager extends DocumentManager{
   protected setTemplateManager(): InvoiceTemplateManager {
     this.templateManager = new InvoiceTemplateManager();
@@ -171,7 +177,6 @@ class ShoppingCartManager{
   }
 }
 ```
-
 ---
 
 ## Structural
