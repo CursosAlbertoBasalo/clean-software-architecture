@@ -27,10 +27,10 @@ export class TaxCalculator {
   }
 
   private static calculateLocalTax( taxBaseInfo: TaxBaseInfo ): number {
-    const localTax = TaxCalculator.getLocalVAT( taxBaseInfo );
-    const baseTax = ( taxBaseInfo.base * localTax ) / 100;
-    const roundedTax = baseTax.toFixed( TaxCalculator.decimalPlaces );
-    return Number( roundedTax );
+    const localVAT = TaxCalculator.getLocalVAT( taxBaseInfo );
+    const baseTax = ( taxBaseInfo.base * localVAT ) / 100;
+    const localTax = baseTax.toFixed( TaxCalculator.decimalPlaces );
+    return Number( localTax );
   }
 
   private static getLocalVAT( taxBaseInfo: TaxBaseInfo ): number {

@@ -76,12 +76,11 @@ class: impact
 
 Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
 
-- Abstract Factory
-- **Builder**
-- **Factory Method**
-- Prototype
-- Simple Factory
-- Singleton
+- **Abstract Factory:** una factoría de factorías relacionadas sin exponer nada concreto.
+- **Builder**: Permite crear subtipos de objetos facilitar la construcción de objetos complejos.
+- **Factory Method:** delega la lógica de creación de instancias a clases secundarias.
+- **Simple Factory:** genera una instancia sin exponer lógica de creación.
+- **Singleton:** Asegura una instancia única de una clase.
 
 ---
 
@@ -91,13 +90,13 @@ Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y l
 
 Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
 
-- **Adapter**
-- Bridge
-- Composite
-- Decorator
-- **Façade**
-- Flyweight
-- Proxy
+- **Adapter:** permite envolver un objeto en un adaptador para que sea compatible con otra.
+- **Bridge:** se trata de preferir la composición sobre la herencia.
+- **Composite:** permite tratar con objetos individuales de manera uniforme.
+- **Decorator:** permite agregar comportamiento envolviendo un objeto en otro.
+- **Façade:** proporciona un acceso simple a un sistema de objetos complejo.
+- **Flyweight:** se usa para reducir el consumo de memoria o CPU compartiendo recursos.
+- **Proxy:** una clase actúa como representante de otra.
 
 ---
 
@@ -108,16 +107,14 @@ Explican cómo ensamblar objetos y clases en estructuras más grandes, mantenien
 
 Cuidan la comunicación efectiva y la asignación de responsabilidades entre objetos.
 
-- Chain of Responsibility
-- **Command**
-- Iterator
-- Mediator
-- Memento
-- Observer
-- Visitor
-- **Strategy**
-- State
-- Template Method
+- **Chain of Responsibility:** encadena llamadas entre objetos o métodos
+- **Command:** encapsula acciones en objetos
+- **Iterator** accede a los elementos de un conjunto sin revelar cómo.
+- **Mediator:** desacopla dos objetos comunicándose con ambos.
+- **Memento:** guarda el estado actual para un uso futuro.
+- **Observer:** notifica cambios a suscriptores interesados.
+- **Strategy:** cambia el algoritmo según las circunstancias.
+- **State:** cambia el comportamiento según el estado.
 
 ---
 
