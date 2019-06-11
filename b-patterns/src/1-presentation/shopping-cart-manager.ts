@@ -2,12 +2,14 @@ import { CheckOutCalculator } from '../2-business/lib/check-out-calculator';
 import { InvoiceManager } from '../2-business/lib/invoice-manager';
 import { OrderManager } from '../2-business/lib/order-manager';
 import { ShoppingCartBuilder } from '../2-business/lib/shopping-cart-builder';
+import { TaxBaseInfoAdapter } from '../2-business/lib/tax-base-info-adapter';
 import { TaxCalculator } from '../2-business/lib/tax-calculator';
 import { ShoppingCartSaver } from '../3-infraestructure/database/shopping-cart-saver';
 import { CheckOut } from '../3-infraestructure/models/check-out';
 import { Client } from '../3-infraestructure/models/client';
 import { LineItem } from '../3-infraestructure/models/line-item';
 import { ShoppingCart } from '../3-infraestructure/models/shopping-cart';
+import { TaxBaseInfo } from '../3-infraestructure/models/tax-base-info';
 import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {
@@ -42,13 +44,9 @@ export class ShoppingCartManager {
     this.checkOutCalculator.calculateShippingCosts();
     this.checkOutCalculator.applyPaymentMethodExtra( checkOut.paymentMethod );
     this.checkOutCalculator.applyDiscount();
-    const totalTaxInfo = {
-      base: this.shoppingCart.legalAmounts.amount,
-      country: this.shoppingCart.client.country,
-      region: this.shoppingCart.client.region,
-      isStudent: this.shoppingCart.client.isStudent,
-      isATaxFreeProduct: false
-    };
+    const totalTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
+      this.shoppingCart.client
+    ).getFromFromLegalAmount( this.shoppingCart.legalAmounts );
     this.shoppingCart.legalAmounts.taxes += TaxCalculator.calculateTax( totalTaxInfo );
     this.setInvoiceNumber();
     this.sendOrderToWarehouse();
@@ -81,13 +79,9 @@ export class ShoppingCartManager {
   }
 
   private addTaxesByProduct( line: LineItem ) {
-    const lineTaxInfo = {
-      base: line.amount,
-      country: this.shoppingCart.client.country,
-      region: this.shoppingCart.client.region,
-      isStudent: this.shoppingCart.client.isStudent,
-      isATaxFreeProduct: line.taxFree
-    };
+    const lineTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
+      this.shoppingCart.client
+    ).getFromFromLineItem( line );
     line.taxes = TaxCalculator.calculateTax( lineTaxInfo );
     this.shoppingCart.legalAmounts.taxes += line.taxes;
   }

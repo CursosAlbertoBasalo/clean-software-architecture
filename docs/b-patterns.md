@@ -91,8 +91,8 @@ Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y l
 
 Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
 
-- Adapter
-- **Bridge**
+- **Adapter**
+- Bridge
 - Composite
 - Decorator
 - **Façade**
@@ -181,8 +181,51 @@ class ShoppingCartManager{
 
 ## Structural
 
-### [Bridge](https://refactoring.guru/design-patterns/bridge/typescript/example#lang-features)
-- file manager
+### [Adapter](https://refactoring.guru/design-patterns/bridge/typescript/example#lang-features)
+
+```typescript
+class TaxBaseInfoAdapter implements TaxBaseInfo {
+  public base: number;
+  public country: string;
+  public isATaxFreeProduct: boolean | undefined;
+  constructor( client: Client ) {
+    this.base = 0;
+    this.country = client.country;
+    this.isATaxFreeProduct = false;
+  }
+  public getFromFromLineItem( line: LineItem ) {
+    this.base = line.amount;
+    this.isATaxFreeProduct = line.taxFree;
+    return this;
+  }
+  public getFromFromLegalAmount( legalAmounts: LegalAmounts ) {
+    this.base = legalAmounts.amount;
+    return this;
+  }
+}
+```
+
+---
+
+```typescript
+class ShoppingCartManager{
+  public calculateLineTax(){
+    const lineTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
+      this.shoppingCart.client
+    ).getFromFromLineItem( line );
+    line.taxes = TaxCalculator.calculateTax( lineTaxInfo );
+  }
+  public calculateTotalTax(){
+    const totalTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
+      this.shoppingCart.client
+    ).getFromFromLegalAmount( this.shoppingCart.legalAmounts );
+    this.shoppingCart.legalAmounts.taxes += TaxCalculator.calculateTax( totalTaxInfo );
+  }
+}
+```
+
+---
+
 ### [Façade](https://refactoring.guru/design-patterns/facade/typescript/example#lang-features)
 - simplificar el trabajo con ficheros
 

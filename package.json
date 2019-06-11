@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "",
-    "test": "jest --testPathPattern=b-",
+    "test": "jest --testPathPattern=b- --runInBand",
     "lint": "tslint"
   },
   "devDependencies": {
