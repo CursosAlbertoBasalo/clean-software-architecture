@@ -14,7 +14,7 @@ export class ShoppingCartFacade {
   }
 
   public setCheckOut( checkOut: CheckOut ): ShoppingCart {
-    if ( this.shoppingCartBuilder ) {
+    if ( this.shoppingCartBuilder !== undefined ) {
       return this.shoppingCartBuilder.setCheckOut( checkOut );
     }
     throw 'No Shopping cart builder';

@@ -1,25 +1,21 @@
-import { CheckOutCalculator } from '../2-business/lib/check-out-calculator';
-import { InvoiceManager } from '../2-business/lib/invoice-manager';
-import { OrderManager } from '../2-business/lib/order-manager';
+import { CheckOutFacade } from '../2-business/lib/check-out-facade';
+import { DocumentFacade } from '../2-business/lib/document-facade';
 import { ShoppingCartFacade } from '../2-business/lib/shopping-cart-facade';
-import { TaxBaseInfoAdapter } from '../2-business/lib/tax-base-info-adapter';
-import { TaxCalculator } from '../2-business/lib/tax-calculator';
 import { CheckOut } from '../3-infraestructure/models/check-out';
 import { Client } from '../3-infraestructure/models/client';
 import { LineItem } from '../3-infraestructure/models/line-item';
 import { ShoppingCart } from '../3-infraestructure/models/shopping-cart';
-import { TaxBaseInfo } from '../3-infraestructure/models/tax-base-info';
 import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {
   private readonly shoppingCartFacade = new ShoppingCartFacade();
+  private readonly checkOutFacade: CheckOutFacade;
+  private readonly documentFacade: DocumentFacade = new DocumentFacade();
   constructor( client: Client ) {
     this.shoppingCart = this.shoppingCartFacade.buildShoppingCart( client );
-    this.checkOutCalculator = new CheckOutCalculator( this.shoppingCart );
+    this.checkOutFacade = new CheckOutFacade( this.shoppingCart );
   }
   public readonly shoppingCart: ShoppingCart;
-
-  private readonly checkOutCalculator: CheckOutCalculator;
 
   public addLineItem( purchasedItem: LineItem ) {
     this.shoppingCart.lineItems.push( purchasedItem );
@@ -39,21 +35,17 @@ export class ShoppingCartManager {
   public calculateCheckOut( checkOut: CheckOut ) {
     this.shoppingCartFacade.setCheckOut( checkOut );
     this.calculateTotalAmount();
-    this.checkOutCalculator.calculateShippingCosts();
-    this.checkOutCalculator.applyPaymentMethodExtra( checkOut.paymentMethod );
-    this.checkOutCalculator.applyDiscount();
-    const totalTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
-      this.shoppingCart.client
-    ).getFromFromLegalAmount( this.shoppingCart.legalAmounts );
-    this.shoppingCart.legalAmounts.taxes += TaxCalculator.calculateTax( totalTaxInfo );
+    this.checkOutFacade.calculateShippingCosts();
+    this.checkOutFacade.applyPaymentMethodExtra( checkOut.paymentMethod );
+    this.checkOutFacade.applyDiscount();
+    this.shoppingCart.legalAmounts.taxes += this.checkOutFacade.calculateTotalTax();
     this.setInvoiceNumber();
     this.sendOrderToWarehouse();
     this.shoppingCartFacade.deleteFromStorage( this.shoppingCart );
   }
 
   public sendInvoiceToCustomer() {
-    const invoiceManager = new InvoiceManager();
-    invoiceManager.send( this.shoppingCart );
+    this.documentFacade.sendInvoice( this.shoppingCart );
   }
 
   private setInvoiceNumber() {
@@ -77,15 +69,11 @@ export class ShoppingCartManager {
   }
 
   private addTaxesByProduct( line: LineItem ) {
-    const lineTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
-      this.shoppingCart.client
-    ).getFromFromLineItem( line );
-    line.taxes = TaxCalculator.calculateTax( lineTaxInfo );
+    line.taxes = this.checkOutFacade.calculateLineTax( line );
     this.shoppingCart.legalAmounts.taxes += line.taxes;
   }
 
   private sendOrderToWarehouse() {
-    const orderManager = new OrderManager();
-    orderManager.send( this.shoppingCart );
+    this.documentFacade.sendOrder( this.shoppingCart );
   }
 }
