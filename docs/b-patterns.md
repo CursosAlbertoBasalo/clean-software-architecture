@@ -170,10 +170,14 @@ class OrderManager extends DocumentManager{
   }
 }
 
-class ShoppingCartManager{
-  public send(){
-    new InvoiceManager().send(this.shoppingCart);
-    new OrderManager().send(this.shoppingCart);
+class CheckOutFacade{
+ public sendInvoice( shoppingCart: ShoppingCart ) {
+    const invoiceManager = new InvoiceManager();
+    invoiceManager.send( shoppingCart );
+  }
+  public sendOrder( shoppingCart: ShoppingCart ) {
+    const orderManager = new OrderManager();
+    orderManager.send( shoppingCart );
   }
 }
 ```
@@ -208,18 +212,18 @@ class TaxBaseInfoAdapter implements TaxBaseInfo {
 ---
 
 ```typescript
-class ShoppingCartManager{
-  public calculateLineTax(){
-    const lineTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
-      this.shoppingCart.client
-    ).getFromFromLineItem( line );
-    line.taxes = TaxCalculator.calculateTax( lineTaxInfo );
-  }
-  public calculateTotalTax(){
+class CheckOutFacade{
+   public calculateTotalTax(): number {
     const totalTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
       this.shoppingCart.client
     ).getFromFromLegalAmount( this.shoppingCart.legalAmounts );
-    this.shoppingCart.legalAmounts.taxes += TaxCalculator.calculateTax( totalTaxInfo );
+    return TaxCalculator.calculateTax( totalTaxInfo );
+  }
+  public calculateLineTax( line: LineItem ): number {
+    const lineTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
+      this.shoppingCart.client
+    ).getFromFromLineItem( line );
+    return TaxCalculator.calculateTax( lineTaxInfo );
   }
 }
 ```
@@ -230,6 +234,7 @@ class ShoppingCartManager{
 
 ```typescript
 export class ToolsFacade {
+  private readonly checker = new Checker();
   private readonly logger = new Logger();
   private readonly fileManager = new FileManager();
   private readonly pathManager = new PathManager();
