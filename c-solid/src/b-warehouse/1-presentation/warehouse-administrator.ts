@@ -22,7 +22,7 @@ export class WarehouseAdministrator {
 
   public addProduct() { }
 
-  public updatePurchasedProduct( purchasedItem: LineItem ) {
+  public updatePurchasedProduct( purchasedItem: LineItem ): number {
     const purchasedProduct = WarehouseAdministrator.findProductByName(
       purchasedItem.productName
     );

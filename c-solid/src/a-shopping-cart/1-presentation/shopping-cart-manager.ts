@@ -1,4 +1,4 @@
-import { WarehouseAdministrator } from '../../b-warehouse/1-presentation/warehouse-administrator';
+import { IntegrationMediator } from '../../y-mediation/integration-mediator';
 import { LineItem } from '../../z-common/3-infraestructure/models/line-item';
 import { CheckOutFacade } from '../2-business/lib/check-out-facade';
 import { ShoppingCartFacade } from '../2-business/lib/shopping-cart-facade';
@@ -8,7 +8,9 @@ import { ShoppingCart } from '../3-infraestructure/models/shopping-cart';
 
 export class ShoppingCartManager {
   private readonly shoppingCartFacade = new ShoppingCartFacade();
+  private readonly integrationMediator = new IntegrationMediator();
   private readonly checkOutFacade: CheckOutFacade;
+
   constructor( client: Client ) {
     this.shoppingCart = this.shoppingCartFacade.buildShoppingCart( client );
     this.checkOutFacade = new CheckOutFacade( this.shoppingCart );
@@ -53,14 +55,13 @@ export class ShoppingCartManager {
   }
 
   private calculateTotalAmount() {
-    const warehouseAdministrator = new WarehouseAdministrator();
     this.shoppingCart.lineItems.forEach( line => {
-      this.processLineItem( warehouseAdministrator, line );
+      this.processLineItem( line );
     } );
   }
 
-  private processLineItem( warehouseAdministrator: WarehouseAdministrator, line: LineItem ) {
-    line.quantity = warehouseAdministrator.updatePurchasedProduct( line );
+  private processLineItem( line: LineItem ) {
+    line.quantity = this.integrationMediator.updatePurchasedProduct( line );
     line.amount = line.price * line.quantity;
     this.shoppingCart.legalAmounts.amount += line.amount;
     this.addTaxesByProduct( line );
