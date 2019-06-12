@@ -1,3 +1,4 @@
+import { Checker } from '../../../z-common/3-infraestructure/helper/checker';
 import { LineItem } from '../../../z-common/3-infraestructure/models/line-item';
 import { DOCUMENT_TYPES } from '../../3-infraestructure/database/config/document-types';
 import { DocumentType } from '../../3-infraestructure/models/document-type';
