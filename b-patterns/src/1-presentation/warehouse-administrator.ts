@@ -1,5 +1,4 @@
 import { PRODUCT_CATALOG } from '../3-infraestructure/database/product-catalog';
-import { Printer } from '../3-infraestructure/helper/printer';
 import { ToolsFacade } from '../3-infraestructure/helper/tools-facade';
 import { LineItem } from '../3-infraestructure/models/line-item';
 import { Product } from '../3-infraestructure/models/product';
@@ -99,6 +98,6 @@ export class WarehouseAdministrator {
       fileName: this.restockPrefix + productToRestoc.name + '.json',
       textContent: JSON.stringify( productToRestoc )
     };
-    Printer.printContentToFile( fileToPrint );
+    this.toolsFacade.printContentToFile( fileToPrint );
   }
 }

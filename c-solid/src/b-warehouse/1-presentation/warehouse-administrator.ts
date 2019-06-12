@@ -1,8 +1,7 @@
-import { PRODUCT_CATALOG } from '../3-infraestructure/database/product-catalog';
-import { Printer } from '../3-infraestructure/helper/printer';
-import { ToolsFacade } from '../3-infraestructure/helper/tools-facade';
-import { LineItem } from '../3-infraestructure/models/line-item';
-import { Product } from '../3-infraestructure/models/product';
+import { LineItem } from '../../a-shopping-cart/3-infraestructure/models/line-item';
+import { ToolsFacade } from '../../z-common/3-infraestructure/helper/tools-facade';
+import { PRODUCT_CATALOG } from '../3-infrestructure/database/product-catalog';
+import { Product } from '../3-infrestructure/models/product';
 
 export class WarehouseAdministrator {
   public static productCatalog: Product[] = PRODUCT_CATALOG;
@@ -99,6 +98,6 @@ export class WarehouseAdministrator {
       fileName: this.restockPrefix + productToRestoc.name + '.json',
       textContent: JSON.stringify( productToRestoc )
     };
-    Printer.printContentToFile( fileToPrint );
+    this.toolsFacade.printContentToFile( fileToPrint );
   }
 }

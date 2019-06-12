@@ -1,7 +1,7 @@
-import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
+import { COUNTRY_CONFIGURATIONS } from '../../../3-infraestructure/database/config/country-configurations';
+import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
+import { CountryConfiguration } from '../../../z-common/3-infraestructure/models/country-configuration';
 import { ITemplateManager } from '../../3-infraestructure/helper/i-template-manager';
-import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
-import { CountryConfiguration } from '../../3-infraestructure/models/country-configuration';
 import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 
 export abstract class DocumentManager {
