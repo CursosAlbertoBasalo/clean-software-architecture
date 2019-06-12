@@ -24,33 +24,42 @@ class: impact
 
 ---
 
-[Arquitectura de software] (https://medium.com/@albertobasalo71/la-arquitectura-del-software-y-el-tiempo-dc7f55c23bce)
+# Arquitecturas para construir software de gran tamaño.
 
-Evoluciona en función del tiempo de mantenimiento esperado.
+> Entre **4 y 8 años** de tiempo de desarrollo y mantenimiento evolutivo activo con equipos variables de **8 o más integrantes**.
 
----
+**Ejemplos**:
 
-# Arquitecturas para construir software de tamaño medio.
-
-> Entre 2 y 5 años de tiempo de desarrollo y mantenimiento evolutivo activo con equipos de 5 o más integrantes.
-
-**Ejemplos**: Productos de start-up que ya han funcionado. Automatización de procesos de negocio de empresas consolidadas. Renovación de sistemas de información en organizaciones con sistemas legacy.
+- Productos de start-up que ya han funcionado.
+- Automatización de procesos de negocio de empresas consolidadas.
+- Renovación de sistemas de información en organizaciones con sistemas legacy.
 
 ---
 
-**Situación**: Si algo hay seguro para los próximos años es que las reglas del negocio informatizado van a cambiar. Por si fuera poco, lo harán ya con el sistema en producción dando servicio ininterrumpido a clientes o sistemas críticos para la empresa. Así que el cambio ha de integrarse de manera transparente y sin oposición. Impactando lo menos posible en el código ya hecho y en los paquetes ya desplegados.
+**Situación**:
+- Si algo hay seguro para los próximos años es que **las reglas** del negocio informatizado **van a cambiar**.
 
-**Objetivo**: La extensibilidad de un sistema en producción, que se consigue facilitando el desarrollo y despliegue por partes conectadas pero independientes.
+- Por si fuera poco, lo harán ya **con el sistema en producción** dando servicio ininterrumpido a un público **crítico para la empresa**.
+
+- Así que **el cambio** ha de integrarse de manera transparente y **sin oposición**. Impactando lo menos posible en el código ya hecho y en los paquetes ya desplegados.
+
+**Objetivo**:
+
+> La extensibilidad de un sistema en producción; que se consigue facilitando el desarrollo y el despliegue en _silos funcionales_ conectados pero independientes.
 
 ---
 
 ## Reglas:
 
-**Código**: Fomentar el cambio funcional mediante la aplicación de los principios SOLID al diseño de las clases.
+**Código**: Fomentar el cambio funcional mediante la aplicación de los _principios SOLID_ al diseño de las clases.
+
 **Mantra**: Encapsular lo que varía y depender de interfaces en lugar de implementaciones concretas.
+
 **Test**: Garantizar que el software funciona unitariamente mediante pruebas a nivel de paquete desplegable.
+
 **Componentes**: Las tres capas lógicas por niveles son insuficientes. Para permitir un desarrollo paralelo e independiente debemos desacoplaras mediante abstracciones intermedias.
-**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes deben agruparse en silos funcionales verticales que no exijan el compilado y despliegue completo.
+
+**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes deben agruparse en _silos funcionales_ verticales que no exijan el compilado y despliegue completo.
 
 ---
 
@@ -70,17 +79,17 @@ Evoluciona en función del tiempo de mantenimiento esperado.
 
 ---
 
-## Obstáculos del cambio
+# Obstáculos del cambio
 
-### Cambio divergente.
+## Cambio divergente.
 
 - Una clase que se cambia de diferentes maneras o por diferentes razones.
 
-### Cirugía con escopeta
+## Cirugía con escopeta
 
 - Un cambio que requiere cambios en muchas clases. Difícil encontrarlos, fácil olvidarse.
 
-### Complejidad ciclomática.
+## Complejidad ciclomática.
 
 - Número de rutas únicas que aumenta con el anidamiento, los _switches_ y las condiciones complejas.
 
@@ -108,7 +117,7 @@ Evoluciona en función del tiempo de mantenimiento esperado.
 ---
 
 
-## Consecuencias
+## Consecuencias que dificultan el cambio
 
 ### Rigidez
 

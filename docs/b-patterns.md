@@ -14,13 +14,54 @@ class: impact
 
 # {{title}}
 
-## Un catálogo nada exhaustivo
+## Un ayuda hacia el el pensamiento orientado a objetos
 
-> "Orienta tu código para un uso futuro,
-
-> no solo para las necesidades inmediatas."
+> "Solo apreciarás un patrón cuando hayas sentido el dolor de su falta."
 >
-> -- **Eric Freeman**
+> -- **Erich Gamma**
+
+---
+
+# Arquitecturas para construir software de tamaño medio
+
+>Entre **2 y 4 años** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos poco variables de entre **2 - 8 integrantes**.
+
+**Ejemplos**:
+- Producto en marcha en una start-up en crecimiento.
+- Aplicaciones departamentales o para pequeñas empresas.
+- Aplicaciones web sobre plataformas standard.
+- Otros desarrollos técnica y funcionalmente poco complejos.
+
+---
+
+**Situación**:
+
+- Los tiempos y presupuestos permiten **dedicar recursos al diseño técnico** del desarrollo.
+
+- Los **cambios funcionales serán menos frecuentes pero potencialmente más graves**, pues el software estará en uso.
+
+- La reducción del **coste de explotación** está en la reducción de _bugs_ y mantenimiento.
+
+**Objetivo**:
+
+> Facilitar el cambio funcional mediante _Design Patterns_, pero con un código localizable con _3 simple layers_.
+
+---
+
+## Reglas:
+
+**Código**: Evitar más _code smells_ mediante patrones de diseño que lleven a un código fácil de ampliar.
+
+**Mantra**: Reparto de responsabilidades entre clases.
+
+**Test**: Garantizar que el software admite los cambios mediante pruebas de integración sencillas.
+
+**Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> infraestructura`.
+
+**Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
+
+---
+
 
 ---
 
@@ -182,7 +223,7 @@ class CheckOutFacade{
 
 ## Structural
 
-### [Adapter](https://refactoring.guru/design-patterns/bridge/typescript/example#lang-features)
+### Adapter
 
 ```typescript
 class TaxBaseInfoAdapter implements TaxBaseInfo {
@@ -227,7 +268,7 @@ class CheckOutFacade{
 
 ---
 
-### [Façade](https://refactoring.guru/design-patterns/facade/typescript/example#lang-features)
+### Façade
 
 ```typescript
 export class ToolsFacade {
@@ -255,55 +296,6 @@ export class ToolsFacade {
 
 ---
 
-## Behavioral
-
-### [Command](https://refactoring.guru/design-patterns/command/typescript/example#lang-features)
-- procesado de pedidos
-
-### [Strategy](https://refactoring.guru/design-patterns/strategy/typescript/example#lang-features)
-- Usar el TaxCalculator para líneas o para totales
-
----
-
-# Arquitecturas para construir software de tamaño medio
-
->Entre **1 o 2 años** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos estables de entre **2 - 4 integrantes**.
-
-**Ejemplos**:
-- Producto en marcha en una start-up en crecimiento.
-- Aplicaciones departamentales o para pequeñas empresas.
-- Aplicaciones web sobre plataformas standard.
-- Otros desarrollos técnica y funcionalmente poco complejos.
-
----
-
-**Situación**:
-
-- Los tiempos y presupuestos permiten **dedicar recursos al diseño técnico** del desarrollo.
-
-- Los **cambios funcionales serán menos frecuentes pero potencialmente más graves**, pues el software estará en uso.
-
-- La reducción del **coste de explotación** está en la reducción de _bugs_ y mantenimiento.
-
-**Objetivo**:
-
->Facilitar el cambio funcional mediante _Design Patterns_, pero con un código localizable con _3 simple layers_.
-
----
-
-## Reglas:
-
-**Código**: Evitar más _code smells_ mediante patrones de diseño que lleven a un código fácil de ampliar.
-
-**Mantra**: Reparto de responsabilidades entre clases.
-
-**Test**: Garantizar que el software admite los cambios mediante pruebas de integración sencillas.
-
-**Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> persistencia`.
-
-**Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
-
----
 
 - [<- Vuelta al índice ](./)
 
