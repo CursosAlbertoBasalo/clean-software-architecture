@@ -1,4 +1,4 @@
-import { LineItem } from '../../3-infraestructure/models/line-item';
+import { LineItem } from '../../../z-common/3-infraestructure/models/line-item';
 import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 import { TaxBaseInfo } from '../../3-infraestructure/models/tax-base-info';
 import { CheckOutCalculator } from './check-out-calculator';

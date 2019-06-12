@@ -1,5 +1,5 @@
-import { LineItem } from '../../a-shopping-cart/3-infraestructure/models/line-item';
 import { ToolsFacade } from '../../z-common/3-infraestructure/helper/tools-facade';
+import { LineItem } from '../../z-common/3-infraestructure/models/line-item';
 import { PRODUCT_CATALOG } from '../3-infrestructure/database/product-catalog';
 import { Product } from '../3-infrestructure/models/product';
 

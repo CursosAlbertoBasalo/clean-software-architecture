@@ -1,6 +1,6 @@
-import { Checker } from '../../../3-infraestructure/helper/checker';
 import { FileContent } from '../models/file-content';
 import { FileToPrint } from '../models/file-to-print';
+import { Checker } from './checker';
 import { FileManager } from './import/file-manager';
 import { PathManager } from './import/path-manager';
 import { Logger } from './logger';

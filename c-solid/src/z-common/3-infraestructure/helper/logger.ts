@@ -1,4 +1,4 @@
-import { Checker } from '../../../3-infraestructure/helper/checker';
+import { Checker } from './checker';
 import { Printer } from './printer';
 export class Logger {
   private readonly logFileName = `log.txt`;

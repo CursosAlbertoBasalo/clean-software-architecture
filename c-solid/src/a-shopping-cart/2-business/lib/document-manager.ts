@@ -1,4 +1,4 @@
-import { COUNTRY_CONFIGURATIONS } from '../../../3-infraestructure/database/config/country-configurations';
+import { COUNTRY_CONFIGURATIONS } from '../../../z-common/3-infraestructure/database/config/country-configurations';
 import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
 import { CountryConfiguration } from '../../../z-common/3-infraestructure/models/country-configuration';
 import { ITemplateManager } from '../../3-infraestructure/helper/i-template-manager';
