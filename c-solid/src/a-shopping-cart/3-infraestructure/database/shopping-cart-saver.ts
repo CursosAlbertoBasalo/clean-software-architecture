@@ -28,7 +28,7 @@ export class ShoppingCartSaver {
   }
 
   public writeLastInvoiceNumber( shoppingCart: ShoppingCart ) {
-    const invoiceNumberFileName = this.pathManager.join(
+    const invoiceNumberFileName = this.pathManager.joinPaths(
       this.pathManager.dataFolder,
       this.lastinvoiceFileName
     );
@@ -39,7 +39,7 @@ export class ShoppingCartSaver {
   }
 
   public readLastInvoiceNumber(): number {
-    const invoiceNumberFileName = this.pathManager.join(
+    const invoiceNumberFileName = this.pathManager.joinPaths(
       this.pathManager.dataFolder,
       this.lastinvoiceFileName
     );
@@ -57,7 +57,7 @@ export class ShoppingCartSaver {
 
   private getShoppingFilePath( shoppingCart: ShoppingCart ) {
     const shoppingFileName = `${this.shoppingPrefix}${shoppingCart.client.name}.json`;
-    const shoppingFilePath = this.pathManager.join(
+    const shoppingFilePath = this.pathManager.joinPaths(
       this.pathManager.dataFolder,
       shoppingFileName
     );

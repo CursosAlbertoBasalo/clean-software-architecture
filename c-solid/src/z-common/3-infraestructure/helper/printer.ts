@@ -32,6 +32,6 @@ export class Printer {
   }
 
   private static getPrintFilePath( fileName: string ) {
-    return Printer.pathManager.join( Printer.printFolder, fileName );
+    return Printer.pathManager.joinPaths( Printer.printFolder, fileName );
   }
 }

@@ -1,6 +1,7 @@
 import { COUNTRY_CONFIGURATIONS } from '../../../z-common/3-infraestructure/database/config/country-configurations';
 import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
 import { CountryConfiguration } from '../../../z-common/3-infraestructure/models/country-configuration';
+import { ICheck } from '../../../z-common/3-infraestructure/models/i-check';
 import { ShippingCost } from '../../../z-common/3-infraestructure/models/shipping-cost';
 import { PAYMENTS_CONFIGURATIONS } from '../../3-infraestructure/database/config/payments-configurations';
 import { PaymentConfiguration } from '../../3-infraestructure/models/payment-configuration';
@@ -10,7 +11,7 @@ export class CheckOutCalculator {
   private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;
   private readonly paymentsConfigurations: PaymentConfiguration[] = PAYMENTS_CONFIGURATIONS;
   private readonly discountFactor = 0.9;
-  private readonly toolsFacade = new ToolsFacade();
+  private readonly toolsFacade: ICheck = new ToolsFacade();
 
   constructor( private readonly shoppingCart: ShoppingCart ) { }
 

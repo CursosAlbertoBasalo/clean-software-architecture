@@ -1,11 +1,12 @@
 import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
+import { ICheck } from '../../../z-common/3-infraestructure/models/i-check';
 import { CheckOut } from '../../3-infraestructure/models/check-out';
 import { Client } from '../../3-infraestructure/models/client';
 import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
 
 export class ShoppingCartBuilder {
   private shoppingCart: ShoppingCart | undefined;
-  private readonly toolsFacade = new ToolsFacade();
+  private readonly toolsFacade: ICheck = new ToolsFacade();
 
   constructor( private readonly client: Client ) { }
 

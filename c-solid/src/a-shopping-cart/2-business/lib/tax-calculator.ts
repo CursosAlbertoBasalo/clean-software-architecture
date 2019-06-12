@@ -1,4 +1,5 @@
 import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
+import { ICheck } from '../../../z-common/3-infraestructure/models/i-check';
 import { LOCAL_TAXES_TREE } from '../../3-infraestructure/database/config/local-taxes-tree';
 import { CountryTaxNode } from '../../3-infraestructure/models/country-tax-node';
 import { RegionTaxNode } from '../../3-infraestructure/models/region-tax-node';
@@ -8,7 +9,7 @@ export class TaxCalculator {
   private static readonly decimalPlaces: number = 2;
   private static readonly taxExemptRegion: string = 'St Pierre';
   private static readonly localTaxesTree: CountryTaxNode[] = LOCAL_TAXES_TREE;
-  private static readonly toolsFacade = new ToolsFacade();
+  private static readonly toolsFacade: ICheck = new ToolsFacade();
 
   public static calculateTax( taxBaseInfo: TaxBaseInfo ): number {
     if ( TaxCalculator.isTaxExempt( taxBaseInfo ) ) {

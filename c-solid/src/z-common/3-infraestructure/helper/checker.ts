@@ -1,4 +1,6 @@
-export class Checker {
+import { ICheck } from '../models/i-check';
+
+export class Checker implements ICheck {
   public hasStringContent( content: string | undefined | null ): boolean {
     return content !== undefined && content !== null && content.length > 0;
   }

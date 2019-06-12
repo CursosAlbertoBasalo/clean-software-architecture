@@ -1,12 +1,16 @@
 import { FileContent } from '../models/file-content';
 import { FileToPrint } from '../models/file-to-print';
+import { ICheck } from '../models/i-check';
+import { ILogger } from '../models/i-logger';
+import { IManageFiles } from '../models/i-manage-files';
+import { IManagePaths } from '../models/i-manage-paths';
 import { Checker } from './checker';
 import { FileManager } from './import/file-manager';
 import { PathManager } from './import/path-manager';
 import { Logger } from './logger';
 import { Printer } from './printer';
 
-export class ToolsFacade {
+export class ToolsFacade implements ICheck, ILogger, IManageFiles, IManagePaths {
   private readonly checker = new Checker();
   private readonly logger = new Logger();
   private readonly fileManager = new FileManager();
@@ -19,14 +23,14 @@ export class ToolsFacade {
   }
 
   public printLog( logContent: string ) {
-    this.logger.print( logContent );
+    this.logger.printLog( logContent );
   }
 
   public joinPaths( folderPath: string, fileName: string ) {
-    return this.pathManager.join( folderPath, fileName );
+    return this.pathManager.joinPaths( folderPath, fileName );
   }
   public getBaseName( fullPath: string ) {
-    return this.pathManager.baseName( fullPath );
+    return this.pathManager.getBaseName( fullPath );
   }
 
   public writeFile( fileContent: FileContent ) {

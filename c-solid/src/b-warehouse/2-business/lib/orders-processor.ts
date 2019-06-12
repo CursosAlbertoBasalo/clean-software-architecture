@@ -1,7 +1,10 @@
 import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
+import { ILogger } from '../../../z-common/3-infraestructure/models/i-logger';
+import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
+import { IManagePaths } from '../../../z-common/3-infraestructure/models/i-manage-paths';
 
 export class OrdersProcessor {
-  protected readonly toolsFacade = new ToolsFacade();
+  protected readonly toolsFacade: IManageFiles & IManagePaths & ILogger = new ToolsFacade();
   private readonly shipmentPrefix = `shipment-`;
   private readonly orderPrefix = `order-`;
 
@@ -13,7 +16,7 @@ export class OrdersProcessor {
     return this.toolsFacade.emailFolder;
   }
   private processOrdesFolder( ordersFolder: string ) {
-    this.toolsFacade.readFolderFileList( ordersFolder ).forEach( fileName => {
+    this.toolsFacade.readFolderFileList( ordersFolder ).forEach( ( fileName: string ) => {
       this.processFileInOrderFolder( fileName, ordersFolder );
     } );
   }

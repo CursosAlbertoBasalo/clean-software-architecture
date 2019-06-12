@@ -1,7 +1,8 @@
 import * as fs from 'fs';
 import { FileContent } from '../../models/file-content';
+import { IManageFiles } from '../../models/i-manage-files';
 
-export class FileManager {
+export class FileManager implements IManageFiles {
   public writeFile( fileContent: FileContent ) {
     if ( this.notExistsFile( fileContent ) ) {
       fs.writeFileSync( fileContent.path, fileContent.content );
