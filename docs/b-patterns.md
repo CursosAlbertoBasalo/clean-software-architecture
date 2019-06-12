@@ -16,10 +16,6 @@ class: impact
 
 ## Hacia el pensamiento orientado a objetos
 
-> "Solo apreciarás un patrón cuando hayas sentido el dolor de su falta."
->
-> -- **Erich Gamma**
-
 ---
 
 # Arquitecturas para construir software de tamaño medio
@@ -62,6 +58,11 @@ class: impact
 
 ---
 
+> Evoluciona en función del tiempo de mantenimiento esperado.
+>
+> -- **Alguien con experiencia**
+
+---
 ## Principios para un final feliz
 
 ###  POLA: Principle Of Least Astonishment.
@@ -102,9 +103,9 @@ class: impact
 
 ![A veces veo patrones de diseño](./assets/isee.jpg)
 
-> Evoluciona en función del tiempo de mantenimiento esperado.
+> "Solo apreciarás un patrón cuando hayas sentido el dolor de su falta."
 >
-> -- **Alguien con experiencia**
+> -- **Erich Gamma**
 
 ---
 

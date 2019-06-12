@@ -16,12 +16,6 @@ class: impact
 
 ## Principios sólidos para finales flexibles
 
-> "Orienta tu código para un uso futuro,
-
-> no solo para las necesidades inmediatas."
->
-> -- **Eric Freeman**
-
 ---
 
 # Arquitecturas para construir software de gran tamaño.
@@ -59,7 +53,7 @@ class: impact
 
 **Componentes**: Las tres capas lógicas por niveles son insuficientes. Para permitir un desarrollo paralelo e independiente debemos desacoplaras mediante abstracciones intermedias.
 
-**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes deben agruparse en _silos funcionales_ verticales que no exijan el compilado y despliegue completo.
+**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes deben agruparse en **silos funcionales** verticales que no exijan el compilado y despliegue completo.
 
 ---
 
@@ -76,6 +70,34 @@ class: impact
 | Lógica      |             |            |            |            |
 | Persistencia|             |            |            |            |
 
+--
+
+> "Orienta tu código para un uso futuro,
+
+> no solo para las necesidades inmediatas."
+>
+> -- **Eric Freeman**
+
+---
+
+# EAI: Enterprise Application Integration
+
+## Mediation
+
+### Intra Communication
+
+Aquí, el sistema _EAI_ actúa como intermediario entre varias aplicaciones. Cada vez que ocurre un evento interesante en una aplicación (por ejemplo, se crea realiza un checkout desde `ShoppingCart`) se notifica a un módulo de integración en el sistema _EAI_. El módulo luego propaga los cambios a otras aplicaciones relevantes (por ejemplo la de `Warehouse`).
+
+--
+## Federation
+
+### Inter Communication
+
+En este caso, el sistema _EAI_ actúa como la fachada general de múltiples aplicaciones (`ShoppingCart` y `Warehouse`).
+
+Todas las llamadas de eventos desde el _mundo exterior_ a cualquiera de las aplicaciones tienen un inicio frontal por parte del sistema _EAI_.
+
+El sistema EAI está configurado para exponer solo la información relevante y las interfaces de las aplicaciones subyacentes al _mundo exterior_, y realiza todas las interacciones con las aplicaciones subyacentes en nombre del solicitante.
 
 ---
 
