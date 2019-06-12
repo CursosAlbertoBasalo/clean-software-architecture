@@ -14,7 +14,7 @@ class: impact
 
 # {{title}}
 
-## Un ayuda hacia el el pensamiento orientado a objetos
+## Hacia el pensamiento orientado a objetos
 
 > "Solo apreciarás un patrón cuando hayas sentido el dolor de su falta."
 >
@@ -44,7 +44,7 @@ class: impact
 
 **Objetivo**:
 
-> Facilitar el cambio funcional mediante _Design Patterns_, pero con un código localizable con _3 simple layers_.
+> Facilitar el cambio funcional mediante **Design Patterns**, pero con un código localizable con **3 simple layers**.
 
 ---
 
@@ -59,9 +59,6 @@ class: impact
 **Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> infraestructura`.
 
 **Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
-
----
-
 
 ---
 
