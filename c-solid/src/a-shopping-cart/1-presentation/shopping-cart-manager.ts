@@ -45,7 +45,7 @@ export class ShoppingCartManager {
   }
 
   public sendInvoiceToCustomer() {
-    this.checkOutFacade.sendInvoice( this.shoppingCart );
+    this.checkOutFacade.sendDocument( this.shoppingCart, 'invoice' );
   }
 
   private setInvoiceNumber() {
@@ -73,6 +73,6 @@ export class ShoppingCartManager {
   }
 
   private sendOrderToWarehouse() {
-    this.checkOutFacade.sendOrder( this.shoppingCart );
+    this.checkOutFacade.sendDocument( this.shoppingCart, 'order' );
   }
 }
