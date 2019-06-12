@@ -1,0 +1,4 @@
+- [ ] docs(c-solid): solid
+- [ ] refactor(c-solid): solid and silos
+- [ ] test(c-solid): solid
+- [ ] docs(c-solid): [class diagrams](https://yuml.me/academiabinaria/c-solid.jpg)
