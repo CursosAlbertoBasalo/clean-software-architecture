@@ -39,7 +39,7 @@ class: impact
 
 **Objetivo**:
 
-> La extensibilidad de un sistema en producción; que se consigue facilitando el desarrollo y el despliegue en _silos funcionales_ conectados pero independientes.
+> La extensibilidad de un sistema crítico en producción; que se consigue facilitando el desarrollo y el despliegue en **silos funcionales** conectados pero independientes.
 
 ---
 
@@ -53,7 +53,7 @@ class: impact
 
 **Componentes**: Las tres capas lógicas por niveles son insuficientes. Para permitir un desarrollo paralelo e independiente debemos desacoplaras mediante abstracciones intermedias.
 
-**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes deben agruparse en **silos funcionales** verticales que no exijan el compilado y despliegue completo.
+**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes, agrupados en silos, se ejecutan en _servicios funcionales_ verticales que no exijan el compilado y despliegue completo.
 
 ---
 
@@ -70,7 +70,10 @@ class: impact
 | Lógica      |             |            |            |            |
 | Persistencia|             |            |            |            |
 
---
+---
+
+
+# EAI: Enterprise Application Integration
 
 > "Orienta tu código para un uso futuro,
 
@@ -80,15 +83,14 @@ class: impact
 
 ---
 
-# EAI: Enterprise Application Integration
-
 ## Mediation
 
 ### Intra Communication
 
 Aquí, el sistema _EAI_ actúa como intermediario entre varias aplicaciones. Cada vez que ocurre un evento interesante en una aplicación (por ejemplo, se crea realiza un checkout desde `ShoppingCart`) se notifica a un módulo de integración en el sistema _EAI_. El módulo luego propaga los cambios a otras aplicaciones relevantes (por ejemplo la de `Warehouse`).
 
---
+---
+
 ## Federation
 
 ### Inter Communication
