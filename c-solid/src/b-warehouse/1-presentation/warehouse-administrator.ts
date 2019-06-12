@@ -1,14 +1,14 @@
 import { ToolsFacade } from '../../z-common/3-infraestructure/helper/tools-facade';
 import { LineItem } from '../../z-common/3-infraestructure/models/line-item';
+import { OrdersProcessor } from '../2-business/lib/orders-processor';
 import { PRODUCT_CATALOG } from '../3-infrestructure/database/product-catalog';
 import { Product } from '../3-infrestructure/models/product';
 
 export class WarehouseAdministrator {
   public static productCatalog: Product[] = PRODUCT_CATALOG;
-  private readonly shipmentPrefix = `shipment-`;
-  private readonly orderPrefix = `order-`;
   private readonly restockPrefix = `restock-`;
   protected readonly toolsFacade = new ToolsFacade();
+  protected readonly ordersProcessor = new OrdersProcessor();
   private stock: any[] = [];
 
   private static findProductByName( productName: string ) {
@@ -16,8 +16,7 @@ export class WarehouseAdministrator {
   }
 
   public processOrders() {
-    const ordersFolder = this.getOrdersFolder();
-    this.processOrdesFolder( ordersFolder );
+    this.ordersProcessor.processOrders();
   }
 
   public addProduct() { }
@@ -36,35 +35,6 @@ export class WarehouseAdministrator {
     } else {
       return 0;
     }
-  }
-
-  private getOrdersFolder() {
-    return this.toolsFacade.emailFolder;
-  }
-
-  private processOrdesFolder( ordersFolder: string ) {
-    this.toolsFacade.readFolderFileList( ordersFolder ).forEach( fileName => {
-      this.processFileInOrderFolder( fileName, ordersFolder );
-    } );
-  }
-
-  private processFileInOrderFolder( fileName: string, ordersFolder: string ) {
-    if ( this.isAnOrderFile( fileName ) ) {
-      this.processOrder( fileName, ordersFolder );
-    }
-  }
-
-  private processOrder( orderFileName: string, ordersFolder: string ) {
-    const shippmentFileName = orderFileName.replace( this.orderPrefix, this.shipmentPrefix );
-    this.toolsFacade.renameFile(
-      this.toolsFacade.joinPaths( ordersFolder, orderFileName ),
-      this.toolsFacade.joinPaths( ordersFolder, shippmentFileName )
-    );
-    this.toolsFacade.printLog( 'processed: ' + orderFileName );
-  }
-
-  private isAnOrderFile( orderFileName: string ) {
-    return this.toolsFacade.getBaseName( orderFileName ).startsWith( this.orderPrefix );
   }
 
   private getRealPurchasedQuantity( purchasedProduct: Product, quantity: number ) {
