@@ -1,14 +1,16 @@
 import { Checker } from '../../../z-common/3-infraestructure/helper/checker';
-import { FileManager } from '../../../z-common/3-infraestructure/helper/import/file-manager';
 import { PathManager } from '../../../z-common/3-infraestructure/helper/import/path-manager';
+import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
 import { ShoppingCart } from '../models/shopping-cart';
 
 export class ShoppingCartSaver {
   private readonly shoppingPrefix: string = `shopping-`;
   private readonly lastinvoiceFileName: string = `lastinvoice.txt`;
   private readonly pathManager = new PathManager();
-  private readonly fileManager = new FileManager();
+  // private readonly fileManager: FileManager = new FileManager();
   private readonly checker = new Checker();
+
+  constructor( private readonly fileManager: IManageFiles ) { }
 
   public loadFromStorage( shoppingCart: ShoppingCart ) {
     const shoppingFilePath = this.getShoppingFilePath( shoppingCart );

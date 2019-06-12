@@ -1,3 +1,5 @@
+import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
+import { ManageFilesFactory } from '../../3-infraestructure/database/manage-files-factory';
 import { ShoppingCartSaver } from '../../3-infraestructure/database/shopping-cart-saver';
 import { CheckOut } from '../../3-infraestructure/models/check-out';
 import { Client } from '../../3-infraestructure/models/client';
@@ -6,7 +8,8 @@ import { ShoppingCartBuilder } from './shopping-cart-builder';
 
 export class ShoppingCartFacade {
   private shoppingCartBuilder: ShoppingCartBuilder | undefined;
-  private readonly shoppingCartSaver = new ShoppingCartSaver();
+  private readonly fileManager: IManageFiles = new ManageFilesFactory().createInstance();
+  private readonly shoppingCartSaver = new ShoppingCartSaver( this.fileManager );
 
   public buildShoppingCart( client: Client ): ShoppingCart {
     this.shoppingCartBuilder = new ShoppingCartBuilder( client );
