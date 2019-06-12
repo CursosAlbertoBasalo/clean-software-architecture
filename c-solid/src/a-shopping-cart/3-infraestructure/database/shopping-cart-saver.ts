@@ -6,7 +6,7 @@ import { ShoppingCart } from '../models/shopping-cart';
 export class ShoppingCartSaver {
   private readonly shoppingPrefix: string = `shopping-`;
   private readonly lastinvoiceFileName: string = `lastinvoice.txt`;
-  private readonly pathManager = new PathManager();
+  private readonly toolsFacade = new PathManager();
   // private readonly fileManager: FileManager = new FileManager();
   private readonly checker = new Checker();
 
@@ -17,7 +17,7 @@ export class ShoppingCartSaver {
     shoppingCart.lineItems = this.getLinesFromFile( shoppingFilePath, [] );
   }
   public saveToStorage( shoppingCart: ShoppingCart ) {
-    this.fileManager.ensureFolder( this.pathManager.dataFolder );
+    this.fileManager.ensureFolder( this.toolsFacade.dataFolder );
     const shoppingFilePath = this.getShoppingFilePath( shoppingCart );
     this.fileManager.writeFile( {
       path: shoppingFilePath,
@@ -30,8 +30,8 @@ export class ShoppingCartSaver {
   }
 
   public writeLastInvoiceNumber( shoppingCart: ShoppingCart ) {
-    const invoiceNumberFileName = this.pathManager.joinPaths(
-      this.pathManager.dataFolder,
+    const invoiceNumberFileName = this.toolsFacade.joinPaths(
+      this.toolsFacade.dataFolder,
       this.lastinvoiceFileName
     );
     this.fileManager.writeFile( {
@@ -41,8 +41,8 @@ export class ShoppingCartSaver {
   }
 
   public readLastInvoiceNumber(): number {
-    const invoiceNumberFileName = this.pathManager.joinPaths(
-      this.pathManager.dataFolder,
+    const invoiceNumberFileName = this.toolsFacade.joinPaths(
+      this.toolsFacade.dataFolder,
       this.lastinvoiceFileName
     );
     let lastInvoiceNumber = 0;
@@ -59,8 +59,8 @@ export class ShoppingCartSaver {
 
   private getShoppingFilePath( shoppingCart: ShoppingCart ) {
     const shoppingFileName = `${this.shoppingPrefix}${shoppingCart.client.name}.json`;
-    const shoppingFilePath = this.pathManager.joinPaths(
-      this.pathManager.dataFolder,
+    const shoppingFilePath = this.toolsFacade.joinPaths(
+      this.toolsFacade.dataFolder,
       shoppingFileName
     );
     return shoppingFilePath;
