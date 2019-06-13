@@ -58,6 +58,18 @@ class: impact
 
 **Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
 
+
+---
+
+## Capas Lógicas
+
+| Capa v         |
+| :---           |
+| Presentación   |
+| Negocio        |
+| Infraestructura|
+
+
 ---
 
 > Evoluciona en función del tiempo de mantenimiento esperado.

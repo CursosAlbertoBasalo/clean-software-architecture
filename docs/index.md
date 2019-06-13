@@ -65,14 +65,16 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 ---
 
-## c - SOLID [Principios sólidos para finales flexibles](./c-solid.html)
+## c - SOLID
+## [Principios sólidos para finales flexibles](./c-solid.html)
 
 - Obstáculos para el cambio
 - Principios SOLID
 
 ---
 
-## d - ONION [Arquitectura en capas](./d-onion.html)
+## d - ONION
+## [Arquitectura en capas](./d-onion.html)
 
 - Campas de abstracción
 - Núcleo y detalles

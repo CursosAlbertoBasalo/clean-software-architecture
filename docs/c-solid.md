@@ -20,7 +20,9 @@ class: impact
 
 # Arquitecturas para construir software de gran tamaño.
 
-> Entre **4 y 8 años** de tiempo de desarrollo y mantenimiento evolutivo activo con equipos variables de **8 o más integrantes**.
+> Entre **4 y 8 años** de tiempo de desarrollo y mantenimiento evolutivo activo.
+>
+> Equipos variables de **8 o más integrantes**.
 
 **Ejemplos**:
 
@@ -30,24 +32,25 @@ class: impact
 
 ---
 
-**Situación**:
+## Situación:
+
 - Si algo hay seguro para los próximos años es que **las reglas** del negocio informatizado **van a cambiar**.
 
 - Por si fuera poco, lo harán ya **con el sistema en producción** dando servicio ininterrumpido a un público **crítico para la empresa**.
 
 - Así que **el cambio** ha de integrarse de manera transparente y **sin oposición**. Impactando lo menos posible en el código ya hecho y en los paquetes ya desplegados.
 
-**Objetivo**:
+## Objetivo:
 
-> La extensibilidad de un sistema crítico en producción; que se consigue facilitando el desarrollo y el despliegue en **silos funcionales** conectados pero independientes.
+> La extensibilidad de un sistema crítico en producción; que se consigue facilitando el desarrollo mediante el uso de los principios **SOLID** y el despliegue en **silos funcionales** conectados pero independientes.
 
 ---
 
 ## Reglas:
 
-**Código**: Fomentar el cambio funcional mediante la aplicación de los _principios SOLID_ al diseño de las clases.
-
 **Mantra**: Encapsular lo que varía y depender de interfaces en lugar de implementaciones concretas.
+
+**Código**: Fomentar el cambio funcional mediante la aplicación de los _principios SOLID_ al diseño de las clases.
 
 **Test**: Garantizar que el software funciona unitariamente mediante pruebas a nivel de paquete desplegable.
 
@@ -64,11 +67,11 @@ class: impact
     - Funciones específicas: departamentos, historias, requisitos...
 
 
-| Capa        | Tools       | Security   | Logistics  | Operations |
-| :---        |    :----:   |   :----:   |   :----:   |  :----:    |
-| Presentación|             |            |            |            |
-| Lógica      |             |            |            |            |
-| Persistencia|             |            |            |            |
+| Capa v Silo >  |   Common    |  ShoppingCart  |  Warehouse  |
+| :---           |   :----:    |     :----:     |   :----:    |
+| Presentación   |             |                |             |
+| Negocio        |             |                |             |
+| Infraestructura|             |                |             |
 
 ---
 
@@ -89,9 +92,11 @@ class: impact
 
 Aquí, el sistema _EAI_ actúa como intermediario entre varias aplicaciones.
 
-Cada vez que ocurre un evento interesante en una aplicación (por ejemplo, se crea realiza un checkout desde `ShoppingCart`) se notifica a un módulo de integración en el sistema _EAI_.
+Cada vez que ocurre un evento interesante en una aplicación (por ejemplo, se crea realiza un _checkout_ desde `ShoppingCart`) se notifica a un módulo de integración (`IntegrationMediator`) en el sistema _EAI_.
 
 El módulo luego propaga los cambios a otras aplicaciones relevantes (por ejemplo la de `Warehouse`).
+
+La comunicación puede y suele ser bidireccional.
 
 ---
 
@@ -101,7 +106,7 @@ El módulo luego propaga los cambios a otras aplicaciones relevantes (por ejempl
 
 En este caso, el sistema _EAI_ actúa como la fachada general de múltiples aplicaciones (`ShoppingCart` y `Warehouse`).
 
-Todas las llamadas de eventos desde el _mundo exterior_ a cualquiera de las aplicaciones tienen un inicio frontal por parte del sistema _EAI_.
+Todas las llamadas de eventos desde el _mundo exterior_ a cualquiera de las aplicaciones tienen un inicio frontal (`IntegrationFederator`) por parte del sistema _EAI_.
 
 El sistema EAI está configurado para exponer solo la información relevante y las interfaces de las aplicaciones subyacentes al _mundo exterior_, y realiza todas las interacciones con las aplicaciones subyacentes en nombre del solicitante.
 
@@ -173,19 +178,66 @@ Los cambios en un objeto dependen de otros muchos.
 **Principio de responsabilidad única.**
 Un objeto solo debería tener una única responsabilidad, o razón para cambiar.
 
---
+```typescript
+export class WarehouseAdministrator {
+  public static productCatalog: Product[] = PRODUCT_CATALOG;
+  protected readonly ordersProcessor = new OrdersProcessor();
+
+  private static findProductByName( productName: string ) {
+    return WarehouseAdministrator.productCatalog.find( product => product.name === productName );
+  }
+
+  public processOrders() {
+    this.ordersProcessor.processOrders();
+  }
+}
+```
+
+---
 
 ### O : Open/closed principle
 
 **Principio de abierto/cerrado.**
 Las entidades de software deben estar abiertas para su extensión, pero cerradas para su modificación.
 
---
+```typescript
+// public sendInvoice( shoppingCart: ShoppingCart ) {
+//   const invoiceManager = new InvoiceManager();
+//   invoiceManager.send( shoppingCart );
+// }
+// public sendOrder( shoppingCart: ShoppingCart ) {
+//   const orderManager = new OrderManager();
+//   orderManager.send( shoppingCart );
+// }
+public sendDocument( shoppingCart: ShoppingCart, documentTypeName: string ) {
+  const documentType: DocumentType = this.checker.findSafe(
+    this.documentTypes,
+    ( documentType: DocumentType ) => documentType.typeName === documentTypeName
+  );
+  documentType.sender.send( shoppingCart );
+}
+```
+
+---
 
 ### L : Liskov substitution principle
 
 **Principio de sustitución de Liskov.**
 Los objetos deberían ser reemplazables por subtipos sin alterar el funcionamiento del programa.
+
+```typescript
+export abstract class DocumentManager implements ISendDocuments {}
+export class InvoiceManager extends DocumentManager {
+  constructor() {
+    super();
+  }
+}
+export class OrderManager extends DocumentManager {
+  constructor() {
+    super();
+  }
+}
+```
 
 ---
 
@@ -194,12 +246,39 @@ Los objetos deberían ser reemplazables por subtipos sin alterar el funcionamien
 **Principio de segregación de la interfaz.**
 Muchas interfaces específicas son mejores que una interfaz de propósito general.​
 
---
+```typescript
+export class ToolsFacade implements ICheck, ILogger, IManageFiles, IManagePaths {
+  private readonly checker = new Checker();
+  private readonly logger = new Logger();
+  private readonly fileManager = new FileManager();
+  private readonly pathManager = new PathManager();
+  public readonly emailFolder = this.pathManager.emailFolder;
+  public readonly printFolder = this.pathManager.printFolder;
+
+  public printLog( logContent: string ) {
+    this.logger.printLog( logContent );
+  }
+}
+```
+
+---
 
 ### D : Dependency inversion principle
 
 **Principio de inversión de la dependencia.**
 Depender de abstracciones, no de implementaciones concretas. Resolver en ejecución usando la Inyección de Dependencias.
+
+```typescript
+import { FileManager } from '../../../z-common/3-infraestructure/helper/import/file-manager';
+import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
+export class ManageFilesFactory {
+  public createInstance(): IManageFiles {
+    if ( true ) {
+      return new FileManager();
+    }
+  }
+}
+```
 
 --
 
