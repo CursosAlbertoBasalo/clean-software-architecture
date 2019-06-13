@@ -20,7 +20,9 @@ class: impact
 
 # Arquitecturas para construir software de tamaño medio
 
->Entre **2 y 4 años** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos poco variables de entre **2 - 8 integrantes**.
+> Entre **2 y 4 años** de tiempo de desarrollo y mantenimiento evolutivo activo.
+>
+> Equipos poco variables de entre **2 - 8 integrantes**.
 
 **Ejemplos**:
 - Producto en marcha en una start-up en crecimiento.
@@ -30,7 +32,7 @@ class: impact
 
 ---
 
-**Situación**:
+## Situación:
 
 - Los tiempos y presupuestos permiten **dedicar recursos al diseño técnico** del desarrollo.
 
@@ -38,7 +40,7 @@ class: impact
 
 - La reducción del **coste de explotación** está en la reducción de _bugs_ y mantenimiento.
 
-**Objetivo**:
+## Objetivo:
 
 > Facilitar el cambio funcional mediante **Design Patterns**, pero con un código localizable con **3 simple layers**.
 
@@ -46,9 +48,9 @@ class: impact
 
 ## Reglas:
 
-**Código**: Evitar más _code smells_ mediante patrones de diseño que lleven a un código fácil de ampliar.
+**Mantra**: _Reparto de responsabilidades entre clases._
 
-**Mantra**: Reparto de responsabilidades entre clases.
+**Código**: Evitar más _code smells_ mediante patrones de diseño que lleven a un código fácil de ampliar.
 
 **Test**: Garantizar que el software admite los cambios mediante pruebas de integración sencillas.
 
@@ -113,23 +115,23 @@ class: impact
 
 > ¿Cómo instanciar un objeto o grupo de objetos relacionados?
 
-Proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y la reutilización del código existente.
+Proporcionan mecanismos de creación de objetos que aumentan la **flexibilidad y la reutilización** del código existente.
 
-- **Abstract Factory:** una factoría de factorías relacionadas sin exponer nada concreto.
-- **Builder**: crear subtipos de objetos o facilita la construcción de otros complejos.
+- **Abstract Factory:** una factoría de factorías sin exponer nada concreto.
+- **Builder**: crea subtipos de objetos y facilita la construcción de otros complejos.
 - **Factory Method:** delega la lógica de creación de instancias a clases secundarias.
 - **Simple Factory:** genera una instancia sin exponer lógica de creación.
-- **Singleton:** Asegura una instancia única de una clase.
+- **Singleton:** asegura una instancia única de una clase.
 
 ---
 
 ## Estructurales
 
-> ¿Cómo construir un componente a partir de objetos?
+> ¿Cómo montar un componente a partir de objetos?
 
-Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras flexibles y eficientes.
+Explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo las estructuras **flexibles y eficientes**.
 
-- **Adapter:** envuelve un objeto en un adaptador para que sea compatible con otra.
+- **Adapter:** envuelve un objeto en un adaptador para que sea compatible con otro.
 - **Bridge:** se trata de preferir la composición sobre la herencia.
 - **Composite:** permite tratar con objetos individuales de manera uniforme.
 - **Decorator:** permite agregar comportamiento envolviendo un objeto en otro.
@@ -147,13 +149,12 @@ Explican cómo ensamblar objetos y clases en estructuras más grandes, mantenien
 Cuidan la comunicación efectiva y la asignación de responsabilidades entre objetos.
 
 - **Chain of Responsibility:** encadena llamadas entre objetos o métodos
-- **Command:** encapsula acciones en objetos
+- **Command:** encapsula acciones en objetos.
 - **Iterator** accede a los elementos de un conjunto sin revelar cómo.
 - **Mediator:** desacopla dos objetos comunicándose con ambos.
 - **Memento:** guarda el estado actual para un uso futuro.
 - **Observer:** notifica cambios a suscriptores interesados.
 - **Strategy:** cambia el algoritmo según las circunstancias.
-- **State:** cambia el comportamiento según el estado.
 
 ---
 

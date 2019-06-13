@@ -57,7 +57,8 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 
 ---
 
-## b - DESIGN PATTERNS [Un catálogo nada exhaustivo.](./b-patterns.html)
+## b - DESIGN PATTERNS
+## [Un catálogo nada exhaustivo.](./b-patterns.html)
 
 - Tipos: creacionales, estructurales y de comportamiento
 - Revisión de los más utilizados

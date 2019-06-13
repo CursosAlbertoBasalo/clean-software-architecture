@@ -21,6 +21,7 @@ class: impact
 # Arquitecturas para construir software de tamaño reducido
 
 > Hasta **1 año** de tiempo de desarrollo y mantenimiento evolutivo activo
+>
 > Equipos estables de **1 o 2 integrantes**.
 
 **Ejemplos**:
@@ -41,7 +42,7 @@ class: impact
 
 ## Objetivo:
 
->Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
+> Reutilizar código, principio **DRY**, pero sin complicarlo demasiado para facilitar el cambio constante: principios **YAGNI** y **KISS**.
 
 ---
 
