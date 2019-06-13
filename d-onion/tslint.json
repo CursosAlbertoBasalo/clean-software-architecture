@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "../tslint.json"
+  ],
+  "rules": {
+    "no-console": false,
+    "id-length": [
+      true,
+      {
+        "min": 2,
+        "max": 32,
+        "exceptions": [
+          "x",
+          "y",
+          "i",
+          "j"
+        ]
+      }
+    ],
+    "variable-name": [
+      false
+    ]
+  }
+}
