@@ -55,7 +55,7 @@ class: impact
 
 **Componentes**: Reducir las dependencias de la lógica de negocio a los básicos del lenguaje.
 
-**Despliegue**: Propiciar el despliegue de servicios y aplicaciones al menor nivel posible. Las arquitecturas más usadas son **la hexagonal y la circular o cebolla** con las entidades del dominio y las reglas en el centro o cúspide del árbol de dependencias
+**Despliegue**: Propiciar el despliegue de servicios (o micro-servicios) y aplicaciones (o micro-aplicaciones) al menor nivel posible. Las arquitecturas más usadas son **la hexagonal y la circular o cebolla** con las entidades del dominio y las reglas en el centro o cúspide del árbol de dependencias
 
 ---
 
