@@ -58,9 +58,9 @@ class: impact
 
 **Despliegue**: Despliegue en monolito en cada capa física.
 
---
+---
 
-[clean diagram](https://yuml.me/academiabinaria/a-clean.svg)
+![clean diagram](./assets/a-clean.jpg)
 
 ---
 
