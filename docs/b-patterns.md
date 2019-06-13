@@ -70,6 +70,8 @@ class: impact
 | 3- Infraestructura |
 
 
+![patterns facade diagram](https://yuml.me/academiabinaria/b-patterns-facade.jpg)
+
 ---
 
 > Evoluciona en función del tiempo de mantenimiento esperado.

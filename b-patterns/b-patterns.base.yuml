@@ -1,22 +1,20 @@
 // {type:class}
 // {direction:leftToRight}
-[ShoppingCartManager{bg:navy}]->[CheckOutCalculator{bg:seagreen}]
+// 1 presentation
+[ShoppingCartManager{bg:blue}]->[CheckOutCalculator{bg:seagreen}]
 [ShoppingCartManager]->[InvoiceManager{bg:seagreen}]
 [ShoppingCartManager]->[OrderManager{bg:seagreen}]
 [ShoppingCartManager]->[ShoppingCartBuilder{bg:seagreen}]
 [ShoppingCartManager]->[TaxBaseInfoAdapter{bg:seagreen}]
 [ShoppingCartManager]->[TaxCalculator{bg:seagreen}]
 [ShoppingCartManager]->[ShoppingCartSaver{bg:indianred}]
-[ShoppingCartManager]->[WarehouseAdministrator{bg:navy}]
-//[WarehouseAdministrator]->[PRODUCT_CATALOG]
+[ShoppingCartManager]->[WarehouseAdministrator{bg:blue}]
 [WarehouseAdministrator]->[FileManager{bg:indianred}]
 [WarehouseAdministrator]->[PathManager{bg:indianred}]
 [WarehouseAdministrator]->[Logger{bg:indianred}]
 [WarehouseAdministrator]->[Printer{bg:indianred}]
-//[CheckOutCalculator]->[COUNTRY_CONFIGURATIONS]
-//[CheckOutCalculator]->[PAYMENTS_CONFIGURATIONS]
+// 2 business
 [CheckOutCalculator]->[Checker{bg:indianred}]
-//[DocumentManager]->[COUNTRY_CONFIGURATIONS]
 [DocumentManager{bg:mediumseagreen}]->[Checker]
 [DocumentManager]->[ITemplateManager{bg:goldenrod}]
 [DocumentManager]->[FileManager]
@@ -30,5 +28,4 @@
 [ShoppingCartBuilder]->[Checker]
 [ITemplateManager]^-[InvoiceTemplateManager]
 [ITemplateManager]^-[OrderTemplateManager]
-//[TaxCalculator]->[LOCAL_TAXES_TREE]
 [TaxCalculator]->[Checker]

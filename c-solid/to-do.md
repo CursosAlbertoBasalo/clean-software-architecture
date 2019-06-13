@@ -3,4 +3,4 @@
 - [x] refactor(c-solid): solid
 - [x] test(c-solid): solid
 - [x] docs(c-solid): [class diagrams](https://yuml.me/academiabinaria/c-solid.jpg)
-- [ ] docs(c-solid): solid code examples
+- [x] docs(c-solid): solid code examples

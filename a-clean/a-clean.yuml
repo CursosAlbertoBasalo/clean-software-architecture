@@ -1,10 +1,10 @@
 // {type:class}
 // {direction:topDown}
-[ShoppingCartManager{bg:navy}]->[CheckOutCalculator{bg:seagreen}]
+[ShoppingCartManager{bg:blue}]->[CheckOutCalculator{bg:seagreen}]
 [ShoppingCartManager]->[DocumentManager{bg:seagreen}]
 [ShoppingCartManager]->[ShoppingCartSaver{bg:indianred}]
 [ShoppingCartManager]->[TaxCalculator{bg:seagreen}]
-[ShoppingCartManager]->[WarehouseAdministrator{bg:navy}]
+[ShoppingCartManager]->[WarehouseAdministrator{bg:blue}]
 [ShoppingCartManager]->[Checker{bg:indianred}]
 [WarehouseAdministrator]->[PRODUCT_CATALOG{bg:indianred}]
 [WarehouseAdministrator]->[FileManager{bg:indianred}]
