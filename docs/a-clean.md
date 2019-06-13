@@ -20,7 +20,8 @@ class: impact
 
 # Arquitecturas para construir software de tamaño reducido
 
->Hasta **1 año** de tiempo de desarrollo y mantenimiento evolutivo activo, con equipos estables de **1 o 2 integrantes**.
+> Hasta **1 año** de tiempo de desarrollo y mantenimiento evolutivo activo
+> Equipos estables de **1 o 2 integrantes**.
 
 **Ejemplos**:
 - Producto mínimo viable en una start-up que no se sabe si vivirán lo suficiente.
@@ -30,7 +31,7 @@ class: impact
 
 ---
 
-**Situación**:
+## Situación:
 
 - Los tiempos y presupuestos serán muy rigurosos, por tanto debemos **abaratar y reducir** el desarrollo.
 
@@ -38,7 +39,7 @@ class: impact
 
 - La reducción del **coste del cambio** está en la reducción del coste de entender y manipular el código.
 
-**Objetivo**:
+## Objetivo:
 
 >Reutilizar código, principio _DRY_, pero sin complicarlo demasiado para facilitar el cambio constante: principios _YAGNI_ y _KISS_.
 
@@ -46,9 +47,9 @@ class: impact
 
 ## Reglas:
 
-**Código**: Evitar los _code smells_ mediante aplicación de reglas que lleven a un código limpio fácil de leer y modificar.
+**Mantra**: _Muchas estructuras y funciones pequeñas y bien nombradas._
 
-**Mantra**: Muchas estructuras y funciones pequeñas y bien nombradas.
+**Código**: Evitar los _code smells_ mediante aplicación de reglas que lleven a un código limpio fácil de leer y modificar.
 
 **Test**: Garantizar que el software sigue funcionando a pesar de los frecuentes cambios mediante smoke-test.
 
@@ -66,7 +67,7 @@ class: impact
 
 ---
 
-##  Huele a humo
+##  Malos olores
 
 ### Método largo.
 
@@ -129,7 +130,7 @@ class: impact
 
 > "Asegúrate de que el software hace lo que yo quiero que haga."
 >
-> -- **El que paga**.
+> -- **El que te paga**.
 
 ---
 
@@ -153,7 +154,7 @@ Genéricas, ágiles y que permiten definir pruebas de aceptación básicas.
 
 ---
 
-## Testing para comprobar.
+## Testing para comprobar las funcionalidades.
 
 ### Value Statement:
 
