@@ -63,11 +63,11 @@ class: impact
 
 ## Capas Lógicas
 
-| Capa v         |
-| :---           |
-| Presentación   |
-| Negocio        |
-| Infraestructura|
+| Capa v             |
+| :---               |
+| 1- Presentación    |
+| 2- Negocio         |
+| 3- Infraestructura |
 
 
 ---

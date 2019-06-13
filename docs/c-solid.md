@@ -56,7 +56,7 @@ class: impact
 
 **Componentes**: Las tres capas lógicas por niveles son insuficientes. Para permitir un desarrollo paralelo e independiente debemos desacoplaras mediante abstracciones intermedias.
 
-**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes, agrupados en silos, se ejecutan en _servicios funcionales_ verticales que no exijan el compilado y despliegue completo.
+**Despliegue**: Para reducir el impacto de un cambio, este debe afectar a partes y nunca a todo del sistema. Los componentes, agrupados en silos, se ejecutan en **servicios funcionales** verticales que no exijan el compilado y despliegue completo.
 
 ---
 
@@ -67,11 +67,11 @@ class: impact
     - Funciones específicas: departamentos, historias, requisitos...
 
 
-| Capa v Silo >  |   Common    |  ShoppingCart  |  Warehouse  |
-| :---           |   :----:    |     :----:     |   :----:    |
-| Presentación   |             |                |             |
-| Negocio        |             |                |             |
-| Infraestructura|             |                |             |
+| Capa v Silo >     | a-ShoppingCart |  b-Warehouse  |  c-Common   |
+| :---              |      :----:    |     :----:    |   :----:    |
+| 1-Presentación    |       a-1      |      b-1      |     z-1     |
+| 2-Negocio         |       a-2      |      b-2      |     z-2     |
+| 3-Infraestructura |       a-3      |      b-3      |     z-3     |
 
 ---
 
