@@ -48,7 +48,7 @@ class: impact
 
 ## Reglas:
 
-**Mantra**: Encapsular lo que varía y depender de interfaces en lugar de implementaciones concretas.
+**Mantra**: _Encapsular lo que varía y depender de interfaces._
 
 **Código**: Fomentar el cambio funcional mediante la aplicación de los _principios SOLID_ al diseño de las clases.
 

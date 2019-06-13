@@ -16,17 +16,54 @@ class: impact
 
 ## Arquitectura en capas
 
-> "Orienta tu código para un uso futuro,
+---
 
-> no solo para las necesidades inmediatas."
+# Arquitecturas para construir software de tamaño extra grande.
+
+> Entre **8 y 16 años** de tiempo de desarrollo y mantenimiento evolutivo activo.
 >
-> -- **Eric Freeman**
+> Equipos variables de **16 o más integrantes**.
+
+**Ejemplos**:
+
+- Software de gestión de grandes corporaciones, bancos y administraciones públicas.
+- Continuidad de productos o servicios online de gran éxito.
 
 ---
 
-[Arquitectura de software] (https://medium.com/@albertobasalo71/la-arquitectura-del-software-y-el-tiempo-dc7f55c23bce)
+## Situación:
 
-Evoluciona en función del tiempo de mantenimiento esperado.
+- Más allá de 8 años ya sólo una cosa será cierta; **todo habrá cambiado**.
+
+- Además del negocio también cambiarán **las tecnologías, las personas, y las demandas y expectativas** de los usuarios.
+
+- Así que, si algo va a durar una década, mejor que **no dependa de pequeños detalles** sin importancia como las bases de datos, las interfaces de usuario, los protocolos de comunicaciones, los frameworks o los dispositivos físicos de última generación :-).
+
+## Objetivo:
+
+> El **desacoplamiento extremo** entre el núcleo del negocio y los detalles técnicos. Inversión del control para que las reglas de negocio no dependan de otras capas.
+
+---
+
+## Reglas:
+
+**Mantra**: _Que el negocio no dependa de la tecnología._
+
+**Código**: Aplicar técnicas de inyección de dependencias para invertir el control.
+
+**Test**: Garantizar que el software funciona unitariamente mediante pruebas a nivel de paquete desplegable.
+
+**Componentes**: Reducir las dependencias de la lógica de negocio a los básicos del lenguaje.
+
+**Despliegue**: Propiciar el despliegue de servicios y aplicaciones al menor nivel posible.
+
+---
+
+### Arquitecturas
+
+- La arquitectura clásica en capas horizontales y silos no es suficiente. Necesitas desacoplar completamente todos los paquetes manteniendo un núcleo lo más estable e independiente posible.
+
+- Las arquitecturas más usadas son **la hexagonal y la circular o cebolla** con las entidades del dominio y las reglas en el centro o cúspide del árbol de dependencias.
 
 ---
 
