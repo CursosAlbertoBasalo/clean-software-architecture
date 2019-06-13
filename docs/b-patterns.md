@@ -69,9 +69,9 @@ class: impact
 | 2- Negocio         |
 | 3- Infraestructura |
 
----
+--
 
-![patterns facade diagram](https://yuml.me/academiabinaria/b-patterns-facade.svg)
+[patterns facade diagram](https://yuml.me/academiabinaria/b-patterns-facade.svg)
 
 ---
 

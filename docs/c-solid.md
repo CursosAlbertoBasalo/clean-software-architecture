@@ -73,9 +73,9 @@ class: impact
 | 2-Negocio         |       a-2      |      b-2      |     z-2     |
 | 3-Infraestructura |       a-3      |      b-3      |     z-3     |
 
----
+--
 
-![solid diagram](https://yuml.me/academiabinaria/c-solid.svg)
+[solid diagram](https://yuml.me/academiabinaria/c-solid.svg)
 
 ---
 
