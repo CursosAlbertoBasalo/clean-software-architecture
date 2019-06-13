@@ -55,30 +55,43 @@ class: impact
 
 **Componentes**: Reducir las dependencias de la lógica de negocio a los básicos del lenguaje.
 
-**Despliegue**: Propiciar el despliegue de servicios y aplicaciones al menor nivel posible.
+**Despliegue**: Propiciar el despliegue de servicios y aplicaciones al menor nivel posible. Las arquitecturas más usadas son **la hexagonal y la circular o cebolla** con las entidades del dominio y las reglas en el centro o cúspide del árbol de dependencias
 
 ---
 
-### Arquitecturas y  patrones de diseño
 
-- La arquitectura clásica en capas horizontales y silos no es suficiente. Necesitas desacoplar completamente todos los paquetes manteniendo un núcleo lo más estable e independiente posible.
+> Junta las cosas que cambian por las mismas razones. Sepáralas de cosas que cambian por otras razones.
+>
+> -- **Robert C. Martin**
 
-- Las arquitecturas más usadas son **la hexagonal y la circular o cebolla** con las entidades del dominio y las reglas en el centro o cúspide del árbol de dependencias.
+---
+
+## Patrones de arquitectura
 
 ### The Separation of Concerns (SoC) principle
 ### Domain Driven Design (DDD)
 ### The model-view-controller (MVC) design pattern
 ### The repository and the data mapper design patterns
+
 ---
+
+---
+## Arquitecturas
 
 https://dev.to/remojansen/implementing-the-onion-architecture-in-nodejs-with-typescript-and-inversifyjs-10ad
 https://blog.codeminer42.com/nodejs-and-good-practices-354e7d763626
 https://craftsmanshipcounts.com/clean-architecture-key-concepts/
 
 
-“Las prisas pasan, la mierda queda”
 
-https://www.javiergarzas.com/2014/10/las-mejores-frases-que-escuchado-en-proyectos.html
+
+> “Las prisas pasan, la mierda queda.”
+>
+> -- **Programador anónimo**
+
+> ... si tienes miedo de cambiar algo, es porque está mal diseñado.
+>
+> -- **Martin Fowler**
 
 ---
 
