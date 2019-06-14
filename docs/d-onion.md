@@ -71,27 +71,25 @@ class: impact
 ### The Separation of Concerns (SoC) principle
 ### Domain Driven Design (DDD)
 ### The model-view-controller (MVC) design pattern
-### The repository and the data mapper design patterns
+### The Repository and the Data Mapper design patterns
+
+---
+## Arquitecturas limpias
+
+
 
 ---
 
----
-## Arquitecturas
-
-https://dev.to/remojansen/implementing-the-onion-architecture-in-nodejs-with-typescript-and-inversifyjs-10ad
-https://blog.codeminer42.com/nodejs-and-good-practices-354e7d763626
-https://craftsmanshipcounts.com/clean-architecture-key-concepts/
-
-
-
-
-> “Las prisas pasan, la mierda queda.”
->
-> -- **Programador anónimo**
 
 > ... si tienes miedo de cambiar algo, es porque está mal diseñado.
 >
 > -- **Martin Fowler**
+
+--
+
+> “Las prisas pasan, la mierda queda.”
+>
+> -- **Programador anónimo**
 
 ---
 
