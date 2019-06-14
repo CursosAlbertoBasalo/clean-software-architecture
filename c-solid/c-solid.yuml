@@ -1,16 +1,16 @@
 // {type:class}
 // {direction:topDown}
-// 0
+// 0 integration
 [IntegrationFederator{bg:skyblue}]->[ShoppingCartManager{bg:blue}]
 [IntegrationFederator]->[WarehouseAdministrator{bg:blue}]
-// 1
+// 1 presentation
 [ShoppingCartManager]->[CheckOutFacade{bg:seagreen}]
 [ShoppingCartManager]->[ShoppingCartFacade{bg:seagreen}]
 [ShoppingCartManager]->[IntegrationMediator{bg:skyblue}]
 [IntegrationMediator]->[WarehouseAdministrator]
 [WarehouseAdministrator]->[OrdersProcessor{bg:seagreen}]
 [WarehouseAdministrator]->[ToolsFacade{bg:indianred}]
-// 2
+// 2 business
 [CheckOutCalculator{bg:seagreen}]->[ToolsFacade]
 [CheckOutFacade]->[Checker{bg:indianred}]
 [CheckOutFacade]->[CheckOutCalculator{bg:seagreen}]
@@ -32,7 +32,7 @@
 [ShoppingCartFacade]->[ShoppingCartBuilder]
 [ShoppingCartFacade]->[ShoppingCartSaver{bg:indianred}]
 [TaxCalculator]->[ToolsFacade]
-// 3
+// 3 infreastructure
 [IManageFiles{bg:goldenrod}]^-[FileManager{bg:indianred}]
 [ManageFilesFactory]->[IManageFiles]
 [ShoppingCartSaver]->[IManageFiles]
