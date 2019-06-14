@@ -1,7 +1,7 @@
-import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
-import { ILogger } from '../../../z-common/3-infraestructure/models/i-logger';
-import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
-import { IManagePaths } from '../../../z-common/3-infraestructure/models/i-manage-paths';
+import { ToolsFacade } from '../../../z-common/3-infrastructure/helper/tools-facade';
+import { ILogger } from '../../../z-common/3-infrastructure/models/i-logger';
+import { IManageFiles } from '../../../z-common/3-infrastructure/models/i-manage-files';
+import { IManagePaths } from '../../../z-common/3-infrastructure/models/i-manage-paths';
 
 export class OrdersProcessor {
   protected readonly toolsFacade: IManageFiles & IManagePaths & ILogger = new ToolsFacade();

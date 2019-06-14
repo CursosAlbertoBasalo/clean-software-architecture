@@ -1,11 +1,11 @@
-import { COUNTRY_CONFIGURATIONS } from '../../../z-common/3-infraestructure/database/config/country-configurations';
-import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
-import { CountryConfiguration } from '../../../z-common/3-infraestructure/models/country-configuration';
-import { ICheck } from '../../../z-common/3-infraestructure/models/i-check';
-import { ShippingCost } from '../../../z-common/3-infraestructure/models/shipping-cost';
-import { PAYMENTS_CONFIGURATIONS } from '../../3-infraestructure/database/config/payments-configurations';
-import { PaymentConfiguration } from '../../3-infraestructure/models/payment-configuration';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { COUNTRY_CONFIGURATIONS } from '../../../z-common/3-infrastructure/database/config/country-configurations';
+import { ToolsFacade } from '../../../z-common/3-infrastructure/helper/tools-facade';
+import { CountryConfiguration } from '../../../z-common/3-infrastructure/models/country-configuration';
+import { ICheck } from '../../../z-common/3-infrastructure/models/i-check';
+import { ShippingCost } from '../../../z-common/3-infrastructure/models/shipping-cost';
+import { PAYMENTS_CONFIGURATIONS } from '../../3-infrastructure/database/config/payments-configurations';
+import { PaymentConfiguration } from '../../3-infrastructure/models/payment-configuration';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 
 export class CheckOutCalculator {
   private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;

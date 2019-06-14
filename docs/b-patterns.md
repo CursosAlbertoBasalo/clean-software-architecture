@@ -272,7 +272,7 @@ class TaxBaseInfoAdapter implements TaxBaseInfo {
 
 ```typescript
 class CheckOutFacade{
-   public calculateTotalTax(): number {
+  public calculateTotalTax(): number {
     const totalTaxInfo: TaxBaseInfo =
       new TaxBaseInfoAdapter(this.shoppingCart.client)
       .getFromFromLegalAmount( this.shoppingCart.legalAmounts );

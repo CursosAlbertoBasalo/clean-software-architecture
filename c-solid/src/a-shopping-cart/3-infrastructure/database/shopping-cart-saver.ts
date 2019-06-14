@@ -1,6 +1,6 @@
-import { Checker } from '../../../z-common/3-infraestructure/helper/checker';
-import { PathManager } from '../../../z-common/3-infraestructure/helper/import/path-manager';
-import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
+import { Checker } from '../../../z-common/3-infrastructure/helper/checker';
+import { PathManager } from '../../../z-common/3-infrastructure/helper/import/path-manager';
+import { IManageFiles } from '../../../z-common/3-infrastructure/models/i-manage-files';
 import { ShoppingCart } from '../models/shopping-cart';
 
 export class ShoppingCartSaver {

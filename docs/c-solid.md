@@ -188,7 +188,8 @@ export class WarehouseAdministrator {
   protected readonly ordersProcessor = new OrdersProcessor();
 
   private static findProductByName( productName: string ) {
-    return WarehouseAdministrator.productCatalog.find( product => product.name === productName );
+    return WarehouseAdministrator.productCatalog
+      .find( product => product.name === productName );
   }
 
   public processOrders() {
@@ -213,10 +214,10 @@ Las entidades de software deben estar abiertas para su extensión, pero cerradas
 //   const orderManager = new OrderManager();
 //   orderManager.send( shoppingCart );
 // }
-public sendDocument( shoppingCart: ShoppingCart, documentTypeName: string ) {
-  const documentType: DocumentType = this.checker.findSafe(
-    this.documentTypes,
-    ( documentType: DocumentType ) => documentType.typeName === documentTypeName
+public sendDocument( shoppingCart, documentTypeName ) {
+  const documentType = this.checker.findSafe(
+      this.documentTypes,
+      documentType => documentType.typeName === documentTypeName
   );
   documentType.sender.send( shoppingCart );
 }
@@ -231,6 +232,7 @@ Los objetos deberían ser reemplazables por subtipos sin alterar el funcionamien
 
 ```typescript
 export abstract class DocumentManager implements ISendDocuments {}
+
 export class InvoiceManager extends DocumentManager {
   constructor() {
     super();
@@ -251,7 +253,9 @@ export class OrderManager extends DocumentManager {
 Muchas interfaces específicas son mejores que una interfaz de propósito general.​
 
 ```typescript
-export class ToolsFacade implements ICheck, ILogger, IManageFiles, IManagePaths {
+export class ToolsFacade implements
+  ICheck, ILogger, IManageFiles, IManagePaths {
+
   private readonly checker = new Checker();
   private readonly logger = new Logger();
   private readonly fileManager = new FileManager();
@@ -273,8 +277,9 @@ export class ToolsFacade implements ICheck, ILogger, IManageFiles, IManagePaths 
 Depender de abstracciones, no de implementaciones concretas. Resolver en ejecución usando la Inyección de Dependencias.
 
 ```typescript
-import { FileManager } from '../../../z-common/3-infraestructure/helper/import/file-manager';
-import { IManageFiles } from '../../../z-common/3-infraestructure/models/i-manage-files';
+import { FileManager } from '/helper/import/file-manager';
+import { IManageFiles } from '/models/i-manage-files';
+
 export class ManageFilesFactory {
   public createInstance(): IManageFiles {
     if ( true ) {
@@ -283,11 +288,6 @@ export class ManageFilesFactory {
   }
 }
 ```
-
---
-
-[Principios SOLID en JavaScript](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)
-
 
 ---
 

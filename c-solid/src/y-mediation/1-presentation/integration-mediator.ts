@@ -1,5 +1,5 @@
-import { WarehouseAdministrator } from '../b-warehouse/1-presentation/warehouse-administrator';
-import { LineItem } from '../z-common/3-infraestructure/models/line-item';
+import { WarehouseAdministrator } from '../../b-warehouse/1-presentation/warehouse-administrator';
+import { LineItem } from '../../z-common/3-infrastructure/models/line-item';
 export class IntegrationMediator {
   private readonly warehouseAdministrator = new WarehouseAdministrator();
 

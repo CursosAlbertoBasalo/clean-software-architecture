@@ -1,6 +1,0 @@
-- [x] docs(c-solid): solid
-- [x] refactor(c-solid): silos
-- [x] refactor(c-solid): solid
-- [x] test(c-solid): solid
-- [x] docs(c-solid): [class diagrams](https://yuml.me/academiabinaria/c-solid.jpg)
-- [x] docs(c-solid): solid code examples

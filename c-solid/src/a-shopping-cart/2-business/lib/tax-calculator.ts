@@ -1,9 +1,9 @@
-import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
-import { ICheck } from '../../../z-common/3-infraestructure/models/i-check';
-import { LOCAL_TAXES_TREE } from '../../3-infraestructure/database/config/local-taxes-tree';
-import { CountryTaxNode } from '../../3-infraestructure/models/country-tax-node';
-import { RegionTaxNode } from '../../3-infraestructure/models/region-tax-node';
-import { TaxBaseInfo } from '../../3-infraestructure/models/tax-base-info';
+import { ToolsFacade } from '../../../z-common/3-infrastructure/helper/tools-facade';
+import { ICheck } from '../../../z-common/3-infrastructure/models/i-check';
+import { LOCAL_TAXES_TREE } from '../../3-infrastructure/database/config/local-taxes-tree';
+import { CountryTaxNode } from '../../3-infrastructure/models/country-tax-node';
+import { RegionTaxNode } from '../../3-infrastructure/models/region-tax-node';
+import { TaxBaseInfo } from '../../3-infrastructure/models/tax-base-info';
 
 export class TaxCalculator {
   private static readonly decimalPlaces: number = 2;

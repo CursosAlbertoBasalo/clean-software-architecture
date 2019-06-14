@@ -1,9 +1,9 @@
-import { COUNTRY_CONFIGURATIONS } from '../../../z-common/3-infraestructure/database/config/country-configurations';
-import { ToolsFacade } from '../../../z-common/3-infraestructure/helper/tools-facade';
-import { CountryConfiguration } from '../../../z-common/3-infraestructure/models/country-configuration';
-import { ITemplateManager } from '../../3-infraestructure/helper/i-template-manager';
-import { ISendDocuments } from '../../3-infraestructure/models/i-send-documents';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { COUNTRY_CONFIGURATIONS } from '../../../z-common/3-infrastructure/database/config/country-configurations';
+import { ToolsFacade } from '../../../z-common/3-infrastructure/helper/tools-facade';
+import { CountryConfiguration } from '../../../z-common/3-infrastructure/models/country-configuration';
+import { ITemplateManager } from '../../3-infrastructure/helper/i-template-manager';
+import { ISendDocuments } from '../../3-infrastructure/models/i-send-documents';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 
 export abstract class DocumentManager implements ISendDocuments {
   protected readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;

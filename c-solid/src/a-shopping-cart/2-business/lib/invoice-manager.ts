@@ -1,5 +1,5 @@
-import { InvoiceTemplateManager } from '../../3-infraestructure/helper/invoice-template-manager';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { InvoiceTemplateManager } from '../../3-infrastructure/helper/invoice-template-manager';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 import { DocumentManager } from './document-manager';
 
 export class InvoiceManager extends DocumentManager {

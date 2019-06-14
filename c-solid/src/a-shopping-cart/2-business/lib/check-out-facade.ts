@@ -1,9 +1,9 @@
-import { Checker } from '../../../z-common/3-infraestructure/helper/checker';
-import { LineItem } from '../../../z-common/3-infraestructure/models/line-item';
-import { DOCUMENT_TYPES } from '../../3-infraestructure/database/config/document-types';
-import { DocumentType } from '../../3-infraestructure/models/document-type';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
-import { TaxBaseInfo } from '../../3-infraestructure/models/tax-base-info';
+import { Checker } from '../../../z-common/3-infrastructure/helper/checker';
+import { LineItem } from '../../../z-common/3-infrastructure/models/line-item';
+import { DOCUMENT_TYPES } from '../../3-infrastructure/database/config/document-types';
+import { DocumentType } from '../../3-infrastructure/models/document-type';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
+import { TaxBaseInfo } from '../../3-infrastructure/models/tax-base-info';
 import { CheckOutCalculator } from './check-out-calculator';
 import { TaxBaseInfoAdapter } from './tax-base-info-adapter';
 import { TaxCalculator } from './tax-calculator';

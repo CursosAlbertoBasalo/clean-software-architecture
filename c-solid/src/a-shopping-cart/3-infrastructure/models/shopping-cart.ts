@@ -1,4 +1,4 @@
-import { LineItem } from '../../../z-common/3-infraestructure/models/line-item';
+import { LineItem } from '../../../z-common/3-infrastructure/models/line-item';
 import { CheckOut } from './check-out';
 import { Client } from './client';
 import { LegalAmounts } from './legal-amounts';

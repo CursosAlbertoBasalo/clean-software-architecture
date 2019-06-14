@@ -1,8 +1,8 @@
-import { ToolsFacade } from '../../z-common/3-infraestructure/helper/tools-facade';
-import { LineItem } from '../../z-common/3-infraestructure/models/line-item';
+import { ToolsFacade } from '../../z-common/3-infrastructure/helper/tools-facade';
+import { LineItem } from '../../z-common/3-infrastructure/models/line-item';
 import { OrdersProcessor } from '../2-business/lib/orders-processor';
-import { PRODUCT_CATALOG } from '../3-infrestructure/database/product-catalog';
-import { Product } from '../3-infrestructure/models/product';
+import { PRODUCT_CATALOG } from '../3-infrastructure/database/product-catalog';
+import { Product } from '../3-infrastructure/models/product';
 
 export class WarehouseAdministrator {
   public static productCatalog: Product[] = PRODUCT_CATALOG;

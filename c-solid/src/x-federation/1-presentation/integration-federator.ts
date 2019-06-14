@@ -1,8 +1,8 @@
-import { ShoppingCartManager } from '../a-shopping-cart/1-presentation/shopping-cart-manager';
-import { CheckOut } from '../a-shopping-cart/3-infraestructure/models/check-out';
-import { Client } from '../a-shopping-cart/3-infraestructure/models/client';
-import { WarehouseAdministrator } from '../b-warehouse/1-presentation/warehouse-administrator';
-import { LineItem } from '../z-common/3-infraestructure/models/line-item';
+import { ShoppingCartManager } from '../../a-shopping-cart/1-presentation/shopping-cart-manager';
+import { CheckOut } from '../../a-shopping-cart/3-infrastructure/models/check-out';
+import { Client } from '../../a-shopping-cart/3-infrastructure/models/client';
+import { WarehouseAdministrator } from '../../b-warehouse/1-presentation/warehouse-administrator';
+import { LineItem } from '../../z-common/3-infrastructure/models/line-item';
 
 export class IntegrationFederator {
   public readonly shoppingCartManager: ShoppingCartManager;

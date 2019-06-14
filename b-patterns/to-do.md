@@ -1,5 +1,0 @@
-- [x] docs(b-patterns): patterns
-- [x] refactor(b-patterns): layers
-- [x] refactor(b-patterns): patterns
-- [x] test(b-patterns): patterns
-- [x] docs(b-patterns): [class diagrams](https://yuml.me/academiabinaria/b-patterns.jpg)

@@ -1,5 +1,5 @@
-import { Product } from '../../src/b-warehouse/3-infrestructure/models/product';
-import { LineItem } from '../../src/z-common/3-infraestructure/models/line-item';
+import { Product } from '../../src/b-warehouse/3-infrastructure/models/product';
+import { LineItem } from '../../src/z-common/3-infrastructure/models/line-item';
 
 export const client = {
   name: 'Alberto',
