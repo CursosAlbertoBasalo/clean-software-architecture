@@ -1,5 +1,6 @@
 import { ShoppingCart } from '../../../1-domain/model/shopping-cart';
 import { ShoppingCartService } from '../../../2-application/app/shopping-cart-service';
+import { Client } from '../../../2-application/model/client';
 import { ShoppingCartRepository } from '../../infrastructure/data/shopping-cart-repository';
 import { Assert } from './model/assert';
 
@@ -17,6 +18,7 @@ describe( `1- As a customer, I want to restore my current shopping cart, so I ca
     const actualShoppingCart = shoppingCartService.load( shoppingCartId );
     const expectedShoppingCart = new ShoppingCart();
     expectedShoppingCart.id = shoppingCartId;
+    expectedShoppingCart.client = new Client();
     assert.actual = actualShoppingCart;
     assert.expected = expectedShoppingCart;
     expect( assert.actual ).toEqual( assert.expected );

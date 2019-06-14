@@ -1,6 +1,6 @@
-import { ShoppingCart } from '../model/shopping-cart';
+import { IShoppingCart } from '../model/i-shopping-cart';
 
 export interface IShoppingCartService {
-  load( shoppingCartId: string ): ShoppingCart;
-  confirm( shoppingCart: ShoppingCart ): boolean;
+  load( shoppingCartId: string ): IShoppingCart;
+  confirm( shoppingCart: IShoppingCart ): boolean;
 }

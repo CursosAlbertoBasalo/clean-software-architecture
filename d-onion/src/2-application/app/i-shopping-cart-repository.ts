@@ -1,5 +1,5 @@
-import { ShoppingCart } from '../../1-domain/model/shopping-cart';
+import { IShoppingCartDTO } from '../model/i-shopping-cart-dto';
 
 export interface IShoppingCartRepository {
-  select( id: string ): ShoppingCart;
+  select( shoppingCartId: string ): IShoppingCartDTO;
 }
