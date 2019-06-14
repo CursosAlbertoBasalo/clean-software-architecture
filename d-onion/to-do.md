@@ -1,3 +1,0 @@
-- [x] docs
-- [ ] more and better code
-- [ ] diagram
