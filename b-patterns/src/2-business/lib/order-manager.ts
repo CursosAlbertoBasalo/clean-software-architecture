@@ -1,5 +1,5 @@
-import { OrderTemplateManager } from '../../3-infraestructure/helper/order-template-manager';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { OrderTemplateManager } from '../../3-infrastructure/helper/order-template-manager';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 import { DocumentManager } from './document-manager';
 
 export class OrderManager extends DocumentManager {

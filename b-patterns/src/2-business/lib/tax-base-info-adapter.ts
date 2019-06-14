@@ -1,7 +1,7 @@
-import { Client } from '../../3-infraestructure/models/client';
-import { LegalAmounts } from '../../3-infraestructure/models/legal-amounts';
-import { LineItem } from '../../3-infraestructure/models/line-item';
-import { TaxBaseInfo } from '../../3-infraestructure/models/tax-base-info';
+import { Client } from '../../3-infrastructure/models/client';
+import { LegalAmounts } from '../../3-infrastructure/models/legal-amounts';
+import { LineItem } from '../../3-infrastructure/models/line-item';
+import { TaxBaseInfo } from '../../3-infrastructure/models/tax-base-info';
 
 export class TaxBaseInfoAdapter implements TaxBaseInfo {
   public base: number;

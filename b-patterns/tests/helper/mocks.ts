@@ -1,5 +1,5 @@
-import { LineItem } from '../../src/3-infraestructure/models/line-item';
-import { Product } from '../../src/3-infraestructure/models/product';
+import { LineItem } from '../../src/3-infrastructure/models/line-item';
+import { Product } from '../../src/3-infrastructure/models/product';
 
 export const client = {
   name: 'Alberto',

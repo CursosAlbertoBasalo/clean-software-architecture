@@ -1,8 +1,8 @@
-import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
-import { ITemplateManager } from '../../3-infraestructure/helper/i-template-manager';
-import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
-import { CountryConfiguration } from '../../3-infraestructure/models/country-configuration';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { COUNTRY_CONFIGURATIONS } from '../../3-infrastructure/database/config/country-configurations';
+import { ITemplateManager } from '../../3-infrastructure/helper/i-template-manager';
+import { ToolsFacade } from '../../3-infrastructure/helper/tools-facade';
+import { CountryConfiguration } from '../../3-infrastructure/models/country-configuration';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 
 export abstract class DocumentManager {
   protected readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;

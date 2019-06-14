@@ -54,7 +54,7 @@ class: impact
 
 **Test**: Garantizar que el software admite los cambios mediante pruebas de integración sencillas.
 
-**Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> lógica -> infraestructura`.
+**Componentes**: Separar el código en capas lógicas (packages, namespaces, modules… según el lenguaje). Ej.: `presentación -> negocio -> infraestructura`.
 
 **Despliegue**: Mantener mientras sea posible un despliegue sencillo, tendente al monolito en cada capa física. Ej. : `cliente <—> servidor`
 
@@ -92,11 +92,11 @@ class: impact
 
 ### HP: Hollywood principle.
 
-- No nos llames, ya te llamaremos. Inversión del control.
+- No nos llames, ya te llamaremos. Inversión del control y Push en lugar de Pull.
 
 ### TDA: Tell don’t ask.
 
-- Decirle a los objetos lo que quieres que hagan (método con datos propios), no consultarles para actuar con sus datos después.
+- Decirle a los objetos lo que quieres que hagan con sus propio datos, no consultarles para actuar con ellos después.
 
 ---
 
@@ -163,7 +163,7 @@ Explican cómo ensamblar objetos y clases en estructuras más grandes, mantenien
 
 Cuidan la comunicación efectiva y la asignación de responsabilidades entre objetos.
 
-- **Chain of Responsibility:** encadena llamadas entre objetos o métodos
+- **Chain of Responsibility:** encadena llamadas entre objetos o métodos.
 - **Command:** encapsula acciones en objetos.
 - **Iterator** accede a los elementos de un conjunto sin revelar cómo.
 - **Mediator:** desacopla dos objetos comunicándose con ambos.
@@ -179,13 +179,16 @@ Cuidan la comunicación efectiva y la asignación de responsabilidades entre obj
 
 ```typescript
 export class ShoppingCartManager {
+
   constructor( client: Client ) {
     this.shoppingCartBuilder = new ShoppingCartBuilder( client );
     this.shoppingCart = this.shoppingCartBuilder.build();
   }
+
   public calculateCheckOut( checkOut: CheckOut ) {
     this.shoppingCartBuilder.setCheckOut( checkOut );
   }
+
 }
 ```
 
@@ -198,12 +201,16 @@ interface ITemplateManager {
   getTemplate( shoppingCart: ShoppingCart ): string;
   getMessage( content: string ): string;
 }
+
 class InvoiceTemplateManager implements ITemplateManager{}
+
 class OrderTemplateTemplateManager implements ITemplateManager{}
 
 class DocumentManager {
   protected  templateManager: ITemplateManager;
+
   constructor() { this.setTemplateManager(); }
+
   protected setTemplateManager(): ITemplateManager
 }
 ```
@@ -223,7 +230,7 @@ class OrderManager extends DocumentManager{
 }
 
 class CheckOutFacade{
- public sendInvoice( shoppingCart: ShoppingCart ) {
+  public sendInvoice( shoppingCart: ShoppingCart ) {
     const invoiceManager = new InvoiceManager();
     invoiceManager.send( shoppingCart );
   }
@@ -266,15 +273,16 @@ class TaxBaseInfoAdapter implements TaxBaseInfo {
 ```typescript
 class CheckOutFacade{
    public calculateTotalTax(): number {
-    const totalTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
-      this.shoppingCart.client
-    ).getFromFromLegalAmount( this.shoppingCart.legalAmounts );
+    const totalTaxInfo: TaxBaseInfo =
+      new TaxBaseInfoAdapter(this.shoppingCart.client)
+      .getFromFromLegalAmount( this.shoppingCart.legalAmounts );
     return TaxCalculator.calculateTax( totalTaxInfo );
   }
+
   public calculateLineTax( line: LineItem ): number {
-    const lineTaxInfo: TaxBaseInfo = new TaxBaseInfoAdapter(
-      this.shoppingCart.client
-    ).getFromFromLineItem( line );
+    const lineTaxInfo: TaxBaseInfo =
+      new TaxBaseInfoAdapter(this.shoppingCart.client)
+      .getFromFromLineItem( line );
     return TaxCalculator.calculateTax( lineTaxInfo );
   }
 }
@@ -315,13 +323,13 @@ export class ToolsFacade {
 ### Mediator
 
 ``` typescript
-import { WarehouseAdministrator } from '../b-warehouse/1-presentation/warehouse-administrator';
-import { LineItem } from '../z-common/3-infraestructure/models/line-item';
 export class IntegrationMediator {
-  private readonly warehouseAdministrator = new WarehouseAdministrator();
+  private readonly warehouseAdministrator =
+    new WarehouseAdministrator();
 
   public updatePurchasedProduct( purchasedItem: LineItem ): number {
-    return this.warehouseAdministrator.updatePurchasedProduct( purchasedItem );
+    return this.warehouseAdministrator
+      .updatePurchasedProduct( purchasedItem );
   }
 }
 ```

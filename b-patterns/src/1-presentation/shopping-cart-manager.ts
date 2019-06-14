@@ -1,9 +1,9 @@
 import { CheckOutFacade } from '../2-business/lib/check-out-facade';
 import { ShoppingCartFacade } from '../2-business/lib/shopping-cart-facade';
-import { CheckOut } from '../3-infraestructure/models/check-out';
-import { Client } from '../3-infraestructure/models/client';
-import { LineItem } from '../3-infraestructure/models/line-item';
-import { ShoppingCart } from '../3-infraestructure/models/shopping-cart';
+import { CheckOut } from '../3-infrastructure/models/check-out';
+import { Client } from '../3-infrastructure/models/client';
+import { LineItem } from '../3-infrastructure/models/line-item';
+import { ShoppingCart } from '../3-infrastructure/models/shopping-cart';
 import { WarehouseAdministrator } from './warehouse-administrator';
 
 export class ShoppingCartManager {

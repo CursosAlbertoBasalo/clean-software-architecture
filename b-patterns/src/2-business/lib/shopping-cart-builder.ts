@@ -1,7 +1,7 @@
-import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
-import { CheckOut } from '../../3-infraestructure/models/check-out';
-import { Client } from '../../3-infraestructure/models/client';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { ToolsFacade } from '../../3-infrastructure/helper/tools-facade';
+import { CheckOut } from '../../3-infrastructure/models/check-out';
+import { Client } from '../../3-infrastructure/models/client';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 
 export class ShoppingCartBuilder {
   private shoppingCart: ShoppingCart | undefined;

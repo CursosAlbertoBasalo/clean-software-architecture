@@ -1,7 +1,7 @@
-import { PRODUCT_CATALOG } from '../3-infraestructure/database/product-catalog';
-import { ToolsFacade } from '../3-infraestructure/helper/tools-facade';
-import { LineItem } from '../3-infraestructure/models/line-item';
-import { Product } from '../3-infraestructure/models/product';
+import { PRODUCT_CATALOG } from '../3-infrastructure/database/product-catalog';
+import { ToolsFacade } from '../3-infrastructure/helper/tools-facade';
+import { LineItem } from '../3-infrastructure/models/line-item';
+import { Product } from '../3-infrastructure/models/product';
 
 export class WarehouseAdministrator {
   public static productCatalog: Product[] = PRODUCT_CATALOG;

@@ -1,10 +1,10 @@
-import { COUNTRY_CONFIGURATIONS } from '../../3-infraestructure/database/config/country-configurations';
-import { PAYMENTS_CONFIGURATIONS } from '../../3-infraestructure/database/config/payments-configurations';
-import { ToolsFacade } from '../../3-infraestructure/helper/tools-facade';
-import { CountryConfiguration } from '../../3-infraestructure/models/country-configuration';
-import { PaymentConfiguration } from '../../3-infraestructure/models/payment-configuration';
-import { ShippingCost } from '../../3-infraestructure/models/shipping-cost';
-import { ShoppingCart } from '../../3-infraestructure/models/shopping-cart';
+import { COUNTRY_CONFIGURATIONS } from '../../3-infrastructure/database/config/country-configurations';
+import { PAYMENTS_CONFIGURATIONS } from '../../3-infrastructure/database/config/payments-configurations';
+import { ToolsFacade } from '../../3-infrastructure/helper/tools-facade';
+import { CountryConfiguration } from '../../3-infrastructure/models/country-configuration';
+import { PaymentConfiguration } from '../../3-infrastructure/models/payment-configuration';
+import { ShippingCost } from '../../3-infrastructure/models/shipping-cost';
+import { ShoppingCart } from '../../3-infrastructure/models/shopping-cart';
 
 export class CheckOutCalculator {
   private readonly countryConfigurations: CountryConfiguration[] = COUNTRY_CONFIGURATIONS;

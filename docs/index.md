@@ -26,7 +26,7 @@ class: impact
 
 **El buen diseño te ayuda a crear buen software.**
 
-Un gran programa empieza siempre por satisfacer al usuario. Si además está bien diseñado entonces será fácil de modificar y mantener. Con esto también satisface al resto del equipo: compañeros, clientes y empresarios.
+Un gran programa empieza siempre por **satisfacer al usuario**. Si además está bien diseñado entonces será fácil de modificar y mantener. Con esto también satisface al resto del equipo: compañeros, clientes y empresarios.
 
 El análisis y diseño de arquitecturas limpias es complejo pero no parte de cero. Podemos **mejorar nuestra productividad y la calidad de nuestros proyectos** aplicando principios fundamentales y patrones de diseño ya probados.
 
@@ -60,8 +60,8 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 ## b - DESIGN PATTERNS
 ## [Un catálogo nada exhaustivo.](./b-patterns.html)
 
-- Tipos: creacionales, estructurales y de comportamiento
-- Revisión de los más utilizados
+- Principios y buenas prácticas
+- Patrones de diseño: creacionales, estructurales y de comportamiento
 
 ---
 
@@ -76,7 +76,7 @@ El análisis y diseño de arquitecturas limpias es complejo pero no parte de cer
 ## d - ONION
 ## [Arquitectura en capas](./d-onion.html)
 
-- Campas de abstracción
+- Principios y patrones arquitectónicos
 - Núcleo y detalles
 
 ---
