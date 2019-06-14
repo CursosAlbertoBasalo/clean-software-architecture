@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "",
-    "test": "jest --testPathPattern=d-onion --runInBand",
+    "test": "jest --testPathPattern=a-clean --runInBand",
     "lint": "tslint"
   },
   "devDependencies": {
