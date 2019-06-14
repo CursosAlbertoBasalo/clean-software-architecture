@@ -1,6 +1,5 @@
 import { IShoppingCart } from '../model/i-shopping-cart';
 
-export interface IShoppingCartService {
-  load( shoppingCartId: string ): IShoppingCart;
+export interface IShoppingCartRules {
   confirm( shoppingCart: IShoppingCart ): boolean;
 }

@@ -66,6 +66,10 @@ class: impact
 
 ---
 
+![onion diagram](./assets/d-onion.jpg)
+
+---
+
 ## Patrones de arquitectura
 
 ### The Separation of Concerns (SoC) principle
@@ -74,12 +78,20 @@ class: impact
 ### The Repository and the Data Mapper design patterns
 
 ---
+
 ## Arquitecturas limpias
 
+- **Independiente de frameworks:** La arquitectura no depende de la existencia de alguna biblioteca de software. Esto permite usar las librerías como herramientas, en lugar de tener adaptar el sistemas a las especificidades del framework.
 
+- **Testable:** Las reglas de negocio se pueden probar sin la interfaz de usuario, la base de datos, el servidor web o cualquier otro elemento externo.
+
+- **Independiente de la interfaz de usuario:** La interfaz de usuario puede cambiar fácilmente, sin cambiar el resto del sistema. Una interfaz de usuario web podría reemplazarse con una interfaz de usuario de consola, por ejemplo, sin cambiar las reglas de negocios.
+
+- **Independiente de la base de datos:** Puede intercambiar Oracle o SQL Server, por Mongo, BigTable, CouchDB, o cualquier otra cosa. Las reglas de negocio no están vinculadas a la base de datos.
+
+- **Independiente de cualquier agente externa:** De hecho, las reglas de negocio simplemente no saben nada sobre el mundo exterior.
 
 ---
-
 
 > ... si tienes miedo de cambiar algo, es porque está mal diseñado.
 >

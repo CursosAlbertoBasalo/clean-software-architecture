@@ -1,17 +1,18 @@
 // {type:class}
 // {direction:topDown}
 // 1 domain
-[IShoppingCart{bg:indianred}]^-[ShoppingCart{bg:red}]
-[IShoppingCartService{bg:indianred}]->[IShoppingCart{bg:indianred}]
+[IShoppingCart{bg:goldenrod}]^-[ShoppingCart{bg:indianred}]
+[IShoppingCartRules{bg:goldenrod}]^-[ShoppingCartRules{bg:indianred}]
+[IShoppingCartRules]->[IShoppingCart]
 // 2 application
-[IShoppingCartService]^-[ShoppingCartService{bg:seagreen}]
-[ShoppingCartService]->[IShoppingCartRepository{bg:turquoise}]
-[ShoppingCartService]->[ShoppingCartAdapter{bg:seagreen}]
-[IShoppingCart]^-[ShoppingCartAdapter]
-[ShoppingCartAdapter]->[IShoppingCartDTO{bg:seagreen}]
-[IShoppingCartRepository]->[IShoppingCartDTO]
+[IShoppingCartService{bg:turquoise}]^-[ShoppingCartService{bg:seagreen}]
+[ShoppingCartService]->[IShoppingCartRules]
+[IShoppingCartService]->[IShoppingCartRepository{bg:turquoise}]
 // 3 details
 [IShoppingCartRepository]^-[ShoppingCartRepository{bg:blue}]
-
+[LoadTest{bg:blue}]->[IShoppingCartService]
+[MyStoreCLI{bg:blue}]->[IShoppingCartService]
+// [LoadTest]->[ShoppingCartRepository]
+// [MyStoreCLI]->[ShoppingCartRepository]
 
 
