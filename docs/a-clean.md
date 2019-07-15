@@ -184,6 +184,8 @@ assert = {
 
 ---
 
+- [Siguiente - > ](./b-patterns.html)
+
 - [<- Vuelta al índice ](./)
 
 - [Repo](https://github.com/AcademiaBinaria/clean-software-architecture)

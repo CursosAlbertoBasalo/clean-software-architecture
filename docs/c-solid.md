@@ -26,9 +26,9 @@ class: impact
 
 **Ejemplos**:
 
-- Productos de start-up que ya han funcionado.
+- Productos de _start-up_ que ya han funcionado.
 - Automatización de procesos de negocio de empresas consolidadas.
-- Renovación de sistemas de información en organizaciones con sistemas legacy.
+- Renovación de sistemas de información en organizaciones con sistemas _legacy_.
 
 ---
 
@@ -80,7 +80,7 @@ class: impact
 ---
 
 
-# EAI: Enterprise Application Integration
+# E.A.I.: Enterprise Application Integration
 
 > "Orienta tu código para un uso futuro,
 
@@ -94,9 +94,9 @@ class: impact
 
 ### Intra Communication
 
-Aquí, el sistema _EAI_ actúa como intermediario entre varias aplicaciones.
+Aquí, el sistema _E.A.I._ actúa como intermediario entre varias aplicaciones.
 
-Cada vez que ocurre un evento interesante en una aplicación (por ejemplo, se crea realiza un _checkout_ desde `ShoppingCart`) se notifica a un módulo de integración (`IntegrationMediator`) en el sistema _EAI_.
+Cada vez que ocurre un evento interesante en una aplicación (por ejemplo, se crea realiza un _checkout_ desde `ShoppingCart`) se notifica a un módulo de integración (`IntegrationMediator`) en el sistema _E.A.I._.
 
 El módulo luego propaga los cambios a otras aplicaciones relevantes (por ejemplo la de `Warehouse`).
 
@@ -108,11 +108,11 @@ La comunicación puede y suele ser bidireccional.
 
 ### Inter Communication
 
-En este caso, el sistema _EAI_ actúa como la fachada general de múltiples aplicaciones (`ShoppingCart` y `Warehouse`).
+En este caso, el sistema _E.A.I._ actúa como la fachada general de múltiples aplicaciones (`ShoppingCart` y `Warehouse`).
 
-Todas las llamadas de eventos desde el _mundo exterior_ a cualquiera de las aplicaciones tienen un inicio frontal (`IntegrationFederator`) por parte del sistema _EAI_.
+Todas las llamadas de eventos desde el _mundo exterior_ a cualquiera de las aplicaciones tienen un inicio frontal (`IntegrationFederator`) por parte del sistema _E.A.I._.
 
-El sistema EAI está configurado para exponer solo la información relevante y las interfaces de las aplicaciones subyacentes al _mundo exterior_, y realiza todas las interacciones con las aplicaciones subyacentes en nombre del solicitante.
+El sistema E.A.I. está configurado para exponer solo la información relevante y las interfaces de las aplicaciones subyacentes al _mundo exterior_, y realiza todas las interacciones con las aplicaciones subyacentes en nombre del solicitante.
 
 ---
 
@@ -291,6 +291,7 @@ export class ManageFilesFactory {
 
 ---
 
+- [Siguiente - > ](./d-onion.html)
 
 - [<- Vuelta al índice ](./)
 

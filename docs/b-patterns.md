@@ -25,7 +25,7 @@ class: impact
 > Equipos poco variables de entre **2 - 8 integrantes**.
 
 **Ejemplos**:
-- Producto en marcha en una start-up en crecimiento.
+- Producto en marcha en una _start-up_ en crecimiento.
 - Aplicaciones departamentales o para pequeñas empresas.
 - Aplicaciones web sobre plataformas standard.
 - Otros desarrollos técnica y funcionalmente poco complejos.
@@ -337,6 +337,8 @@ export class IntegrationMediator {
 > Aplicado en tema c-solid.
 
 ---
+
+- [Siguiente - > ](./c-solid.html)
 
 - [<- Vuelta al índice ](./)
 
