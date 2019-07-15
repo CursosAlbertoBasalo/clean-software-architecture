@@ -131,7 +131,7 @@ class: impact
 
 ---
 
-![again bad](./assets/again_bad.jpg)
+![again bad](./assets/again_bad.png)
 
 ---
 
