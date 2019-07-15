@@ -131,6 +131,10 @@ class: impact
 
 ---
 
+![again bad](./assets/again_bad.jpg)
+
+---
+
 # El usuario es lo primero
 
 > "Asegúrate de que el software hace lo que yo quiero que haga."

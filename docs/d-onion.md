@@ -60,6 +60,10 @@ class: impact
 ---
 
 
+![which architecture bro?](./assets/which-architecture-bro.jpg)
+
+---
+
 > Junta las cosas que cambian por las mismas razones. Sepáralas de cosas que cambian por otras razones.
 >
 > -- **Robert C. Martin**

@@ -116,6 +116,10 @@ El sistema E.A.I. está configurado para exponer solo la información relevante 
 
 ---
 
+![Refactor Value Boss](./assets/refactor-value-boss.jpg)
+
+---
+
 # Obstáculos del cambio
 
 ## Cambio divergente.
@@ -170,6 +174,10 @@ Los cambios en un objeto tienen efectos en otros muchos.
 
 **No se puede reutilizar el código fuera de su entorno.**
 Los cambios en un objeto dependen de otros muchos.
+
+---
+
+![Evolution](./assets/horse_evolution.jpg)
 
 ---
 
